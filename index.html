@@ -1,0 +1,323 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="plugin/title-footer/title-footer.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section>
+	<h1>DUT GIM</h1>
+	<br />
+	<h2>Programmation</h2>
+	<br />
+	<h2>Axel Bonnet</h2>
+	<h3>professor.bonnet@gmail.com</h3>
+</section>
+<section>
+	<section>
+		<h1>Formation</h1>
+		<br />
+		<ul>
+			<li>32 heures</li>
+			<li>Pas cours semaine prochaine</li>
+		</ul>
+	</section>
+	<section>
+		<h1>Fonctionnement</h1>
+		<br />
+		<ul>
+			<li>TP</li>
+			<li>Interactif</li>
+			<li>Prise de note</li>
+		</ul>
+	</section>
+	<section>
+		<h1>Plan</h1>
+		<ul>
+			<li>Introduction à la programmation</li>
+			<li>TP : mon premier programme C</li>
+			<li>Les algorithmes</li>
+			<li>TP : problème simple de calcul</li>
+		</ul>
+	</section>
+</section>
+<section>
+	<section>
+		<h2>Programmation</h2>
+		<ul>
+			<li>Avez vous déjà programmé ?</li>
+			<li class="fragment">Connaissez vous des exemples de programmes ?</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Les programmes</h2>
+		<ul>
+			<li>Il y a des programmes partout !</li>
+			<li class="fragment">Word, Minecraft, Chrome, Facebook, Snapchat</li>
+			<li class="fragment">Four, ascenseur, voiture...</li>
+			<li class="fragment">CB, souris, objets connectés...</li>
+			<li class="fragment">Réseaux (internet), serveurs... </li>
+		</ul>
+	</section>
+	<section>
+		<h2>Software / Hardware</h2>
+		<ul>
+			<li>Un programme est virtuel (Software)</li>
+			<li>Opposé au matériel physique (Hardware)</li>
+			<li class="fragment">Ils sont complémentaires</li>
+		</ul>		
+		<img class="fragment" style="background: rgba(255,255,255,0.85)" data-src="img/software_hardware.png" />
+	</section>
+	<section>
+		<h2>Hardware</h2>
+		<ul>
+			<li>Exemples de composants ?</li>
+			<li class="fragment">Processeur, RAM, disque dur, carte graphique, carte mère</li>
+			<li class="fragment">Processeur et RAM indispensables</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Fontionnement minimaliste</h2>
+		<div style="position:relative; width:805px; height:427px; margin:0 auto;">
+		  <img class="fragment fade-out" data-fragment-index="0" src="img/calcul_min_1.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" data-fragment-index="0" src="img/calcul_min_2.jpg" style="position:absolute;top:0;left:0;" />
+		</div>
+	</section>
+	<section>
+		<h2>L'assembleur</h2>
+		<ul>
+			<li>Le programme doit donner ses instructions au CPU</li>
+			<li class="fragment">Le CPU ne comprend qu'un langage très basique : l'assembleur</li>
+			<li class="fragment">C'est un langage binaire (0/1), impossible à écrire manuellement</li>
+			<li class="fragment">Des langages de programmation ont été créés (beaucoup)</li>
+		</ul>
+	</section>
+	<section>
+		<h2>La compilation</h2>
+		<p>Converti un programme en assembleur</p>
+		<img style="background: rgba(255,255,255,0.85)" data-src="img/compilation.jpg" />
+	</section>
+</section>
+<section>
+	<section>
+		<h2>TP 1 : mon premier programme C</h2>
+		<ul>
+			<li>Hello world</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Suite du TP Hello world</h2>
+		<ul>
+			<li>Analyse des fichiers</li>
+		</ul>
+	</section>
+</section>
+<section>
+	<section>
+		<h2>Algorithme</h2>
+		<ul>
+			<li>Pseudo-langage pour résoudre un problème</li>
+			<li>Pas de norme, doit être expressif</li>
+			<li>Très proche d'un langage de programmation</li>
+			<li>Apprentissage en parallèle</li>
+		</ul>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Structure d'un algorithme
+
+			```
+			Debut
+			déclaration des variables
+
+			instruction;
+			instruction;
+			instruction;
+			Fin
+			```
+		</script>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Les variables
+
+			Données stockées en mémoire.
+			Plusieurs types :
+			- Entier
+			- Réel
+			- Texte
+
+			```
+			Entier age_du_capitaine, nombre_de_carottes;
+			Réel surface_du_cercle;
+			Texte nom_de_l_utilisateur;
+			```
+		</script>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Les instructions
+
+			- Manipulation des variables
+			- Opérations mathématiques/logiques
+			- Entrées/sorties
+			- Structures de controle
+
+			```
+			nombre_de_carottes <- 4 + 5 ;
+			surface_du_cercle <- pi * rayon * rayon;
+			afficher nom_de_l_utilisateur;
+			```
+		</script>
+	</section>
+	<section>
+		<h2>Un problème simple</h2>
+		<h3>Calcul d'un score de puissance</h3>
+		<p>Votre score de puissance se calcule de la façon suivante :</p>
+		<ul>
+			<li>Obtenez le score de votre nom en additionant les longueurs de vos prénoms et de vos noms</li>
+			<li>Obtenez le score de votre anniversaire en additionant le jour, le mois et l'année de votre naissance</li>
+			<li>Multipliez ces deux scores pour obtenir votre score de base</li>
+			<li>Votre score final est le score de base modulo 37</li>
+		</ul>
+	</section>
+	<section>
+		<p>Les variables</p>
+		<div class="fragment" data-markdown>
+		<script type="text/template">
+			```
+			Entier score_nom, score_anniversaire;
+			Entier score_final;
+			```
+		</script>
+		</div>
+		<p class="fragment">Score du nom</p>
+		<div class="fragment" data-markdown>
+		<script type="text/template">
+			```
+			score_nom <- 4 + 6;
+			```
+		</script>	
+		</div>
+		<p class="fragment">Score anniversaire</p>
+		<div class="fragment" data-markdown>
+		<script type="text/template">
+			```
+			score_anniversaire <- 15 + 4 + 1997;
+			```
+		</script>	
+		</div>
+		<p class="fragment">Score final</p>
+		<div class="fragment" data-markdown>
+		<script type="text/template">
+			```
+			score_final <- score_nom * score_anniversaire;
+			score_final <- score_final % 37;
+			```
+		</script>	
+		</div>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## L'algorithme entier
+
+			```
+			DEBUT
+			Entier score_nom, score_anniversaire;
+			Entier score_final;
+
+			score_nom <- 4 + 6;
+			score_anniversaire <- 15 + 4 + 1997;
+			score_final <- score_nom * score_anniversaire;
+			score_final <- score_final % 37;
+			afficher score_final;
+			FIN
+			```
+		</script>
+	</section>
+	<section>
+		<h2>TP 2 : Application en C</h2>
+		<ul>
+			<li>Déclaration de variables en C</li>
+			<li>Affectation et calculs</li>
+		</ul>
+	</section>
+	<section>
+		<h2>TP 3 : Calcul de la surface d'un triangle</h2>
+		
+		<img class="fragment" style="background: rgba(255,255,255,0.85)" data-src="img/surface_triangle.png" />
+	</section>
+	<section>
+		<h2>TP 4 : Calcul du volume d'un cylindre creux</h2>
+		
+		<p class="fragment">A = π/4 x h (D² – d²)</p>
+		<img style="background: rgba(255,255,255,0.85)" data-src="img/volume-cylindre-creux.png" />
+	</section>
+</section>
+<section>
+	<section>
+		<h2>Description du langage C</h2>
+		<p>programme minimal</p>
+		<div data-markdown>
+		<script type="text/c">
+			```
+			#include <stdio.h>
+
+			int main() {
+				# commentaire. Ceci n'est pas compile ni execute
+				return 0;
+			}
+			```
+		</script>	
+		</div>
+	</section>
+	<section>
+		<h2>Les types de données en C</h2>
+		<p>le stockage : bit(0/1), l'octet = 8 bit(1-256)</p>
+		<img style="background: rgba(255,255,255,0.85)" height="400px" data-src="img/types_donnees_c.jpg" />
+	</section>
+</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/title-footer/title-footer.js', async: true, callback: function() { 
+						title_footer.initialize("12/09/2016 DUT GIM : Programmation", "rgba(0,0,0,0.3)"); } }
+				]
+			});
+		</script>
+	</body>
+</html>
