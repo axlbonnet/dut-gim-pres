@@ -26,14 +26,15 @@
 		<div class="reveal">
 			<div class="slides">
 <section>
-	<h1>DUT GIM</h1>
-	<br />
-	<h2>Programmation</h2>
-	<br />
-	<h2>Axel Bonnet</h2>
-	<h3>professor.bonnet@gmail.com</h3>
-</section>
-<section>
+	<section>
+		<h1>DUT GIM</h1>
+		<br />
+		<h2>Programmation</h2>
+		<h2>TP1</h2>
+		<br />
+		<h2>Axel Bonnet</h2>
+		<h3>professor.bonnet@gmail.com</h3>
+	</section>
 	<section>
 		<h1>Formation</h1>
 		<br />
@@ -60,8 +61,6 @@
 			<li>TP : problème simple de calcul</li>
 		</ul>
 	</section>
-</section>
-<section>
 	<section>
 		<h2>Programmation</h2>
 		<ul>
@@ -117,8 +116,6 @@
 		<p>Converti un programme en assembleur</p>
 		<img style="background: rgba(255,255,255,0.85)" data-src="img/compilation.jpg" />
 	</section>
-</section>
-<section>
 	<section>
 		<h2>TP 1 : mon premier programme C</h2>
 		<ul>
@@ -131,8 +128,6 @@
 			<li>Analyse des fichiers</li>
 		</ul>
 	</section>
-</section>
-<section>
 	<section>
 		<h2>Algorithme</h2>
 		<ul>
@@ -273,8 +268,6 @@
 		<p class="fragment">A = π/4 x h (D² – d²)</p>
 		<img style="background: rgba(255,255,255,0.85)" data-src="img/volume-cylindre-creux.png" />
 	</section>
-</section>
-<section>
 	<section>
 		<h2>Description du langage C</h2>
 		<p>programme minimal</p>
@@ -297,6 +290,761 @@
 		<img style="background: rgba(255,255,255,0.85)" height="400px" data-src="img/types_donnees_c.jpg" />
 	</section>
 </section>
+
+<!--
+	#################################################
+	TP2
+-->
+<section>
+	<section>
+		<h1>Programmation</h1>
+		<br />
+		<h2>TP2</h2>
+		<br />
+		<h2>Axel Bonnet</h2>
+		<h3>professor.bonnet@gmail.com</h3>
+	</section>
+	<section>
+		<h1>Plan</h1>
+		<ul>
+			<li>Rappel exhaustif de la 1ere séance</li>
+			<li>Nouveauté en algorithmique : les tests</li>
+			<li>TP algorithmique</li>
+			<li>Les tests en C</li>
+			<li>TP en C</li>
+			<li>Suite en fonction du temps</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Rappel du TP1</h2>
+		<ul>
+			<li>De quoi vous rappelez vous ?</li>
+			<li>Seriez vous capable de refaire les programmes en C ?</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Fontionnement minimaliste</h2>
+		<div style="position:relative; width:805px; height:427px; margin:0 auto;">
+		  <img class="fragment fade-out" data-fragment-index="0" src="img/calcul_min_1.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" data-fragment-index="0" src="img/calcul_min_2.jpg" style="position:absolute;top:0;left:0;" />
+		</div>
+	</section>
+	<section>
+		<h2>Lien avec un programme</h2>
+		<div style="position:relative; width:700px; height:500px; margin:0 auto;">
+		  <img class="fragment fade-in" src="img/calcul_v2_1.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" src="img/calcul_v2_2.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" src="img/calcul_v2_3.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" src="img/calcul_v2_4.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" src="img/calcul_v2_5.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" src="img/calcul_v2_6.jpg" style="position:absolute;top:0;left:0;" />
+		</div>
+	</section>
+	<section>
+		<h2>Langage de programmation</h2>
+		<ul>
+			<li>Ils sont nécessaires pour produire rapidement des programmes</li>
+			<li class="fragment">Différents niveau de langages</li>
+			<li class="fragment">Assembleur, C, C++, Java, Python, Javascript...</li>
+		</ul>
+	</section>
+	<section>
+		<h2>La compilation</h2>
+		<p>Converti le langage de programmation en code machime</p>
+		<img style="background: rgba(255,255,255,0.85)" data-src="img/compilation.jpg" />
+	</section>
+	<section>
+		<h2>Algorithmique</h2>
+		<p>Qu'est-ce qu'un algorithme ?</p>
+		<ul>
+			<li>Une recette qui permet de résoudre un problème</li>
+			<li>Doit être clair, non-ambigüe</li> <!-- comparer aux quantité dans une recette, ou à un terme ambigüe -->
+			<li>Peut être adapté en langage informatique</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Exemples de problèmes</h2>
+		<ul>
+			<li class="fragment">Calcul d'aire, décimale de PI, etc</li>
+			<li class="fragment">Recherche d'itinéraire</li>
+			<li class="fragment">Envoyer un tweet</li>
+			<li class="fragment">Détection de visage</li>
+	</section>
+	<section>
+		<h2>Langage d'algorithmique</h2>
+		<ul>
+			<li>Non standard</li>
+			<li>Définition classique</li>
+		</ul>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Structure d'un algorithme
+
+			```
+			Début
+			  déclaration des variables
+
+  			  instruction;
+			  instruction;
+			  instruction;
+			Fin
+			```
+		</script>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Les variables
+
+			Données stockées en mémoire.
+			Plusieurs types :
+			- Entier
+			- Réel
+			- Texte
+			
+			Se termine toujours par un point-virgule
+
+			```
+			Entier age_du_capitaine, nombre_de_carottes;
+			Réel surface_du_cercle;
+			Texte nom_de_l_utilisateur;
+			```
+		</script>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Les instructions
+
+			- Manipulation des variables
+			- Opérations mathématiques (+ - * / %)
+			- Opérations logiques
+			- Entrées/sorties
+			- Structures de controle
+
+			Se termine toujours par un point-virgule
+
+			```
+			nombre_de_carottes 🠈 4 + 5 ;
+			surface_du_cercle 🠈 pi * rayon * rayon;
+			afficher nom_de_l_utilisateur;
+			obtenir largeur;
+			```
+		</script>
+	</section>
+	<section>
+		<h2>Un problème simple</h2>
+		<h3>Calcul d'un score</h3>
+		<ul>
+			<li>Obtenez le score de votre nom en additionant les longueurs de vos prénoms et de vos noms</li>
+			<li>Obtenez le score de votre anniversaire en additionant le jour, le mois et l'année de votre naissance</li>
+			<li>Multipliez ces deux scores pour obtenir votre score de base</li>
+			<li>Votre score final est le score de base modulo 37</li>
+		</ul>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Algorithme calcul de score
+
+			```
+			Début
+			  Entier score_nom, score_anniversaire;
+			  Entier score_final;
+
+			  score_nom 🠈 4 + 6;
+			  score_anniversaire 🠈 15 + 4 + 1997;
+			  score_final 🠈 score_nom * score_anniversaire;
+			  score_final 🠈 score_final % 37;
+			  afficher score_final;
+			Fin
+			```
+		</script>
+	</section>
+	<section>
+		<h2>Code C calcul de score</h2>
+		<pre><code class="hljs" data-trim>
+#include &lt;stdio.h&gt;
+
+int main(void) {
+        int scoreNom, scoreAnniversaire;
+        int scoreFinal;
+
+        scoreNom = 4 + 6;
+        scoreAnniversaire = 15 + 4 + 1997;
+        scoreFinal = scoreNom * scoreAnniversaire;
+        scoreFinal = scoreFinal % 37;
+        printf("Ton score : %d \n", scoreFinal);
+        return 0;
+}
+		</code></pre>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Algorithme calcul de l'aire d'un triangle
+			Avec des valeurs fixes de 3,1 et 5.8.
+			```
+			Début
+			  Réel largeur, longueur;
+			  Réel surface;
+
+			  largeur 🠈 3.1;
+			  longueur 🠈 5.8;
+			  surface 🠈 (largeur * longueur) / 2;
+			  afficher surface;
+			Fin
+			```
+		</script>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Algorithme calcul de l'aire d'un triangle
+			Avec des valeurs saisies par l'utilisateur
+
+			```
+			Début
+			  Réel largeur, longueur;
+			  Réel surface;
+
+			  obtenir largeur;
+			  obtenir longueur;
+			  surface 🠈 (largeur * longueur) / 2;
+			  afficher surface;
+			Fin
+			```
+		</script>
+	</section>
+	<section>
+		<h2>Code C calcul de l'aire d'un triangle (valeurs fixes)</h2>
+		<pre><code class="hljs" data-trim>
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+        float longueur, largeur;
+        float surface;
+
+        longueur = 3.1;
+        largeur = 5.8;
+
+        surface = (longueur * largeur) / 2;
+
+        printf("surface %f \n", surface);
+        return 0;
+}
+		</code></pre>
+	</section>
+	<section>
+		<h2>Code C calcul de l'aire d'un triangle (valeurs saisies)</h2>
+		<pre><code class="hljs" data-trim>
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+        float longueur, largeur;
+        float surface;
+
+        printf("Entrez la longueur du triangle :");
+        scanf("%f", &longueur);
+        printf("Entrez la largeur du triangle :");
+        scanf("%f", &largeur);
+
+        surface = (longueur * largeur) / 2;
+
+        printf("surface %f \n", surface);
+        return 0;
+}
+
+		</code></pre>
+	</section>
+	<section>
+		<h2>Rappel complet langage C</h2>
+		<ul>
+			<li>cf fiche</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Précision sur printf</h2>
+		<img src="img/printf.jpg">
+	</section>
+	<section>
+		<h2>Les tests en algorithmique</h2>
+		<pre><code class="hljs" data-trim>
+instruction;
+si (condition)
+	instruction;	
+	...
+	instruction;	
+finsi		
+instruction;
+		</code></pre>
+		<ul><li>Attention au finsi !</li>
+		<li>Décalage fortement conseillé !</li>
+		<li>Comment créer un condition ?</li></ul>
+	</section>
+	<section>
+		<h2>Les conditions</h2>
+		<p>Expression qui ne peut avoir que deux valeurs (aka Booléen)&nbsp;:</p>
+		<ul><li>Vrai</li><li>Faux</li></ul>
+		<p class="fragment">Construite avec des opérateurs relationels : > < ≤ ≥ = ≠</p>
+		<p class="fragment">Ou en combinant des conditions : non / ou / et</p>
+	</section>
+	<section>
+		<h2>Les tests avec alternative</h2>
+		<pre><code class="hljs" data-trim>
+instruction;
+si (condition)
+	instruction;	
+	...
+	instruction;
+sinon
+	instruction;	
+	...
+	instruction;
+finsi
+instruction;
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemples</h2>
+		<pre><code class="hljs" data-trim>
+Début
+	Entier age;
+
+	obtenir age;
+	si (age ≥ 18)
+		afficher "Vous êtes majeur";
+	sinon
+		afficher "Vous êtes mineur";
+	finsi
+	afficher "Fin du programme";
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemples</h2>
+		<pre><code class="hljs" data-trim>
+si (age ≠ 27)
+	afficher "Votre age n'est pas maudit";
+finsi
+
+
+si ((age < 0) ou (age > 117))
+	afficher "Vous êtes un menteur";
+finsi
+		</code></pre>
+	</section>
+
+<!-- DEBUT Demo Si -->
+
+	<section>
+		<h2>Fonctionnement</h2>
+		<div style="position:relative" >
+		<pre style="position:absolute; margin:auto;"><code class="hljs" data-trim>
+Début
+	Entier age;
+	obtenir age;				// age <-13
+	si (age ≥ 18)
+		afficher "Vous êtes majeur";
+	sinon
+		afficher "Vous êtes mineur";
+	finsi
+	afficher "Fin du programme";
+Fin
+		</code></pre>
+		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
+Début
+	Entier age;
+	obtenir age;				// age <-13
+	si (age ≥ 18)				// est faux
+		afficher "Vous êtes majeur";
+	sinon
+		afficher "Vous êtes mineur";
+	finsi
+	afficher "Fin du programme";
+Fin
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+Début
+	Entier age;
+	obtenir age;				// age <-13
+	si (age ≥ 18)				// est faux
+		afficher "Vous êtes majeur";	// pas exécuté
+	sinon
+		afficher "Vous êtes mineur";
+	finsi
+	afficher "Fin du programme";
+Fin
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+Début
+	Entier age;
+	obtenir age;				// age <-13
+	si (age ≥ 18)				// est faux
+		afficher "Vous êtes majeur";	// pas exécuté
+	sinon					// alternative est vrai
+		afficher "Vous êtes mineur";
+	finsi
+	afficher "Fin du programme";
+Fin
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+Début
+	Entier age;
+	obtenir age;				// age <-13
+	si (age ≥ 18)				// est faux
+		afficher "Vous êtes majeur";	// pas exécuté
+	sinon					// alternative est vrai
+		afficher "Vous êtes mineur";	// est exécuté
+	finsi
+	afficher "Fin du programme";
+Fin
+		</code></pre>
+
+<!-- FIN Demo Si -->
+
+		</div>
+	</section>
+	<section>
+		<h2>TP2-1 et TP2-2</h2>
+		<p>Cf feuille de TP</p>
+	</section>
+	<section>
+		<h2>Les tests en C</h2>
+		<pre><code class="hljs" data-trim>
+instruction;
+if (condition) {
+	instruction;	
+	...
+	instruction;			
+}
+instruction;
+		</code></pre>
+		<ul><li>Attention au accolades !</li>
+	</section>
+	<section>
+		<h2>Les conditions</h2>
+		<p>Opérateurs relationels : </p>
+		<ul>
+			<li class="fragment">> &nbsp; < &nbsp; <= &nbsp; >=</li>
+			<li class="fragment">== &nbsp; !=</li>
+		</ul>
+		<p class="fragment">Ne pas confondre l'affectation et l'égalité</p>
+		<p class="fragment">Opérateurs logiques : &nbsp;&nbsp;&nbsp; ! &nbsp; && &nbsp; ||</p>
+	</section>
+	<section>
+		<h2>Les tests avec alternative en C</h2>
+		<pre><code class="hljs" data-trim>
+instruction;
+if (condition) {
+	instruction;	
+	...
+	instruction;			
+} else {
+	instruction;	
+	...
+	instruction;
+}
+instruction;
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemples</h2>
+		<pre><code class="hljs" data-trim>
+int main(void) {
+	int age;
+	scanf("%d", &age);
+	if (age >= 18) {
+		printf("Vous etes majeur");
+	} else {
+		printf("Vous etes mineur");
+	}
+	printf("Fin du programme");
+	return 0;
+}
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemples</h2>
+		<pre><code class="hljs" data-trim>
+if (age != 27) {
+	printf("Votre age n'est pas maudit");
+}
+
+
+if ((age < 0) || (age > 117)) {
+	printf("Vous etes un menteur");
+}
+		</code></pre>
+	</section>
+	<section>
+		<h2>TP2-3 et TP2-4</h2>
+		<p>Cf feuille de TP</p>
+		<p>Regarder la feuille d'aide pour Visual Studio</p>
+	</section>
+
+	<!-- Debut cours sur les boucles -->
+
+	<section>
+		<h2>Les boucles en algorithmique</h2>
+		<pre><code class="hljs">
+instruction;
+pour compteur de expr_debut à expr_fin (par pas de expr_pas), faire
+	instruction;	
+	...
+	instruction;	
+finpour		
+instruction;
+		</code></pre>
+		<ul><li>Attention au finpour !</li>
+		<li>Décalage fortement conseillé !</li>
+		<li>compteur doit être une variable de type entier</li></ul>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+		<pre><code class="hljs">
+Début
+	Entier i, fin;
+
+	obtenir fin;
+	pour i de 1 à fin (par pas de 2), faire
+		afficher i;
+	finpour
+	afficher "Suite du programme, avec toutes les valeurs";
+	pour i de 1 à fin, faire
+		afficher i;
+	finpour
+	afficher "Fin du programme";
+Fin
+		</code></pre>
+		<p>la section "(par pas de expr_as)" est optionnelle quand le pas est de 1</p>
+	</section>
+	<section>
+		<h2>Les boucles avec conditions</h2>
+		<pre><code class="hljs">
+instruction;
+tant que (condition)
+	instruction;	
+	...
+	instruction;	
+fintantque	
+instruction;
+		</code></pre>
+		<ul><li>Attention au fintantque !</li>
+		<li>Décalage fortement conseillé !</li>
+		<li>Condition construite exactement comme dans un test</li></ul>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+		<pre><code class="hljs">
+Début
+	Entier n;
+
+	n 🠈 0;
+	tant que ( (n * n) < 100)
+		n  🠈  n + 1;
+	fintantque
+	afficher "le résultat est :";
+	afficher n
+Fin
+		</code></pre>
+	</section>
+<!-- DEBUT WHILE -->
+
+	<section>
+		<h2>Fonctionnement</h2>
+		<div style="position:relative" >
+		<pre style="position:absolute; margin:auto;"><code class="hljs" data-trim>
+n 🠈 0;			  // n initialisé à 0
+tant que ( (n * n) < 100)  	
+	n  🠈  n + 1;
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
+n 🠈 0;				
+tant que ( (n * n) < 100) // n=0; n*n = 0 < 100 est vrai
+	n  🠈  n + 1;
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+n 🠈 0;				
+tant que ( (n * n) < 100)  	
+	n  🠈  n + 1;	  // exécuté. n 🠈1 On refait la boucle
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
+n 🠈 0;				
+tant que ( (n * n) < 100) // n=1; n*n = 1 < 100 est vrai
+	n  🠈  n + 1;
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+n 🠈 0;				
+tant que ( (n * n) < 100)  	
+	n  🠈  n + 1;	  // exécuté. n 🠈2 On refait la boucle
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
+n 🠈 0;				
+tant que ( (n * n) < 100) // n=2; n*n = 4 < 100 est vrai
+	n  🠈  n + 1;
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+n 🠈 0;				
+tant que ( (n * n) < 100)  	
+	n  🠈  n + 1;	  // exécuté. n 🠈3 On refait la boucle
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
+n 🠈 0;				
+tant que ( (n * n) < 100) // etc
+	n  🠈  n + 1;
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+n 🠈 0;				
+tant que ( (n * n) < 100)  	
+	n  🠈  n + 1;	  // exécuté. n 🠈9 On refait la boucle
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
+n 🠈 0;				
+tant que ( (n * n) < 100) // n=9; n*n = 81 < 100 est vrai
+	n  🠈  n + 1;
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+n 🠈 0;				
+tant que ( (n * n) < 100)  	
+	n  🠈  n + 1;	  // exécuté. n 🠈10 On refait la boucle
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
+n 🠈 0;				
+tant que ( (n * n) < 100) // n=10; n*n = 100 < 100 est faux
+	n  🠈  n + 1;
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+n 🠈 0;				
+tant que ( (n * n) < 100)  	
+	n  🠈  n + 1;	  // non exécuté.
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+n 🠈 0;				
+tant que ( (n * n) < 100)  	
+	n  🠈  n + 1;	  
+fintantque		  // on sort de la boucle. n vaut 10
+		</code></pre>
+	</section>
+<!-- FIN Demo While -->
+	<section>
+		<h2>Les boucles avec conditions : 2eme forme</h2>
+		<pre><code class="hljs">
+instruction;
+faire
+	instruction;	
+	...
+	instruction;	
+tant que (condition)	
+instruction;
+		</code></pre>
+		<ul>
+		<li>Décalage fortement conseillé !</li>
+		<li>Condition construite exactement comme dans un test</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+		<pre><code class="hljs">
+Début
+	Entier n;
+
+	faire
+		obtenir n;
+	tant que ( (n % 7 ≠ 0) || (n < 100) ) 
+	afficher "le résultat est :";
+	afficher n
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h2>TP2-5 et TP2-6 et TP2-7</h2>
+		<p>Cf feuille de TP</p>
+	</section>
+	<section>
+		<h2>Les boucles for en C</h2>
+		<pre><code class="hljs" data-trim>
+for (instruction_init ; condition_fin ; instruction_boucle) {
+	instructions;
+	...		
+	instructions;
+}
+		</code></pre>
+		<p>
+		<pre><code class="hljs" data-trim>
+for (compteur=expr_deb ; compteur&lt;expr_fin ; compteur=compteur+pas) {
+	instructions;
+	...		
+	instructions;
+}
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+		<pre><code class="hljs" data-trim>
+int i, fin;
+scanf("%d", &fin);
+for (i=1 ; i&lt;fin ; i=i+2) {
+	printf("%d ", i);		
+}
+for (i=1 ; i&lt;fin ; i=i+1) {
+	printf("%d ", i);		
+}
+		</code></pre>
+	</section>
+	<section>
+		<h2>Les boucles while en C</h2>
+		<pre><code class="hljs" data-trim>
+while (condition) {
+	instructions;
+	...		
+	instructions;
+}
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+		<pre><code class="hljs" data-trim>
+int n;
+n = 0;
+while ( (n * n) < 100) {
+	n = n + 1;
+} 
+printf("resultat : %d", n);
+		</code></pre>
+	</section>
+	<section>
+		<h2>Les boucles do...while en C</h2>
+		<pre><code class="hljs" data-trim>
+do {
+	instructions;
+	...		
+	instructions;
+} while(condition)
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+		<pre><code class="hljs" data-trim>
+int n;
+do {
+	scanf("%d", &n);
+} while ( (n % 7 != 0) || (n < 100) )
+printf("resultat : %d", n);
+		</code></pre>
+	</section>
+</section>
 			</div>
 		</div>
 
@@ -315,7 +1063,7 @@
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/title-footer/title-footer.js', async: true, callback: function() { 
-						title_footer.initialize("12/09/2016 DUT GIM : Programmation", "rgba(0,0,0,0.3)"); } }
+						title_footer.initialize("2016 DUT GIM : Programmation", "rgba(0,0,0,0.3)"); } }
 				]
 			});
 		</script>
