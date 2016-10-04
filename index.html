@@ -1138,7 +1138,7 @@ Début
   si ( (4 &lt; y) et (y &lt; 8.1 ) )
     afficher "coucou"
   finsi
-  si ( (y &lt; 0) ou (3 ≠ 7) )
+  si ( (y &lt; 0) ou (7 ≠ 7) )
     afficher y
   finsi
 Fin
@@ -1459,7 +1459,7 @@ int main(void) {
 				</td></tr>
 			</tbody>
 		</table>
-		<p>Créez un nouveau projet "test" et testez ce code</p>
+		<p>Créez un nouveau projet "test" et testez ce code (Rajoutez la première ligne "#include [...]")</p>
 	</section>
 	<section>
 		<h2>Les boucles while en C</h2>
@@ -1507,7 +1507,7 @@ int main(void) {
 				</td></tr>
 			</tbody>
 		</table>
-		<p>Modifiez votre projet "test" et testez ce code</p>
+		<p>Modifiez votre projet "test" et testez ce code (Rajoutez la première ligne "#include [...]")</p>
 	</section>
 	<section>
 		<h2>Les boucles do...while en C</h2>
@@ -1516,7 +1516,7 @@ do {
 	instruction;
 	...		
 	instruction;
-} while(condition)
+} while(condition);
 		</code></pre>
 	</section>
 	<section>
@@ -1544,7 +1544,7 @@ int main(void) {
 
   do {
     scanf_s("%d", &n);
-  } while ( (n % 7 ) != 0 )
+  } while ( (n % 7 ) != 0 );
   printf("resultat : %d", n);
   
   return 0;
@@ -1553,7 +1553,7 @@ int main(void) {
 				</td></tr>
 			</tbody>
 		</table>
-		<p>Modifiez votre projet "test" et testez ce code</p>
+		<p>Modifiez votre projet "test" et testez ce code (Rajoutez la première ligne "#include [...]")</p>
 	</section>
 	<section>
 		<h2>TP3-4 et TP3-5 et TP3-6</h2>
@@ -1581,7 +1581,7 @@ while (CONDITION) {
 <pre><code style="display:inline-block;" class="hljs"data-trim>
 do {
   INSTRUCTIONS
-} while (CONDITION) 
+} while (CONDITION); 
 &nbsp;
 </code></pre>
 				</td></tr>
@@ -1624,7 +1624,7 @@ int main(void) {
 		<h3>TP3-7</h3>
 		<ul>
 		<li>Ecrire un algorithme puis un programme C pour savoir si un nombre est premier</li>
-		<li>Vous créérez un nouveau projet "TP3_7" sur Visual Studio</li>
+		<li>Vous créerez un nouveau projet "TP3_7" sur Visual Studio</li>
 		<li>Un nombre est premier s'il est divisible uniquement par 1 et par lui-même</li>
 		<li>Vous pouvez éventuellement utiliser la méthode "sqrt" avec "#include&nbsp;&lt;math.io&gt;"</li>
 		</ul>
@@ -1633,7 +1633,7 @@ int main(void) {
 		<h3>TP3-8</h3>
 		<ul>
 		<li>Ecrire un programme C pour afficher la table de multiplication de 1 à 10</li>
-		<li>Vous pouvez utiliser le tabulation "\t" dans printf pour aligner</li>
+		<li>Vous pouvez utiliser le tabulation "\t" dans printf pour aligner des colonnes</li>
 		</ul>
 	</section>
 </section>
