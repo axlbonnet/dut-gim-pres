@@ -1045,6 +1045,598 @@ printf("resultat : %d", n);
 		</code></pre>
 	</section>
 </section>
+
+<!--
+	#################################################
+	TP3
+-->
+
+<section>
+	<section>
+		<h1>Programmation</h1>
+		<br />
+		<h2>TP3</h2>
+		<br />
+		<h2>Axel Bonnet</h2>
+		<h3>professor.bonnet@gmail.com</h3>
+	</section>
+	<section>
+		<h2>Rappel TP précédent</h2>
+		<ul>
+			<li>Qu'y avait-il de nouveau la dernière fois ?</li>
+			<li class="fragment">Les tests</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Bilan TP précédent</h2>
+		<ul>
+			<li>On suit les consignes !</li>
+			<li>Trop de perte de temps</li>
+			<li class="fragment">Création d'un projet Visual Studio comme écrit</li>
+			<li class="fragment">Lancement d'un projet Visual Studio comme écrit</li>
+			<li class="fragment">Un nouveau projet Visual Studio par exercice</li>
+			<li class="fragment">On utilise scanf_s</li>
+		</ul>
+	</section>
+	<section>
+		<h3>Algorithmique vs C</h3>
+		<table>
+			<tbody>
+				<tr><td>
+<pre><code style="display:inline-block;" class="hljs">
+Début
+
+  Entier var1
+  Réel var2
+
+  obtenir var1
+    
+  var1 ⟵ (var1 + 4) / 2
+  si (var1 = 4)
+    afficher "coucou"
+  sinon
+    afficher var1
+  finsi
+Fin
+
+</code></pre>
+				</td>
+				<td>
+<pre><code style="display:inline-block;" class="hljs">#include &lt;stdio.h&gt;	
+
+int main(void) {
+  int var1;
+  float var2;
+
+  printf("Entrez var1 :");
+  scanf_s("%d", &var1);
+  var1 = (var1 + 4) / 2;
+  if (var1 == 4) {
+    printf("coucou");
+  } else {
+    printf("variable1 : %d", var1);
+  }
+  return 0;
+}</code></pre>
+				</td></tr>
+			</tbody>
+		</table>
+	</section>
+	<section > 
+		<h3>Algorithmique vs C - round 2</h3>
+		<table>
+			<tbody>
+				<tr><td>
+<pre><code style="display:inline-block;" class="hljs" >
+Début
+
+  Réel y
+
+  obtenir y
+    
+  y ⟵ (y * 2.4) / 9.1
+  si ( (4 &lt; y) et (y &lt; 8.1 ) )
+    afficher "coucou"
+  finsi
+  si ( (y &lt; 0) ou (3 ≠ 7) )
+    afficher y
+  finsi
+Fin
+
+</code></pre>
+				</td>
+				<td>
+<pre><code style="display:inline-block;" class="hljs">#include &lt;stdio.h&gt;	
+
+int main(void) {
+  float y;
+
+  printf("Saississez la longueur :");
+  scanf_s("%f", &y);
+  y = (y * 2.4) / 9.1;
+  if ( (4 &lt; y) && (y &lt; 8.1 ) ) {
+    printf("coucou");
+  } 
+  if ( (y &lt; 0) || (7 != 7) ) {
+    printf("La solution est : %f", y);
+  }
+  return 0;
+}</code></pre>
+				</td></tr>
+			</tbody>
+		</table>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+## Correction TP2-4
+Déterminer si l'utilisateur est du signe astrologique balance.
+A vos clavier. Reprenez votre projet ou créez-en un nouveau en suivant les consignes.
+```
+Début
+    Entier jour, mois
+
+    obtenir jour
+    obtenir mois
+
+    si ( (mois = 9 et jour > 22) ou (mois = 10 et jour < 23) )
+       afficher "Vous etes balance"
+    finsi
+Fin
+```
+		</script>
+	</section>
+
+	<!-- Debut cours sur les boucles -->
+
+	<section>
+		<h2>Les boucles en algorithmique</h2>
+		<pre><code style="display:inline-block;" class="hljs" data-trim>
+pour compteur de expr_debut à expr_fin (par pas de expr_pas), faire
+	instruction
+	...
+	instruction
+finpour		
+		</code></pre>
+		<ul><li>Attention au finpour !</li>
+		<li>Décalage fortement conseillé !</li>
+		<li>compteur doit être une variable de type entier</li></ul>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+		<pre><code class="hljs" data-trim>
+Début
+	Entier i, fin
+
+	obtenir fin
+	pour i de 1 à fin (par pas de 2), faire
+		afficher i
+	finpour
+	afficher "Suite du programme, avec toutes les valeurs"
+	pour i de 1 à fin, faire
+		afficher i
+	finpour
+	afficher "Fin du programme"
+Fin
+		</code></pre>
+		<p>la section "(par pas de expr_as)" est optionnelle quand le pas est de 1</p>
+	</section>
+	<section>
+		<h2>Les boucles avec conditions</h2>
+		<pre><code class="hljs" data-trim>
+
+tant que (condition)
+	instruction
+	...
+	instruction
+fintantque	
+		</code></pre>
+		<ul><li>Attention au fintantque !</li>
+		<li>Décalage fortement conseillé !</li>
+		<li>Condition construite exactement comme dans un test</li></ul>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+		<pre><code class="hljs">
+Début
+	Entier n
+
+	n ⟵ 0
+	tant que ( (n * n) < 100)
+		n  ⟵  n + 1
+	fintantque
+	afficher "le résultat est :"
+	afficher n
+Fin
+		</code></pre>
+		<p>Attention aux boucles sans fin</p>
+	</section>
+<!-- DEBUT exemple WHILE -->
+
+	<section>
+		<h2>Fonctionnement</h2>
+		<div style="position:relative" >
+		<pre style="position:absolute; margin:auto;"><code class="hljs" data-trim>
+n ⟵ 0			  // n initialisé à 0
+tant que ( (n * n) < 100)  	
+	n  ⟵  n + 1
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100) // n=0; n*n = 0 < 100 est vrai
+	n  ⟵  n + 1
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100)  	
+	n  ⟵  n + 1	  // exécuté. n ⟵ 1 On refait la boucle
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100) // n=1; n*n = 1 < 100 est vrai
+	n  ⟵  n + 1
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100)  	
+	n  ⟵  n + 1	  // exécuté. n ⟵ 2 On refait la boucle
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100) // n=2; n*n = 4 < 100 est vrai
+	n  ⟵  n + 1
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100)  	
+	n  ⟵  n + 1	  // exécuté. n ⟵ 3 On refait la boucle
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100) // etc
+	n  ⟵  n + 1
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100)  	
+	n  ⟵  n + 1	  // exécuté. n ⟵ 9 On refait la boucle
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100) // n=9; n*n = 81 < 100 est vrai
+	n  ⟵  n + 1
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100)  	
+	n  ⟵  n + 1	  // exécuté. n ⟵ 10 On refait la boucle
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100) // n=10; n*n = 100 < 100 est faux
+	n  ⟵  n + 1
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100)  	
+	n  ⟵  n + 1	  // non exécuté.
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100)  	
+	n  ⟵  n + 1	  
+fintantque		  // on sort de la boucle. n vaut 10
+		</code></pre>
+	</section>
+<!-- FIN Demo While -->
+	<section>
+		<h2>Les boucles avec conditions : 2eme forme</h2>
+		<pre><code class="hljs" data-trim>
+
+faire
+	instruction	
+	...
+	instruction	
+tant que (condition)	
+
+		</code></pre>
+		<ul>
+		<li>Décalage fortement conseillé !</li>
+		<li>Condition construite exactement comme dans un test</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+		<pre><code class="hljs">
+Début
+	Entier n
+
+	faire
+		obtenir n
+	tant que ( (n % 7) ≠ 0 ) 
+	afficher "le résultat est :"
+	afficher n
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h2>TP3-1 et TP3-2 et TP3-3</h2>
+		<ul>
+		<li>Cf feuille de TP</li>
+		<li><strong>En algorithmique, pas de C</strong></li>
+		<li><strong>Pas de PC</strong></li>
+		</ul>
+		<table>
+			<tbody>
+				<tr><td>
+<pre><code style="display:inline-block;" class="hljs" data-trim>
+pour i de 1 a n, faire 
+  INSTRUCTIONS 
+finpour 
+</code></pre>
+				</td>
+				<td>
+<pre><code style="display:inline-block;" class="hljs"data-trim>
+tant que (CONDITION)
+  INSTRUCTIONS
+fintantque 
+</code></pre>
+				</td><td>
+<pre><code style="display:inline-block;" class="hljs"data-trim>
+faire
+  INSTRUCTIONS
+tant que (CONDITION) 
+</code></pre>
+				</td></tr>
+			</tbody>
+		</table>
+	</section>
+	<section>
+		<h2>Les boucles for en C</h2>
+		<pre><code class="hljs" style="display:inline-block;"  data-trim>
+for (instruction_init ; condition_fin ; instruction_boucle) {
+	instruction;
+	...		
+	instruction;
+}
+		</code></pre>
+		<p>
+		<pre><code class="hljs" style="display:inline-block;"  data-trim>
+for (compteur=expr_deb ; compteur&lt;=expr_fin ; compteur=compteur+pas) {
+	instruction;
+	...		
+	instruction;
+}
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+<table>
+			<tbody>
+				<tr><td>
+<pre><code class="hljs" style="display:inline-block;" data-trim>
+Début
+  Entier i, fin
+
+  obtenir fin
+  pour i de 1 à fin (par pas de 2), faire
+    afficher i
+  finpour
+  pour i de 1 à fin, faire
+    afficher i
+  finpour
+
+Fin
+		</code></pre>
+				</td>
+				<td>
+<pre><code class="hljs" style="display:inline-block;" data-trim>
+int main(void) {
+  int i, fin;
+
+  scanf_s("%d", &fin);
+  for (i=1 ; i&lt;=fin ; i=i+2) {
+    printf("%d ", i);
+  }
+  for (i=1 ; i&lt;=fin ; i=i+1) {
+    printf("%d ", i);
+  }
+  return 0;
+}
+		</code></pre>
+				</td></tr>
+			</tbody>
+		</table>
+		<p>Créez un nouveau projet "test" et testez ce code</p>
+	</section>
+	<section>
+		<h2>Les boucles while en C</h2>
+		<pre><code class="hljs" data-trim>
+while (condition) {
+	instruction;
+	...		
+	instruction;
+}
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+<table>
+			<tbody>
+				<tr><td>
+<pre><code class="hljs" style="display:inline-block;" data-trim>
+Début
+  Entier n
+
+  n ⟵ 0
+  tant que ( (n * n) < 100)
+    n  ⟵  n + 1
+  fintantque
+  afficher "le résultat est :"
+  afficher n
+Fin
+&nbsp;
+</code></pre>
+				</td>
+				<td>
+<pre><code class="hljs" style="display:inline-block;" data-trim>
+int main(void) {
+  int n;
+  
+  n = 0;
+  while ( (n * n) < 100) {
+    n = n + 1;
+  } 
+  printf("resultat : %d", n);
+  
+  return 0;
+}
+		</code></pre>
+				</td></tr>
+			</tbody>
+		</table>
+		<p>Modifiez votre projet "test" et testez ce code</p>
+	</section>
+	<section>
+		<h2>Les boucles do...while en C</h2>
+		<pre><code class="hljs" data-trim>
+do {
+	instruction;
+	...		
+	instruction;
+} while(condition)
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+<table>
+			<tbody>
+				<tr><td>
+<pre><code class="hljs" style="display:inline-block;" data-trim>
+Début
+  Entier n
+
+  faire
+    obtenir n
+  tant que ( (n % 7) ≠ 0 ) 
+  afficher "le résultat est :"
+  afficher n
+Fin
+&nbsp;
+</code></pre>
+				</td>
+				<td>
+<pre><code class="hljs" style="display:inline-block;" data-trim>
+int main(void) {
+  int n;
+
+  do {
+    scanf_s("%d", &n);
+  } while ( (n % 7 ) != 0 )
+  printf("resultat : %d", n);
+  
+  return 0;
+}
+		</code></pre>
+				</td></tr>
+			</tbody>
+		</table>
+		<p>Modifiez votre projet "test" et testez ce code</p>
+	</section>
+	<section>
+		<h2>TP3-4 et TP3-5 et TP3-6</h2>
+		<ul>
+		<li><strong>Suivez les consignes Visual Studio</strong></li>
+		</ul>
+		<table>
+			<tbody>
+				<tr><td>
+<pre><code style="display:inline-block;" class="hljs" data-trim>
+int i;
+for (i=0 ; i<100; i=i+1) {
+  INSTRUCTIONS 
+}
+</code></pre>
+				</td>
+				<td>
+<pre><code style="display:inline-block;" class="hljs"data-trim>
+while (CONDITION) {
+  INSTRUCTIONS
+}
+&nbsp;
+</code></pre>
+				</td><td>
+<pre><code style="display:inline-block;" class="hljs"data-trim>
+do {
+  INSTRUCTIONS
+} while (CONDITION) 
+&nbsp;
+</code></pre>
+				</td></tr>
+			</tbody>
+		</table>
+	</section>
+	<section>
+		<h3>Exercices supplémentaires</h3>
+		<p>Vous pouvez le droit d'imbriquer des tests et des boucles !</p>
+		<pre><code class="hljs" data-trim>
+Début
+  Entier i
+
+  pour i de 1 à 100, faire
+    si ( (i % 7) = 0 ) alors
+      afficher i "est mutiple de 7"
+    finsi
+  finpour
+Fin
+</code></pre>
+	</section>
+	<section>
+		<h3>Imbrication en C</h3>
+		<pre><code class="hljs" data-trim>
+int main(void) {
+  int i;
+
+  for (i=1 ; i&lt;=100 ; i=i+1) {
+    if ( (i % 7) == 0 ) {
+      printf("%d est mutiple de 7", i);
+    }
+  }
+  return 0;
+}
+</code></pre>
+	<p>Vous pouvez imbriquer les "for", "if" "while", "do .. while" tant que voulez.</p>
+	<p>Les décalages (indentations) deviennent important pour les identifier</p>
+	</section>
+	<section>
+		<h3>TP3-7</h3>
+		<ul>
+		<li>Ecrire un algorithme puis un programme C pour savoir si un nombre est premier</li>
+		<li>Vous créérez un nouveau projet "TP3_7" sur Visual Studio</li>
+		<li>Un nombre est premier s'il est divisible uniquement par 1 et par lui-même</li>
+		<li>Vous pouvez éventuellement utiliser la méthode "sqrt" avec "#include&nbsp;&lt;math.io&gt;"</li>
+		</ul>
+	</section>
+	<section>
+		<h3>TP3-8</h3>
+		<ul>
+		<li>Ecrire un programme C pour afficher la table de multiplication de 1 à 10</li>
+		<li>Vous pouvez utiliser le tabulation "\t" dans printf pour aligner</li>
+		</ul>
+	</section>
+</section>
 			</div>
 		</div>
 
