@@ -1637,6 +1637,388 @@ int main(void) {
 		</ul>
 	</section>
 </section>
+
+<!-- ##################################################
+		TP4
+###################################################-->
+<section>
+<section>
+		<h1>Programmation</h1>
+		<br />
+		<h2>TP4</h2>
+		<br />
+		<h2>Axel Bonnet</h2>
+		<h3>professor.bonnet@gmail.com</h3>
+	</section>
+	<section>
+		<h2>Les données</h2>
+		<div style="position:relative; width:700px; height:500px; margin:0 auto;">
+		  <img class="fragment fade-in" src="img/calcul_v2_1.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" src="img/calcul_v2_2.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" src="img/calcul_v2_3.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" src="img/calcul_v2_4.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" src="img/calcul_v2_5.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" src="img/calcul_v2_6.jpg" style="position:absolute;top:0;left:0;" />
+		</div>
+	</section>
+	<section>
+		<h2>Représentation des données</h2>
+		<ul>
+			<li>la RAM est constitué de bits (binary digit) (des 10aines de millards)</li>
+			<li>Un bit contient 0 ou 1</li>
+			<li class="fragment" data-fragment-index="2">2 bits permettent de stocker 4 valeurs différentes 00 01 10 11</li>
+			<li class="fragment" data-fragment-index="4">3 bits -> 8 valeurs</li>
+			<li class="fragment" data-fragment-index="6">4 ? 5 ? 6 ? 7 ?</li>
+			<li class="fragment" data-fragment-index="10">8 bits <span class="fragment current-visible" data-fragment-index="10">?</span><span class="fragment"> -> 256 valeurs</span></li>
+		</ul>
+	</section>
+	<section>
+		<h2>Représentation des données : l'octet</h2>
+		<ul>
+			<li>Sur 8 bits, peut prendre 256 valeurs différentes</li>
+			<li>Plus petit élément de stockage</li>
+			<li class="fragment">Comment représenter l'information ?</li>
+			<li class="fragment">On stocke les nombre en base 2</li>
+			<li class="fragment">Rappel base 10 : 2016 = 2*1000 + 0*100 + 1*10 + 6*1</li>
+			<li class="fragment">75 = 1*64 + 0*32 + 0*16 + 1*8 + 1*4 + 0*2 + 1*1 </li>
+			<li class="fragment">75 = 1001101 = 01001101 </li>
+			<li class="fragment">2016 = 1024 + 512 + 256 + 128 + 64 + 32</li>
+			<li class="fragment">2016 = 11111100000</li>		
+		</ul>
+	</section>
+	<section>
+		<h2>Représentation des données : en C</h2>
+		<ul>
+			<li>Pour dépasser 255, plusieurs octets sont nécessaires</li>
+			<li>Les <code>int</code> sont stockés sur 4 octets (dans 99,9% des cas)</li>	
+			<li class="fragment">2016 = 00000000 00000000 00000111 11100000</li>		
+			<li class="fragment">4 octets -> 2<sup>32</sup> valeurs = 4 294 967 296</li>
+			<li class="fragment">les valeurs négatives ?</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Les types décimaux en C</h2>
+		<table>
+			<thead>
+				<tr><th>nom</th><th>taille</th><th>Valeurs<tr>
+			</thead>
+			<tbody>
+				<tr><td>int</td><td>4</td><td>-2 147 483 648 à 2 147 483 647</td<td>
+				<tr><td>unsigned int</td><td>4</td><td>0 à 4 294 967 295</td<td>
+				<tr><td>short</td><td>2</td><td>-32 768 à 32 767</td<td>
+				<tr><td>unsigned short</td><td>2</td><td>0 à 65 535</td<td>
+				<tr><td>long long</td><td>8</td><td>−/+ 9223372036854775807</td<td>
+			<tbody>
+		</table>
+		<ul>
+		<li>Taille en octets</li>
+		<li>Pas exact dans 100% des cas</li>
+		<li>le type <code>int</code> nous suffira tout le temps</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Représentation des données : les caractères</h2>
+		<ul>
+			<li>Un caractère est codé sur 1 octet (256 valeurs)</li>
+			<li class="fragment">ASCII : code qui attribue à chaque valeur un caractère</li>	
+			<li class="fragment">Exemple : 109 = 1101101 -> 'm'</li>		
+			<li class="fragment">Très limité, pas d'accents</li>
+			<li class="fragment">En c, le type <code>char</code> est en fait un entier sur 1 octet</li>
+			<li class="fragment"><code>char c = 'm'</code></li>
+			<li class="fragment">Chaine de caractère : suite de <code>char</code>s</li>
+			<li class="fragment">"coucou" <-> '99'-'111'-'117'-'99'-'111'-'117'</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Représentation des données : les réels</h2>
+		<ul>
+			<li>Plus complexe, on va décrire une méthode qui s'en rapproche</li>
+			<li>En C un <code>float</code> sur 4 octets permet de stocker de </li>
+			<li>0,0000000000000000000000000000000000000175494351</li>
+			<li>à 340282347000000000000000000000000000000</li>
+			<li class="fragment">Décomposition en notation scientifique</li>
+			<li class="fragment">1.175494351 * 10<sup>-38</sup> et 3.40282347 * 10<sup>38</sup></li>	
+			<li class="fragment">signe sur 1 bit, mantisse sur 23 bits, exposant sur 8 bits</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Les réels en C</h2>
+		<ul>
+			<li><code>float</code> sur 4 octet : 10<sup>-38</sup> et 10<sup>38</sup></li>
+			<li><code>double</code> sur 8 octets : 10<sup>-308</sup> et 10<sup>308</sup></li>
+			<li><code>long double</code> sur 10 octets : 10<sup>-4932</sup> et 10<sup>4932</sup></li>
+			<li>On utilisera que des float</li>
+			<li><strong>Pas d'égalité avec des float !</strong></li>
+		</ul>
+	</section>
+	<section>
+		<h2>Conclusion</h2>
+		<ul>
+			<li>Les données sont stockées dans la RAM dans des octets de 8 bits pouvant représenter 256 valeurs</li>
+			<li class="fragment">Plusieurs formats (types) pour coder l'information</li>
+			<li class="fragment">Il faut déclarer les variables dans un type précis</li>
+			<li class="fragment">on utilisera uniquement des <code>int</code> et des <code>float</code> (peut-être des <code>char</code>)</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Processus de création d'un programme</h2>
+		<img src="img/processus_creation_programme.jpg" />
+	</section>
+	<section>
+		<h2>Mise au point de l'algorithme</h2>
+		<ul>
+			<li>Ecrire la solution détaillée du problème dans un langage simple</li>
+			<li>On travaille dans ce cours sur des problèmes simples</li>
+			<li>2 exemples</li>
+		</ul>
+	</section>
+	<section>
+		<h2>TP3-3</h2>
+		<p>Calculer et afficher la surface d'un nombre inconnu de triangles</p>
+		<p class="fragment"><strong>On formule la solution en Français</strong></p>
+		<p class="fragment">L'utilisateur saisie la longueur et la largeur d'un triangle. On calcule et on affiche la surface du triangle en multipliant la longueur et la largeur et en divisant le tout par 2. On recommence tant que l'utilisateur saisie une longueur et une largeur positives (dans le cas contraire on s'arrète).</p>
+	</section>
+	<section>
+		<p><strong>On répère les données du problème</strong></p>
+		<p>L'utilisateur saisie la <span class="fragment highlight-red" data-fragment-index="1">longueur</span> et la <span class="fragment highlight-blue" data-fragment-index="2">largeur</span> d'un triangle. On calcule et on affiche la <span class="fragment highlight-green">surface</span> du triangle en multipliant la <span class="fragment highlight-red" data-fragment-index="1">longueur</span> et la <span class="fragment highlight-blue" data-fragment-index="2">largeur</span> et en divisant le tout par 2. On recommence tant que l'utilisateur saisie une <span class="fragment highlight-red" data-fragment-index="1">longueur</span> et une <span class="fragment highlight-blue" data-fragment-index="2">largeur</span> positives (dans le cas contraire on s'arrète).</p>
+		<p class="fragment"><strong>De quel type sont-ils ? <span class="fragment">ici des rééls</span></strong></p>
+	<pre class="fragment" style="font-size:0.7em;"><code>Début
+	Réel longueur, largeur, surface
+
+	[instructions à écrire]
+Fin</code></pre>
+	</section>
+	<section>
+		<p><strong>On écrit les traitements sur les données avec les instructions d'algorithmique</strong></p>
+		<table>
+			<tbody>
+			<tr>
+				<td class="fragment">L'utilisateur saisie la longueur et la largeur d'un triangle</td>
+				<td class="fragment"><code style="font-size:0.8em;">Obtenir&nbsp;longueur<br />Obtenir&nbsp;largeur</code></td>
+			</tr>
+			<tr>
+				<td class="fragment">On calcule et on affiche la surface du triangle en multipliant la longueur et la largeur et en divisant le tout par 2</td>
+				<td class="fragment">
+				<code style="font-size:0.8em;">surface&nbsp;⟵&nbsp;largeur*longueur/2<br />
+					afficher&nbsp;surface
+				</code></td>
+			</tr>
+			</tbody>
+		</table>
+	</section>
+	<section>
+		<h2>Suite et fin des instructions</h2>
+				<p>On recommence tant que l'utilisateur saisie une longueur et une largeur positives (auquel cas on s'arrète).</p>
+				<pre class="fragment" style="font-size:0.7em;">
+<code>faire
+  [instructions précédentes]
+tant que (longueur&ge;0 et largeur&ge;0)
+</code></pre>
+	</section>
+	<section>
+		<h2>On met tout ensemble</h2>
+		<p>L'utilisateur saisie la longueur et la largeur d'un triangle. On calcule et on affiche la surface du triangle en multipliant la longueur et la largeur et en divisant le tout par 2. On recommence tant que l'utilisateur saisie une longueur et une largeur positives (dans le cas contraire on s'arrète).</p>
+		<pre class="fragment" style="font-size:0.7em;">
+<code>faire
+  obtenir longueur
+  obtenir largeur
+  surface ⟵ largeur * longueur / 2
+  afficher surface
+tant que (longueur&ge;0 et largeur&ge;0)
+</code></pre>
+		<p class="fragment">TOP ! Enfin presque</p>
+	</section>
+	<section>
+		<h2>Version complète</h2>
+		<pre class="fragment" style="font-size:0.7em;">
+<code>Début
+  Réel largeur, longueur, surface
+
+  faire
+    obtenir longeur
+    obtenir largeur
+    si (longueur&ge;0 et largeur&ge;0)
+      surface ⟵ largeur * longueur / 2
+      afficher surface    
+    finsi
+  tant que (longueur&ge;0 et largeur&ge;0)
+Fin
+</code></pre>
+	</section>
+	<section>
+		<h2>Et en C ?</h2>
+		<p>Très très proche (cf fiche)</p>
+<pre class="fragment" style="font-size:0.5em;">
+<code>#include &lt;stdio.h>
+
+int main(void) {
+  float largeur, longueur, surface;
+
+  do {
+    printf("Entrez la longueur :");
+    scanf_s("%f", &longueur);
+    printf("Entrez la largeur :");
+    scanf_s("%f", &largeur); 
+    if (longueur&gt;=0 && largeur&gt;=0) {
+      surface = largeur * longueur / 2;
+      printf("la surface est : %f\n", surface);
+    }
+  } while (longueur&gt;=0 && largeur&gt;=0);
+  return 0;
+}
+</code></pre>
+	</section>
+	<section>
+		<h2>2ème exemple</h2>
+		<p>Déterminer si un nombre saisi est premier</p>
+		<p class="fragment"><strong>Réponse détaillée en Français : </strong></p>
+		<p class="fragment">L'utilisateur saisie un nombre. Ce nombre est premier s'il est divisible uniquement par 1 et par lui même. On affiche s'il est premier ou pas.</p>
+		<p class="fragment">Comment savoir si un nombre est divisible uniquement par 1 et par lui même ?</p>
+		<p class="fragment">On va rechercher tous les diviseurs de ce nombre</p>
+	</section>
+	<section>
+		<h2>2ème exemple : Suite</h2>
+		<p>Pour savoir si un nombre est premier on va rechercher tous ses diviseurs</p>
+		<p class="fragment">On peut regarder <span class="fragment highlight-red">tous les nombres un par un</span> et regarder s'ils divisent le <span class="fragment highlight-green">nombre saisi</span>. On compte ainsi <span class="fragment highlight-blue">le nombre de diviseurs</span></p>
+		<pre class="fragment" style="font-size:0.6em;"><code>Début
+  Entier nombre_saisi, compteur, nombre_de_diviseurs
+   
+  obtenir nombre_saisi
+  [à écrire]
+		
+Fin
+</code></pre>
+	</section>
+	<section>
+		<h2>Conversion en algorithme</h2>
+		<p>On regarde tous les nombres un par un</p>
+		<pre class="fragment" style="font-size:0.7em;">
+<code>pour compteur de xxx à yyy, faire
+    [instructions à faire pour chaque nombre]
+finpour
+</code></pre>
+	<p class="fragment">Quelles bornes ?</p>
+		<pre class="fragment" style="font-size:0.7em;">
+<code>pour compteur de 1 à nombre_saisi, faire
+    [instructions à faire pour chaque nombre]
+finpour
+</code></pre>
+	</section>	
+	<section>
+		<h2>Conversion en algorithme</h2>
+		<p>On regarde si chaque nombre divise le nombre saisi. Si c'est le cas on augmente le nombre de diviseurs</p>
+		<pre class="fragment" style="font-size:0.7em;">
+<code>si (nombre_saisi % compteur = 0)
+    nombre_de_diviseurs ⟵ nombre_de_diviseurs + 1
+finsi
+</code></pre>
+	</section>
+	<section>
+		<h2>On met (presque) tout ensemble</h2>
+		<pre style="font-size:0.5em;">
+<code>Début
+  Entier nombre_saisi, compteur, nombre_de_diviseurs
+   
+  obtenir nombre_saisi
+  nombre_de_diviseurs ⟵ 0
+  pour compteur de 1 à nombre_saisi, faire
+    si (nombre_saisi % compteur = 0)
+      nombre_de_diviseurs ⟵ nombre_de_diviseurs + 1
+    finsi
+  finpour
+Fin
+</code></pre>
+	</section>
+	<section>
+	<h2>On affiche le résultat</h2>
+	<p>Un nombre est premier s'il a 2 diviseurs</p>
+<pre class="fragment" style="font-size:0.6em;">
+<code>si (nombre_de_diviseurs = 2)
+   afficher nombre_saisi "est entier"
+sinon
+   afficher nombre_saisi "n'est pas entier"
+finsi
+</code></pre>
+	</section>
+	<section>
+		<h2>Version finale</h2>
+		<pre style="font-size:0.5em;">
+<code>Début
+  Entier nombre_saisi, compteur, nombre_de_diviseurs
+   
+  obtenir nombre_saisi
+  nombre_de_diviseurs ⟵ 0
+  pour compteur de 1 à nombre_saisi, faire
+    si (nombre_saisi % compteur = 0)
+      nombre_de_diviseurs ⟵ nombre_de_diviseurs + 1
+    finsi
+  finpour
+  si (nombre_de_diviseurs = 2)
+    afficher nombre_saisi "est entier"
+  sinon
+    afficher nombre_saisi "n'est pas entier"
+  finsi
+Fin
+</code></pre>
+	</section>
+	<section>
+		<h4>En C</h4>
+		<pre style="font-size:0.47em;">
+<code>#include &lt;stdio.h> 
+int main(void) {
+  int nombre_saisi, compteur, nombre_de_diviseurs;
+   
+  printf("Entrez un nombre :");
+  scanf_s("%d", &nombre_saisi);
+  nombre_de_diviseurs = 0;
+  for (compteur=1 ; compteur<=nombre_saisi ; compteur++) {
+    if (nombre_saisi % compteur == 0) {
+      nombre_de_diviseurs = nombre_de_diviseurs + 1;
+    }
+  }
+  if (nombre_de_diviseurs == 2) {
+    printf("%d est entier\n", nombre_saisi);
+  } else {
+    printf("%d n'est pas entier\n", nombre_saisi);
+  }
+  return 0;
+}
+</code></pre>
+	</section>
+	<section>
+		<h2>Elaboration de l'algorithme</h2>
+		<p>On détaille en Français, et on essaye de l'écrire avec le langage défini</p>
+		<p>On vérifie :</p>
+		<ul>
+			<li>Seuls les instructions existantes sont présentes</li>
+			<li>Toute variable doit être déclarée</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Ecriture de programme C</h2>
+		<p>On adapte (cf fiche) et seule la syntaxe doit poser problème</p>
+		<p>Si ce n'est pas possible, l'algorithme est certainement problématique</p>
+		<p class="fragment">Attention aux</p>
+		<ul>
+			<li class="fragment current-visible">point-virgules</li>
+			<li class="fragment current-visible"><code>&</code> toujours dans <code>scanf_s</code>, jamais dans <code>printf</code></li>
+			<li class="fragment current-visible"><code>%d</code> pour les <code>int</code>, <code>%f</code> pour les float ( dans <code>scanf_s</code> et <code>printf</code> )</li>
+			<li class="fragment current-visible"><code>=</code> et <code>==</code></li>
+			<li class="fragment current-visible">Pour les réels : <code>&quot3.2&quot;</code> et pas <code>&quot3,2&quot;</code></li>
+		</ul>
+	</section>
+	<section>
+		<h2>Petites nouveautés</h2>
+		<ul>
+			<li class="fragment current-visible" data-fragment-index="1"><code>&quot;compteur++&quot;</code> fait la même chose que  <code>&quot;compteur&nbsp;=&nbsp;compteur&nbsp;+&nbsp;1&quot;</code></li>
+			<li class="fragment current-visible" data-fragment-index="1">pratique dans <code>&quot;for (i=1 ; i&lt;=100 ; i++) {&quot;</code></li>			
+			<li class="fragment current-visible"><code>&quot;printf("%.3f", variable);&quot;</code> permet de choisir le nombre de chiffres après la virgule</li>
+		</ul>
+	</section>
+	<section>
+		<h2>TP</h2>
+	</section>
+</section>
 			</div>
 		</div>
 
