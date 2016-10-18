@@ -2019,6 +2019,911 @@ int main(void) {
 		<h2>TP</h2>
 	</section>
 </section>
+<!-- ##################################################
+		TP5
+###################################################-->
+<section>
+
+	<section>
+		<h1>Programmation</h1>
+		<br />
+		<h2>TP5</h2>
+		<br />
+		<h2>Axel Bonnet</h2>
+		<h3>professor.bonnet@gmail.com</h3>
+	</section>
+	<section>
+		<h2>Rappel semaine précédente</h2>
+		<ul>
+			<li class="fragment">Recherche de max sur un nombre déterminé de données</li>
+			<li class="fragment">Recherche de max sur un nombre indéterminé de données</li>
+			<li class="fragment">Calcul de moyenne</li>
+			<li class="fragment">Affichage d'une table de multiplication</li>			
+		</ul>
+	</section>
+	<section>
+		<h2>Comment choisir sa structure de répétition</h2>
+		<p><code>&quot;pour i de 1 à n&quot;</code> ou <code>&quot;tant que (...)&quot;</code> ? </p>
+		<ul>
+			<li class="fragment"><code>pour i de xxx à yyy, faire ...</code> si on répète un nombre de fois déterminé la même chose</li>
+			<li class="fragment">Un nombre doit ressortir dans l'énoncé <br/>&nbsp;</li>
+			<li class="fragment"><h4>Exemples :</h4></li>
+			<li class="fragment">Répéter <strong>5</strong> fois ....</li>
+			<li class="fragment">Refaire ... <strong>n</strong> fois</li>
+			<li class="fragment">Demander à l'utilisateur d'entrer <strong>xxx</strong> nombres</li> 
+		</ul>
+	</section>
+	<section>
+		<h2>Comment choisir sa structure de répétition</h2>
+		<p><code>&quot;pour i de 1 à n&quot;</code> ou <code>&quot;tant que (...)&quot;</code> ? </p>
+		<ul>
+			<li class="fragment"><code>&quot;tant que (...) faire ...&quot;</code> si on répète un nombre indéterminé de fois la même chose</li>
+			<li class="fragment">Pas de nombre mais une <strong>condition</strong><br />&nbsp;</li>
+			<li class="fragment"><h4>Exemples :</h4></li>
+			<li class="fragment">Répéter ... <strong>tant que</strong> ...</li>
+			<li class="fragment">Recommencer ... <strong>jusqu'à</strong> ce que ...</li>
+			<li class="fragment">Demander à l'utilisateur d'entrer un nombre positif (<strong>Recommencez s</strong>'il ne l'est pas)</li> 
+		</ul>
+	</section>
+	<section>
+		<h2>Comment choisir sa structure de répétition</h2>
+		<p><code>&quot;tant que (..) faire ...&quot;</code> ou <br /> <code>&quot;faire ... tant que (...)&quot;</code> ? </p>
+		<ul>
+			<li class="fragment">Très très proche, choix moins important</li>
+			<li class="fragment"><code>faire ... tant que ...</code> éxecute les instructions au moins 1 fois</li>
+		</ul>
+<table class="fragment"><tbody><tr><td>
+<pre style="display:inline;"><code>Instruction;
+tant que (....)
+	Instruction
+fintantque
+</code></pre>
+</td><td>
+<pre style="display:inline;"><code>faire
+	Instruction
+tant que (....)
+</code></pre>
+</td>
+</tr></tbody></table>	
+	</section>
+	<section>
+		<h2>Comment choisir sa structure de répétition</h2>
+		<p><code>&quot;tant que (..) faire ...&quot;</code> ou <br /> <code>&quot;faire ... tant que (...)&quot;</code> ? </p>
+		<ul>
+			<li class="fragment"><code>&quot;faire ... tant que (...)&quot;</code> utile pour la saisie</li>
+		</ul>
+<pre class="fragment"><code>faire
+	Obtenir n
+tant que ( n< 0)
+</code></pre>
+	</section>	
+	<section>
+		<h2>Recherche de max</h2>
+		<p>Rechercher et afficher la plus grande valeur parmis <span class="fragment highlight-red" data-fragment-index="2">n</span> entiers saisis</p>
+		<p class="fragment" data-fragment-index="1">Quelle structure utiliser ici ?</p>
+		<p class="fragment" data-fragment-index="3">On utilise <code>&quot;pour i de 1 à n, faire&quot;</code></p>
+	</section>
+	<section>
+		<h2>Recherche de max</h2>
+<pre>
+<code>Début
+  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire
+    obtenir nombre_courant
+    si (nombre_courant > max)
+      max &lt;- nombre_courant
+    finsi
+  finpour
+  afficher max
+Fin
+</code></pre>
+	</section>	
+
+<!-- ######################################
+	Début simu
+###################################### -->
+	<section>
+		<h2>Simulation</h2>
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n    // <- avant le début
+  max &lt;- 0
+  pour i de 1 à n, faire
+    obtenir nombre_courant
+    si (nombre_courant > max)
+      max &lt;- nombre_courant
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant []    max []
+//              i []    n   []
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n    // <- instruction en cours
+  max &lt;- 0
+  pour i de 1 à n, faire
+    obtenir nombre_courant
+    si (nombre_courant > max)
+      max &lt;- nombre_courant
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant []    max []
+//              i []    n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n    
+  max &lt;- 0  // <- instruction en cours
+  pour i de 1 à n, faire
+    obtenir nombre_courant
+    si (nombre_courant > max)
+      max &lt;- nombre_courant
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant []    max [0]
+//              i []    n   [4]
+</code></pre>
+<!-- ############################ -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire // <- instruction en cours
+    obtenir nombre_courant
+    si (nombre_courant > max)
+      max &lt;- nombre_courant
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant []    max [0]
+//              i [1]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire
+    obtenir nombre_courant // <- instruction en cours
+    si (nombre_courant > max)
+      max &lt;- nombre_courant
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [3]   max [0]
+//              i [1]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire
+    obtenir nombre_courant 
+    si (nombre_courant > max) // <- instruction en cours
+      max &lt;- nombre_courant
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [3]   max [0]
+//              i [1]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire
+    obtenir nombre_courant 
+    si (nombre_courant > max) 
+      max &lt;- nombre_courant // <- instruction en cours
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [3]   max [3]
+//              i [1]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire // <- instruction en cours
+    obtenir nombre_courant 
+    si (nombre_courant > max) 
+      max &lt;- nombre_courant 
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [3]   max [3]
+//              i [2]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire 
+    obtenir nombre_courant // <- instruction en cours
+    si (nombre_courant > max) 
+      max &lt;- nombre_courant 
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [1]   max [3]
+//              i [2]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire 
+    obtenir nombre_courant
+    si (nombre_courant > max)  // <- instruction en cours
+      max &lt;- nombre_courant 
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [1]   max [3]
+//              i [2]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire // <- instruction en cours
+    obtenir nombre_courant 
+    si (nombre_courant > max) 
+      max &lt;- nombre_courant 
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [1]   max [3]
+//              i [3]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire 
+    obtenir nombre_courant // <- instruction en cours
+    si (nombre_courant > max) 
+      max &lt;- nombre_courant 
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [9]   max [3]
+//              i [3]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire 
+    obtenir nombre_courant
+    si (nombre_courant > max)  // <- instruction en cours
+      max &lt;- nombre_courant 
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [9]   max [3]
+//              i [3]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire 
+    obtenir nombre_courant
+    si (nombre_courant > max)  
+      max &lt;- nombre_courant // <- instruction en cours
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [9]   max [9]
+//              i [3]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire // <- instruction en cours
+    obtenir nombre_courant 
+    si (nombre_courant > max) 
+      max &lt;- nombre_courant 
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [9]   max [9]
+//              i [4]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire 
+    obtenir nombre_courant // <- instruction en cours
+    si (nombre_courant > max) 
+      max &lt;- nombre_courant 
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [6]   max [9]
+//              i [4]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire 
+    obtenir nombre_courant
+    si (nombre_courant > max)  // <- instruction en cours
+      max &lt;- nombre_courant 
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [6]   max [9]
+//              i [4]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire  // <- instruction en cours
+    obtenir nombre_courant
+    si (nombre_courant > max)  
+      max &lt;- nombre_courant
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [6]   max [9]
+//              i [4]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire  
+    obtenir nombre_courant
+    si (nombre_courant > max)  
+      max &lt;- nombre_courant
+    finsi
+  finpour
+  afficher max // <- instruction en cours
+
+// nombre_courant [6]   max [9]
+//              i [4]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire  
+    obtenir nombre_courant
+    si (nombre_courant > max)  
+      max &lt;- nombre_courant
+    finsi
+  finpour
+  afficher max // <- Fini
+
+// nombre_courant []   max []
+//              i []   n   []
+</code></pre>
+	</section>
+<!-- ######################################
+	Fin simu
+###################################### -->
+
+<!-- ######################################
+	Début simu 22222
+###################################### -->
+	<section>
+		<h2>2ème Simulation</h2>
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n    // <- avant le début
+  max &lt;- 0
+  pour i de 1 à n, faire
+    obtenir nombre_courant
+    max &lt;- nombre_courant
+  finpour
+  afficher max
+
+// nombre_courant []    max []
+//              i []    n   []
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n    // <- instruction en cours
+  max &lt;- 0
+  pour i de 1 à n, faire
+    obtenir nombre_courant
+    max &lt;- nombre_courant
+  finpour
+  afficher max
+
+// nombre_courant []    max []
+//              i []    n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n    
+  max &lt;- 0  // <- instruction en cours
+  pour i de 1 à n, faire
+    obtenir nombre_courant
+    max &lt;- nombre_courant
+  finpour
+  afficher max
+
+// nombre_courant []    max [0]
+//              i []    n   [4]
+</code></pre>
+<!-- ############################ -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire // <- instruction en cours
+    obtenir nombre_courant
+    max &lt;- nombre_courant
+  finpour
+  afficher max
+
+// nombre_courant []    max [0]
+//              i [1]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire
+    obtenir nombre_courant // <- instruction en cours
+    max &lt;- nombre_courant
+  finpour
+  afficher max
+
+// nombre_courant [3]   max [0]
+//              i [1]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire
+    obtenir nombre_courant 
+    max &lt;- nombre_courant // <- instruction en cours
+  finpour
+  afficher max
+
+// nombre_courant [3]   max [3]
+//              i [1]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire // <- instruction en cours
+    obtenir nombre_courant 
+    max &lt;- nombre_courant
+  finpour
+  afficher max
+
+// nombre_courant [3]   max [3]
+//              i [2]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire 
+    obtenir nombre_courant // <- instruction en cours
+    max &lt;- nombre_courant
+  finpour
+  afficher max
+
+// nombre_courant [1]   max [3]
+//              i [2]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire 
+    obtenir nombre_courant
+    max &lt;- nombre_courant // <- instruction en cours
+  finpour
+  afficher max
+
+// nombre_courant [1]   max [1]
+//              i [2]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire // <- instruction en cours
+    obtenir nombre_courant 
+    max &lt;- nombre_courant
+  finpour
+  afficher max
+
+// nombre_courant [1]   max [1]
+//              i [3]   n   [4]
+</code></pre>
+	</section>
+<!-- ######################################
+	FIN SIMU 22222222222
+###################################### -->
+	<section>
+		<h2>Recherche de max en C</h2>
+<pre style="font-size:0.44em;">
+<code>#include &lt;stdio.h>
+
+int main(void) {
+  int nombre_courant, max;
+  int i, n;
+
+  printf("Entrez n :");
+  scanf_s("%d", &n);
+  max = 0;
+  for (i=1 ; i&lt;=n ; i++) {
+    printf("Entrez un nouveau nombre :");
+    scanf_s("%d", &nombre_courant);
+    if (nombre_courant > max) {
+      max = nombre_courant;
+    }
+  }
+  printf("le max est : %d\n", max);
+  return 0;
+}
+</code></pre>
+	</section>
+	<section>
+		<h2>2ème recherche de max</h2>
+		<p>Rechercher et afficher la plus grande valeur parmis un nombre <span class="fragment highlight-red" data-fragment-index="2">indeterminé</span> d'entiers saisis.
+Un nombre négatif arrètera la saisie.</p>
+		<p class="fragment" data-fragment-index="1">Quelle structure utiliser ici ?</p>
+		<p class="fragment" data-fragment-index="3">On utilise <code>&quot;faire .... tant que ( ... )&quot;</code></p>
+	</section>
+	<section>
+		<h2>2ème recherche de max</h2>
+<pre style="font-size:0.49em;">
+<code>Début
+  Entier nombre_courant, max, nombre_saisies
+
+  max &lt;- 0
+  nombre_saisies &lt;- -1
+  faire
+    obtenir nombre_courant
+    nombre_saisies &lt;- nombre_saisies + 1
+    si (nombre_courant > max)
+      max &lt;- nombre_courant
+    finsi
+  tant que (nombre_courant &ge; 0)
+  si (nombre_saisies &gt; 0)
+    afficher max
+  sinon
+    affiche "aucun nombre saisis"
+  finsi
+Fin
+</code></pre>
+	</section>
+	<section>
+		<h2>2ème recherche de max en C</h2>
+<pre style="font-size:0.40em;">
+<code>#include &lt;stdio.h>
+
+int main(void) {
+  int nombre_courant, max, nombre_saisies;
+
+  max = 0;
+  nombre_saisies = -1;
+  do {
+    printf("Entrez un nouveau nombre :");
+    scanf_s("%d", &nombre_courant);
+    nombre_saisies++;
+    if (nombre_courant > max) {
+      max = nombre_courant;
+    }
+  } while (nombre_courant > 0) ;
+  if (nombre_saisies > 0) {
+    printf("le max est : %d\n", max);
+  } else {
+    printf("Aucun nombre saisis\n");
+  }
+  return 0;
+}
+</code></pre>
+	</section>
+	<section>
+		<h2>Calcul de moyenne</h2>
+		<p>Calculer la moyenne d'un nombre <span class="fragment highlight-red" data-fragment-index="2">indeterminé</span> de réels saisis. Un nombre négatif arrètera la saisie.</p>
+		<p class="fragment" data-fragment-index="1">Quelle structure utiliser ici ?</p>
+		<p class="fragment" data-fragment-index="3">On utilise <code>&quot;faire .... tant que ( ... )&quot;</code></p>
+	</section>
+	<section>
+		<h2>Calcul de moyenne</h2>
+<pre style="font-size:0.44em;">
+<code>Début
+  Réel nombre_courant, somme, moyenne
+  Entier nombre_essais
+
+  somme &lt;- 0
+  nombre_essais &lt;- 0
+  faire
+    obtenir nombre_courant
+    si (nombre_courant &ge; 0)
+      somme &lt;- somme + nombre_courant
+      nombre_essais &lt;- nombre_essais + 1
+    finsi
+  tant que (nombre_courant &ge; 0)
+  si (nombre_essais &gt; 0)
+    moyenne &lt; somme / nombre_essais
+    afficher moyenne
+  sinon
+    affiche "aucun nombre saisis"
+  finsi
+Fin
+</code></pre>
+	</section>
+	<section>
+		<h2>Calcul de moyenne</h2>
+<pre style="font-size:0.40em;">
+<code>#include &lt;stdio.h>
+
+int main(void) {
+  float nombre_courant, somme;
+  int nombre_saisies;
+
+  somme = 0;
+  nombre_saisies = 0;
+  do {
+    printf("Entrez un nouveau nombre :");
+    scanf_s("%f", &nombre_courant);
+    if (nombre_courant >= 0) {
+      somme = somme + nombre_courant;
+      nombre_saisies++;
+    }
+  } while (nombre_courant > 0) ;
+  if (nombre_saisies > 0) {
+    printf("la moyenne est : %.2f\n", somme / nombre_saisies);
+  } else {
+    printf("Aucun nombre saisis\n");
+  }
+  return 0;
+}
+</code></pre>
+	</section>
+	<section>
+		<h2>Table de multiplication</h2>
+		<p>Afficher sous la forme d'un tableau la table de multiplication de 1 à 10.</p>
+		<p class="fragment" data-fragment-index="0"><span class="fragment highlight-red" data-fragment-index="2">Pour chaque nombre entre 1 et 10</span>, afficher sur une ligne le produit de ce nombre pour <span class="fragment highlight-red" data-fragment-index="2">chaque nombre entre 1 à 10</span></p>
+		<p class="fragment" data-fragment-index="1">Quelle structure utiliser ici ?</p>
+		<p class="fragment" data-fragment-index="3">On utilise 2 structures <code>&quot;pour xxx de 1 à 10&quot;</code> imbriqués</p>
+	</section>
+	<section>
+		<h2>Table de multiplication</h2>
+<pre style="font-size:0.50em;">
+<code>#include &lt;stdio.h>
+
+int main(void) {
+  int nombre_ligne, nombre_colonne, produit;
+
+  for (nombre_ligne=1 ; nombre_ligne &lt;=10 ; nombre_ligne++) {
+    for (nombre_colonne=1 ; nombre_colonne &lt;=10 ; nombre_colonne++) {
+      produit = nombre_colonne * nombre_ligne;
+      printf("%d\t", produit);
+    }
+    printf("\n");
+  }
+  return 0;
+}
+</code></pre>
+	</section>
+	<section>
+		<h2>L'opérateur modulo : </h2>
+		<p><code>&quot;a % b&quot;</code> : Reste de la division euclidienne</p>
+		<p><code>9 % 4 = <span class="fragment">1</span></code></p>
+		<p class="fragment">C'est l'équivalent de ce qu'il y a après la virgule dans un division "exacte"</p>
+		<p class="fragment"><code>9&divide;4=2.25</code>. Le 0.25 correspond au modulo</p>
+		<p class="fragment">Si le modulo vaut 0, cela veut dire que la b divise a</p>
+	</section>
+	<section>
+		<h2>L'opérateur division : </h2>
+		<p><code>&quot;a / b&quot;</code> : Division euclidienne uniquement si a et b sont des int</p>
+		<p><code>&quot;a / b&quot;</code> : Division exacte si a et/ou b est un float</p>
+		<p class="fragment">Exemple : <code>9/4 = 2</code></p>
+		<p class="fragment">Exemple : <code>9.0/4 = 2.25</code></p>
+		<p class="fragment">Si a et b sont entier : <code>a/b</code> est le résultat de la division euclidienne, <code>a%b</code> est le reste</p>
+		<p class="fragment"><code>a = (a/b)*b + (a%b)</code></p>
+	</section>
+	<section>
+		<h2>Applications du modulo : </h2>
+		<p class="fragment"><code>&quot;a % b&quot;</code> : Savoir si b divise a</p>
+		<p class="fragment">Savoir à combien de minutes correspondent 442 secondes : </p>
+		<p class="fragment"><code>442 / 60 = 7</code></p>
+		<p class="fragment"><code>442 % 60 = 22</code></p>
+		<p class="fragment"><code>442 = 7*60 + 22</code></p>
+	</section>
+	<section>
+		<h2>Les tableaux</h2>
+		<p>Structure de controle permettant de stocker plusieurs données de même type</p>
+		<p class="fragment" data-fragment-index="1">En algorithme <code>&quot;Type nom[début..fin]&quot;</code></p>
+		<p class="fragment" data-fragment-index="1">Exemple <code>&quot;Entier mon_beau_tableau[1..10]&quot;</code></p>
+		<p class="fragment" data-fragment-index="2">Exemple <code>&quot;Réel mon_autre_tableau[-5..5]&quot;</code></p>
+	</section>
+	<section>
+		<h2>Précision sur les tableaux</h2>
+		<p><code>&quot;Entier mon_beau_tableau[1..10]&quot;</code></p>
+		<ul>
+		<li class="fragment">Un tableau doit être déclaré au début du programme</li>
+		<li class="fragment">Chaque élément d'un tableau est accessible par son <strong>indice</strong> : <code>&quot;mon_beau_tableau[3]&quot;</code> ou <code>&quot;mon_beau_tableau[indice]&quot;</code></li>
+		<li class="fragment">Chaque élément d'un tableau se comporte comme une variable indépendante</li>
+		<li class="fragment">La taille d'un tableau est fixée dans le programme et invariable</li>
+		<li class="fragment">Un tableau est particulièrement adapté aux boucles <code>pour i de 1 à n</code></li>
+		</ul>
+	</section>
+	<section>
+		<h2>Exemple sur les tableaux</h2>
+<p>On veut saisir 10 entiers, puis les réafficher <br /> <span class="fragment">Sans tableau, il faudrait 10 variables. Un tableau permet de stocker ces 10 variables avec une seule structure</span></p>
+
+<pre class="fragment"><code>Début
+  Entier tableau[1..10]
+  Entier i
+
+  pour i de 1 à 10, faire
+    obtenir tableau[i]
+  finpour
+  pour i de 1 à 10, faire
+    afficher tableau[i]
+  finpour
+Fin
+</pre></code>
+	</section>
+	<section>
+		<h2>Les tableaux en C</h2>
+		<p>Très proche de la syntaxe en algorithme</p>
+		<p class="fragment" data-fragment-index="1"><code>&quot;Type nom[taille]&quot;</code></p>
+		<p class="fragment" data-fragment-index="2">Exemple <code>&quot;int mon_beau_tableau[10]&quot;</code></p>
+		<p class="fragment" data-fragment-index="2">Exemple <code>&quot;float mon_autre_tableau[42]&quot;</code></p>
+		<p class="fragment" data-fragment-index="3">Les indices commencent toujours à 0</code></p>
+	</section>
+	<section>
+		<h2>Attention aux indices en C</h2>
+		<p>Exemple <code>&quot;int mon_beau_tableau[10]&quot;</code></p>
+		<p>Les indices commencent toujours à 0</p>
+		<ul>
+		<li class="fragment">L'indice de fin est donc toujours : <span class="fragment">taille-1 , ici 9</span></li>
+		<li class="fragment">L'intervalles est donc toujours <code>0 -> taille-1</code></li>
+		<li class="fragment">Pour le parcourir : <code>for (i=0 ; i<10 ; i++) {</code></li>
+		</ul>
+	</section>
+	<section>
+		<h2>Exemple en C</h2>
+<p>On veut saisir 10 entiers, puis les réafficher</p>
+
+<pre class="fragment"><code>#include &lt;stdio.h>
+int main(void) {
+  int tableau[10];
+  int i;
+
+  for (i=0 ; i<10 ; i++) {
+    scanf_s("%d", &tableau[i]);
+  }
+  for (i=0 ; i<10 ; i++) {
+    printf("%d", tableau[i]);
+  }
+  return 0;
+}
+</pre></code>
+	</section>
+</section>
 			</div>
 		</div>
 
