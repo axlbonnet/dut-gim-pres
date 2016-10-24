@@ -145,9 +145,9 @@
 			Debut
 			déclaration des variables
 
-			instruction;
-			instruction;
-			instruction;
+			instruction
+			instruction
+			instruction
 			Fin
 			```
 		</script>
@@ -163,9 +163,9 @@
 			- Texte
 
 			```
-			Entier age_du_capitaine, nombre_de_carottes;
-			Réel surface_du_cercle;
-			Texte nom_de_l_utilisateur;
+			Entier age_du_capitaine, nombre_de_carottes
+			Réel surface_du_cercle
+			Texte nom_de_l_utilisateur
 			```
 		</script>
 	</section>
@@ -179,9 +179,9 @@
 			- Structures de controle
 
 			```
-			nombre_de_carottes <- 4 + 5 ;
-			surface_du_cercle <- pi * rayon * rayon;
-			afficher nom_de_l_utilisateur;
+			nombre_de_carottes ⟵ 4 + 5
+			surface_du_cercle ⟵ pi * rayon * rayon
+			afficher nom_de_l_utilisateur 
 			```
 		</script>
 	</section>
@@ -191,7 +191,7 @@
 		<p>Votre score de puissance se calcule de la façon suivante :</p>
 		<ul>
 			<li>Obtenez le score de votre nom en additionant les longueurs de vos prénoms et de vos noms</li>
-			<li>Obtenez le score de votre anniversaire en additionant le jour, le mois et l'année de votre naissance</li>
+			<li>Obtenez le score de votre anniversaire en additionant le jour, le mois et l'année de votre jour de naissance</li>
 			<li>Multipliez ces deux scores pour obtenir votre score de base</li>
 			<li>Votre score final est le score de base modulo 37</li>
 		</ul>
@@ -201,8 +201,8 @@
 		<div class="fragment" data-markdown>
 		<script type="text/template">
 			```
-			Entier score_nom, score_anniversaire;
-			Entier score_final;
+			Entier score_nom, score_anniversaire
+			Entier score_final
 			```
 		</script>
 		</div>
@@ -210,7 +210,7 @@
 		<div class="fragment" data-markdown>
 		<script type="text/template">
 			```
-			score_nom <- 4 + 6;
+			score_nom ⟵ 4 + 6
 			```
 		</script>	
 		</div>
@@ -218,7 +218,7 @@
 		<div class="fragment" data-markdown>
 		<script type="text/template">
 			```
-			score_anniversaire <- 15 + 4 + 1997;
+			score_anniversaire ⟵ 15 + 4 + 1997
 			```
 		</script>	
 		</div>
@@ -226,8 +226,8 @@
 		<div class="fragment" data-markdown>
 		<script type="text/template">
 			```
-			score_final <- score_nom * score_anniversaire;
-			score_final <- score_final % 37;
+			score_final ⟵ score_nom * score_anniversaire
+			score_final ⟵ score_final % 37
 			```
 		</script>	
 		</div>
@@ -238,14 +238,14 @@
 
 			```
 			DEBUT
-			Entier score_nom, score_anniversaire;
-			Entier score_final;
+			Entier score_nom, score_anniversaire
+			Entier score_final
 
-			score_nom <- 4 + 6;
-			score_anniversaire <- 15 + 4 + 1997;
-			score_final <- score_nom * score_anniversaire;
-			score_final <- score_final % 37;
-			afficher score_final;
+			score_nom ⟵ 4 + 6
+			score_anniversaire ⟵ 15 + 4 + 1997
+			score_final ⟵ score_nom * score_anniversaire
+			score_final ⟵ score_final % 37
+			afficher score_final
 			FIN
 			```
 		</script>
@@ -344,7 +344,7 @@
 		<h2>Langage de programmation</h2>
 		<ul>
 			<li>Ils sont nécessaires pour produire rapidement des programmes</li>
-			<li class="fragment">Différents niveau de langages</li>
+			<li class="fragment">Différents niveaux de langages</li>
 			<li class="fragment">Assembleur, C, C++, Java, Python, Javascript...</li>
 		</ul>
 	</section>
@@ -358,14 +358,14 @@
 		<p>Qu'est-ce qu'un algorithme ?</p>
 		<ul>
 			<li>Une recette qui permet de résoudre un problème</li>
-			<li>Doit être clair, non-ambigüe</li> <!-- comparer aux quantité dans une recette, ou à un terme ambigüe -->
+			<li>Doit être clair, non-ambigü</li> <!-- comparer aux quantité dans une recette, ou à un terme ambigüe -->
 			<li>Peut être adapté en langage informatique</li>
 		</ul>
 	</section>
 	<section>
 		<h2>Exemples de problèmes</h2>
 		<ul>
-			<li class="fragment">Calcul d'aire, décimale de PI, etc</li>
+			<li class="fragment">Calcul d'aire, décimales de PI, etc</li>
 			<li class="fragment">Recherche d'itinéraire</li>
 			<li class="fragment">Envoyer un tweet</li>
 			<li class="fragment">Détection de visage</li>
@@ -385,9 +385,9 @@
 			Début
 			  déclaration des variables
 
-  			  instruction;
-			  instruction;
-			  instruction;
+  			  instruction
+			  instruction
+			  instruction
 			Fin
 			```
 		</script>
@@ -401,13 +401,11 @@
 			- Entier
 			- Réel
 			- Texte
-			
-			Se termine toujours par un point-virgule
 
 			```
-			Entier age_du_capitaine, nombre_de_carottes;
-			Réel surface_du_cercle;
-			Texte nom_de_l_utilisateur;
+			Entier age_du_capitaine, nombre_de_carottes
+			Réel surface_du_cercle
+			Texte nom_de_l_utilisateur
 			```
 		</script>
 	</section>
@@ -421,13 +419,11 @@
 			- Entrées/sorties
 			- Structures de controle
 
-			Se termine toujours par un point-virgule
-
 			```
-			nombre_de_carottes 🠈 4 + 5 ;
-			surface_du_cercle 🠈 pi * rayon * rayon;
-			afficher nom_de_l_utilisateur;
-			obtenir largeur;
+			nombre_de_carottes ⟵ 4 + 5
+			surface_du_cercle ⟵ pi * rayon * rayon
+			afficher nom_de_l_utilisateur
+			obtenir largeur
 			```
 		</script>
 	</section>
@@ -447,14 +443,14 @@
 
 			```
 			Début
-			  Entier score_nom, score_anniversaire;
-			  Entier score_final;
+			  Entier score_nom, score_anniversaire
+			  Entier score_final
 
-			  score_nom 🠈 4 + 6;
-			  score_anniversaire 🠈 15 + 4 + 1997;
-			  score_final 🠈 score_nom * score_anniversaire;
-			  score_final 🠈 score_final % 37;
-			  afficher score_final;
+			  score_nom ⟵ 4 + 6
+			  score_anniversaire ⟵ 15 + 4 + 1997
+			  score_final ⟵ score_nom * score_anniversaire
+			  score_final ⟵ score_final % 37
+			  afficher score_final
 			Fin
 			```
 		</script>
@@ -483,13 +479,13 @@ int main(void) {
 			Avec des valeurs fixes de 3,1 et 5.8.
 			```
 			Début
-			  Réel largeur, longueur;
-			  Réel surface;
+			  Réel largeur, longueur
+			  Réel surface
 
-			  largeur 🠈 3.1;
-			  longueur 🠈 5.8;
-			  surface 🠈 (largeur * longueur) / 2;
-			  afficher surface;
+			  largeur ⟵ 3.1
+			  longueur ⟵ 5.8
+			  surface ⟵ (largeur * longueur) / 2
+			  afficher surface
 			Fin
 			```
 		</script>
@@ -501,13 +497,13 @@ int main(void) {
 
 			```
 			Début
-			  Réel largeur, longueur;
-			  Réel surface;
+			  Réel largeur, longueur
+			  Réel surface
 
-			  obtenir largeur;
-			  obtenir longueur;
-			  surface 🠈 (largeur * longueur) / 2;
-			  afficher surface;
+			  obtenir largeur
+			  obtenir longueur
+			  surface ⟵ (largeur * longueur) / 2
+			  afficher surface
 			Fin
 			```
 		</script>
@@ -543,9 +539,9 @@ int main(void)
         float surface;
 
         printf("Entrez la longueur du triangle :");
-        scanf("%f", &longueur);
+        scanf_s("%f", &longueur);
         printf("Entrez la largeur du triangle :");
-        scanf("%f", &largeur);
+        scanf_s("%f", &largeur);
 
         surface = (longueur * largeur) / 2;
 
@@ -568,13 +564,13 @@ int main(void)
 	<section>
 		<h2>Les tests en algorithmique</h2>
 		<pre><code class="hljs" data-trim>
-instruction;
+instruction
 si (condition)
-	instruction;	
+	instruction
 	...
-	instruction;	
-finsi		
-instruction;
+	instruction
+finsi	
+instruction
 		</code></pre>
 		<ul><li>Attention au finsi !</li>
 		<li>Décalage fortement conseillé !</li>
@@ -590,32 +586,32 @@ instruction;
 	<section>
 		<h2>Les tests avec alternative</h2>
 		<pre><code class="hljs" data-trim>
-instruction;
+instruction
 si (condition)
-	instruction;	
+	instruction
 	...
-	instruction;
+	instruction
 sinon
-	instruction;	
+	instruction	
 	...
-	instruction;
+	instruction
 finsi
-instruction;
+instruction
 		</code></pre>
 	</section>
 	<section>
 		<h2>Exemples</h2>
 		<pre><code class="hljs" data-trim>
 Début
-	Entier age;
+	Entier age
 
-	obtenir age;
+	obtenir age
 	si (age ≥ 18)
-		afficher "Vous êtes majeur";
+		afficher "Vous êtes majeur"
 	sinon
-		afficher "Vous êtes mineur";
+		afficher "Vous êtes mineur"
 	finsi
-	afficher "Fin du programme";
+	afficher "Fin du programme"
 Fin
 		</code></pre>
 	</section>
@@ -623,12 +619,12 @@ Fin
 		<h2>Exemples</h2>
 		<pre><code class="hljs" data-trim>
 si (age ≠ 27)
-	afficher "Votre age n'est pas maudit";
+	afficher "Votre age n'est pas maudit"
 finsi
 
 
 si ((age < 0) ou (age > 117))
-	afficher "Vous êtes un menteur";
+	afficher "Vous êtes un menteur"
 finsi
 		</code></pre>
 	</section>
@@ -640,62 +636,62 @@ finsi
 		<div style="position:relative" >
 		<pre style="position:absolute; margin:auto;"><code class="hljs" data-trim>
 Début
-	Entier age;
-	obtenir age;				// age <-13
+	Entier age
+	obtenir age 				// age <-13
 	si (age ≥ 18)
-		afficher "Vous êtes majeur";
+		afficher "Vous êtes majeur"
 	sinon
-		afficher "Vous êtes mineur";
+		afficher "Vous êtes mineur" 
 	finsi
-	afficher "Fin du programme";
+	afficher "Fin du programme"
 Fin
 		</code></pre>
 		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
 Début
-	Entier age;
-	obtenir age;				// age <-13
+	Entier age 
+	obtenir age 				// age <-13
 	si (age ≥ 18)				// est faux
-		afficher "Vous êtes majeur";
+		afficher "Vous êtes majeur" 
 	sinon
-		afficher "Vous êtes mineur";
+		afficher "Vous êtes mineur" 
 	finsi
-	afficher "Fin du programme";
+	afficher "Fin du programme" 
 Fin
 		</code></pre>
 		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
 Début
-	Entier age;
-	obtenir age;				// age <-13
+	Entier age 
+	obtenir age 				// age <-13
 	si (age ≥ 18)				// est faux
-		afficher "Vous êtes majeur";	// pas exécuté
+		afficher "Vous êtes majeur" 	// pas exécuté
 	sinon
-		afficher "Vous êtes mineur";
+		afficher "Vous êtes mineur" 
 	finsi
-	afficher "Fin du programme";
+	afficher "Fin du programme" 
 Fin
 		</code></pre>
 		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
 Début
-	Entier age;
-	obtenir age;				// age <-13
+	Entier age 
+	obtenir age 				// age <-13
 	si (age ≥ 18)				// est faux
-		afficher "Vous êtes majeur";	// pas exécuté
+		afficher "Vous êtes majeur" 	// pas exécuté
 	sinon					// alternative est vrai
-		afficher "Vous êtes mineur";
+		afficher "Vous êtes mineur" 
 	finsi
-	afficher "Fin du programme";
+	afficher "Fin du programme" 
 Fin
 		</code></pre>
 		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
 Début
-	Entier age;
-	obtenir age;				// age <-13
+	Entier age 
+	obtenir age 				// age <-13
 	si (age ≥ 18)				// est faux
-		afficher "Vous êtes majeur";	// pas exécuté
+		afficher "Vous êtes majeur" 	// pas exécuté
 	sinon					// alternative est vrai
-		afficher "Vous êtes mineur";	// est exécuté
+		afficher "Vous êtes mineur" 	// est exécuté
 	finsi
-	afficher "Fin du programme";
+	afficher "Fin du programme" 
 Fin
 		</code></pre>
 
@@ -751,13 +747,13 @@ instruction;
 		<pre><code class="hljs" data-trim>
 int main(void) {
 	int age;
-	scanf("%d", &age);
+	scanf_s("%d", &age);
 	if (age >= 18) {
-		printf("Vous etes majeur");
+		printf("Vous etes majeur\n");
 	} else {
-		printf("Vous etes mineur");
+		printf("Vous etes mineur\n");
 	}
-	printf("Fin du programme");
+	printf("Fin du programme\n");
 	return 0;
 }
 		</code></pre>
@@ -766,12 +762,12 @@ int main(void) {
 		<h2>Exemples</h2>
 		<pre><code class="hljs" data-trim>
 if (age != 27) {
-	printf("Votre age n'est pas maudit");
+	printf("Votre age n'est pas maudit\n");
 }
 
 
 if ((age < 0) || (age > 117)) {
-	printf("Vous etes un menteur");
+	printf("Vous etes un menteur\n");
 }
 		</code></pre>
 	</section>
@@ -779,270 +775,6 @@ if ((age < 0) || (age > 117)) {
 		<h2>TP2-3 et TP2-4</h2>
 		<p>Cf feuille de TP</p>
 		<p>Regarder la feuille d'aide pour Visual Studio</p>
-	</section>
-
-	<!-- Debut cours sur les boucles -->
-
-	<section>
-		<h2>Les boucles en algorithmique</h2>
-		<pre><code class="hljs">
-instruction;
-pour compteur de expr_debut à expr_fin (par pas de expr_pas), faire
-	instruction;	
-	...
-	instruction;	
-finpour		
-instruction;
-		</code></pre>
-		<ul><li>Attention au finpour !</li>
-		<li>Décalage fortement conseillé !</li>
-		<li>compteur doit être une variable de type entier</li></ul>
-	</section>
-	<section>
-		<h2>Exemple</h2>
-		<pre><code class="hljs">
-Début
-	Entier i, fin;
-
-	obtenir fin;
-	pour i de 1 à fin (par pas de 2), faire
-		afficher i;
-	finpour
-	afficher "Suite du programme, avec toutes les valeurs";
-	pour i de 1 à fin, faire
-		afficher i;
-	finpour
-	afficher "Fin du programme";
-Fin
-		</code></pre>
-		<p>la section "(par pas de expr_as)" est optionnelle quand le pas est de 1</p>
-	</section>
-	<section>
-		<h2>Les boucles avec conditions</h2>
-		<pre><code class="hljs">
-instruction;
-tant que (condition)
-	instruction;	
-	...
-	instruction;	
-fintantque	
-instruction;
-		</code></pre>
-		<ul><li>Attention au fintantque !</li>
-		<li>Décalage fortement conseillé !</li>
-		<li>Condition construite exactement comme dans un test</li></ul>
-	</section>
-	<section>
-		<h2>Exemple</h2>
-		<pre><code class="hljs">
-Début
-	Entier n;
-
-	n 🠈 0;
-	tant que ( (n * n) < 100)
-		n  🠈  n + 1;
-	fintantque
-	afficher "le résultat est :";
-	afficher n
-Fin
-		</code></pre>
-	</section>
-<!-- DEBUT WHILE -->
-
-	<section>
-		<h2>Fonctionnement</h2>
-		<div style="position:relative" >
-		<pre style="position:absolute; margin:auto;"><code class="hljs" data-trim>
-n 🠈 0;			  // n initialisé à 0
-tant que ( (n * n) < 100)  	
-	n  🠈  n + 1;
-fintantque
-		</code></pre>
-		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
-n 🠈 0;				
-tant que ( (n * n) < 100) // n=0; n*n = 0 < 100 est vrai
-	n  🠈  n + 1;
-fintantque
-		</code></pre>
-		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
-n 🠈 0;				
-tant que ( (n * n) < 100)  	
-	n  🠈  n + 1;	  // exécuté. n 🠈1 On refait la boucle
-fintantque
-		</code></pre>
-		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
-n 🠈 0;				
-tant que ( (n * n) < 100) // n=1; n*n = 1 < 100 est vrai
-	n  🠈  n + 1;
-fintantque
-		</code></pre>
-		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
-n 🠈 0;				
-tant que ( (n * n) < 100)  	
-	n  🠈  n + 1;	  // exécuté. n 🠈2 On refait la boucle
-fintantque
-		</code></pre>
-		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
-n 🠈 0;				
-tant que ( (n * n) < 100) // n=2; n*n = 4 < 100 est vrai
-	n  🠈  n + 1;
-fintantque
-		</code></pre>
-		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
-n 🠈 0;				
-tant que ( (n * n) < 100)  	
-	n  🠈  n + 1;	  // exécuté. n 🠈3 On refait la boucle
-fintantque
-		</code></pre>
-		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
-n 🠈 0;				
-tant que ( (n * n) < 100) // etc
-	n  🠈  n + 1;
-fintantque
-		</code></pre>
-		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
-n 🠈 0;				
-tant que ( (n * n) < 100)  	
-	n  🠈  n + 1;	  // exécuté. n 🠈9 On refait la boucle
-fintantque
-		</code></pre>
-		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
-n 🠈 0;				
-tant que ( (n * n) < 100) // n=9; n*n = 81 < 100 est vrai
-	n  🠈  n + 1;
-fintantque
-		</code></pre>
-		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
-n 🠈 0;				
-tant que ( (n * n) < 100)  	
-	n  🠈  n + 1;	  // exécuté. n 🠈10 On refait la boucle
-fintantque
-		</code></pre>
-		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
-n 🠈 0;				
-tant que ( (n * n) < 100) // n=10; n*n = 100 < 100 est faux
-	n  🠈  n + 1;
-fintantque
-		</code></pre>
-		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
-n 🠈 0;				
-tant que ( (n * n) < 100)  	
-	n  🠈  n + 1;	  // non exécuté.
-fintantque
-		</code></pre>
-		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
-n 🠈 0;				
-tant que ( (n * n) < 100)  	
-	n  🠈  n + 1;	  
-fintantque		  // on sort de la boucle. n vaut 10
-		</code></pre>
-	</section>
-<!-- FIN Demo While -->
-	<section>
-		<h2>Les boucles avec conditions : 2eme forme</h2>
-		<pre><code class="hljs">
-instruction;
-faire
-	instruction;	
-	...
-	instruction;	
-tant que (condition)	
-instruction;
-		</code></pre>
-		<ul>
-		<li>Décalage fortement conseillé !</li>
-		<li>Condition construite exactement comme dans un test</li>
-		</ul>
-	</section>
-	<section>
-		<h2>Exemple</h2>
-		<pre><code class="hljs">
-Début
-	Entier n;
-
-	faire
-		obtenir n;
-	tant que ( (n % 7 ≠ 0) || (n < 100) ) 
-	afficher "le résultat est :";
-	afficher n
-Fin
-		</code></pre>
-	</section>
-	<section>
-		<h2>TP2-5 et TP2-6 et TP2-7</h2>
-		<p>Cf feuille de TP</p>
-	</section>
-	<section>
-		<h2>Les boucles for en C</h2>
-		<pre><code class="hljs" data-trim>
-for (instruction_init ; condition_fin ; instruction_boucle) {
-	instructions;
-	...		
-	instructions;
-}
-		</code></pre>
-		<p>
-		<pre><code class="hljs" data-trim>
-for (compteur=expr_deb ; compteur&lt;expr_fin ; compteur=compteur+pas) {
-	instructions;
-	...		
-	instructions;
-}
-		</code></pre>
-	</section>
-	<section>
-		<h2>Exemple</h2>
-		<pre><code class="hljs" data-trim>
-int i, fin;
-scanf("%d", &fin);
-for (i=1 ; i&lt;fin ; i=i+2) {
-	printf("%d ", i);		
-}
-for (i=1 ; i&lt;fin ; i=i+1) {
-	printf("%d ", i);		
-}
-		</code></pre>
-	</section>
-	<section>
-		<h2>Les boucles while en C</h2>
-		<pre><code class="hljs" data-trim>
-while (condition) {
-	instructions;
-	...		
-	instructions;
-}
-		</code></pre>
-	</section>
-	<section>
-		<h2>Exemple</h2>
-		<pre><code class="hljs" data-trim>
-int n;
-n = 0;
-while ( (n * n) < 100) {
-	n = n + 1;
-} 
-printf("resultat : %d", n);
-		</code></pre>
-	</section>
-	<section>
-		<h2>Les boucles do...while en C</h2>
-		<pre><code class="hljs" data-trim>
-do {
-	instructions;
-	...		
-	instructions;
-} while(condition)
-		</code></pre>
-	</section>
-	<section>
-		<h2>Exemple</h2>
-		<pre><code class="hljs" data-trim>
-int n;
-do {
-	scanf("%d", &n);
-} while ( (n % 7 != 0) || (n < 100) )
-printf("resultat : %d", n);
-		</code></pre>
 	</section>
 </section>
 
