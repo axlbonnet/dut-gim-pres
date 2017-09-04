@@ -1,0 +1,2682 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="plugin/title-footer/title-footer.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section>
+	<section>
+		<h1>DUT GIM</h1>
+		<br />
+		<h2>Programmation</h2>
+		<h2>TP1</h2>
+		<br />
+		<h2>Axel Bonnet</h2>
+		<h3>professor.bonnet@gmail.com</h3>
+	</section>
+	<section>
+		<h1>Formation</h1>
+		<br />
+		<ul>
+			<li>32 heures</li>
+			<li>Pas cours semaine prochaine</li>
+		</ul>
+	</section>
+	<section>
+		<h1>Fonctionnement</h1>
+		<br />
+		<ul>
+			<li>TP</li>
+			<li>Interactif</li>
+			<li>Prise de note</li>
+		</ul>
+	</section>
+	<section>
+		<h1>Plan</h1>
+		<ul>
+			<li>Introduction à la programmation</li>
+			<li>TP : mon premier programme C</li>
+			<li>Les algorithmes</li>
+			<li>TP : problème simple de calcul</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Programmation</h2>
+		<ul>
+			<li>Avez vous déjà programmé ?</li>
+			<li class="fragment">Connaissez vous des exemples de programmes ?</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Les programmes</h2>
+		<ul>
+			<li>Il y a des programmes partout !</li>
+			<li class="fragment">Word, Minecraft, Chrome, Facebook, Snapchat</li>
+			<li class="fragment">Four, ascenseur, voiture...</li>
+			<li class="fragment">CB, souris, objets connectés...</li>
+			<li class="fragment">Réseaux (internet), serveurs... </li>
+		</ul>
+	</section>
+	<section>
+		<h2>Software / Hardware</h2>
+		<ul>
+			<li>Un programme est virtuel (Software)</li>
+			<li>Opposé au matériel physique (Hardware)</li>
+			<li class="fragment">Ils sont complémentaires</li>
+		</ul>		
+		<img class="fragment" style="background: rgba(255,255,255,0.85)" data-src="img/software_hardware.png" />
+	</section>
+	<section>
+		<h2>Hardware</h2>
+		<ul>
+			<li>Exemples de composants ?</li>
+			<li class="fragment">Processeur, RAM, disque dur, carte graphique, carte mère</li>
+			<li class="fragment">Processeur et RAM indispensables</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Fontionnement minimaliste</h2>
+		<div style="position:relative; width:805px; height:427px; margin:0 auto;">
+		  <img class="fragment fade-out" data-fragment-index="0" src="img/calcul_min_1.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" data-fragment-index="0" src="img/calcul_min_2.jpg" style="position:absolute;top:0;left:0;" />
+		</div>
+	</section>
+	<section>
+		<h2>L'assembleur</h2>
+		<ul>
+			<li>Le programme doit donner ses instructions au CPU</li>
+			<li class="fragment">Le CPU ne comprend qu'un langage très basique : l'assembleur</li>
+			<li class="fragment">C'est un langage binaire (0/1), impossible à écrire manuellement</li>
+			<li class="fragment">Des langages de programmation ont été créés (beaucoup)</li>
+		</ul>
+	</section>
+	<section>
+		<h2>La compilation</h2>
+		<p>Converti un programme en assembleur</p>
+		<img style="background: rgba(255,255,255,0.85)" data-src="img/compilation.jpg" />
+	</section>
+	<section>
+		<h2>TP 1 : mon premier programme C</h2>
+		<ul>
+			<li>Hello world</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Suite du TP Hello world</h2>
+		<ul>
+			<li>Analyse des fichiers</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Algorithme</h2>
+		<ul>
+			<li>Pseudo-langage pour résoudre un problème</li>
+			<li>Pas de norme, doit être expressif</li>
+			<li>Très proche d'un langage de programmation</li>
+			<li>Apprentissage en parallèle</li>
+		</ul>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Structure d'un algorithme
+
+			```
+			Debut
+			déclaration des variables
+
+			instruction
+			instruction
+			instruction
+			Fin
+			```
+		</script>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Les variables
+
+			Données stockées en mémoire.
+			Plusieurs types :
+			- Entier
+			- Réel
+			- Texte
+
+			```
+			Entier age_du_capitaine, nombre_de_carottes
+			Réel surface_du_cercle
+			Texte nom_de_l_utilisateur
+			```
+		</script>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Les instructions
+
+			- Manipulation des variables
+			- Opérations mathématiques/logiques
+			- Entrées/sorties
+			- Structures de controle
+
+			```
+			nombre_de_carottes ⟵ 4 + 5
+			surface_du_cercle ⟵ pi * rayon * rayon
+			afficher nom_de_l_utilisateur 
+			```
+		</script>
+	</section>
+	<section>
+		<h2>Un problème simple</h2>
+		<h3>Calcul d'un score de puissance</h3>
+		<p>Votre score de puissance se calcule de la façon suivante :</p>
+		<ul>
+			<li>Obtenez le score de votre nom en additionant les longueurs de vos prénoms et de vos noms</li>
+			<li>Obtenez le score de votre anniversaire en additionant le jour, le mois et l'année de votre jour de naissance</li>
+			<li>Multipliez ces deux scores pour obtenir votre score de base</li>
+			<li>Votre score final est le score de base modulo 37</li>
+		</ul>
+	</section>
+	<section>
+		<p>Les variables</p>
+		<div class="fragment" data-markdown>
+		<script type="text/template">
+			```
+			Entier score_nom, score_anniversaire
+			Entier score_final
+			```
+		</script>
+		</div>
+		<p class="fragment">Score du nom</p>
+		<div class="fragment" data-markdown>
+		<script type="text/template">
+			```
+			score_nom ⟵ 4 + 6
+			```
+		</script>	
+		</div>
+		<p class="fragment">Score anniversaire</p>
+		<div class="fragment" data-markdown>
+		<script type="text/template">
+			```
+			score_anniversaire ⟵ 15 + 4 + 1997
+			```
+		</script>	
+		</div>
+		<p class="fragment">Score final</p>
+		<div class="fragment" data-markdown>
+		<script type="text/template">
+			```
+			score_final ⟵ score_nom * score_anniversaire
+			score_final ⟵ score_final % 37
+			```
+		</script>	
+		</div>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## L'algorithme entier
+
+			```
+			DEBUT
+			Entier score_nom, score_anniversaire
+			Entier score_final
+
+			score_nom ⟵ 4 + 6
+			score_anniversaire ⟵ 15 + 4 + 1997
+			score_final ⟵ score_nom * score_anniversaire
+			score_final ⟵ score_final % 37
+			afficher score_final
+			FIN
+			```
+		</script>
+	</section>
+	<section>
+		<h2>TP 2 : Application en C</h2>
+		<ul>
+			<li>Déclaration de variables en C</li>
+			<li>Affectation et calculs</li>
+		</ul>
+	</section>
+	<section>
+		<h2>TP 3 : Calcul de la surface d'un triangle</h2>
+		
+		<img class="fragment" style="background: rgba(255,255,255,0.85)" data-src="img/surface_triangle.png" />
+	</section>
+	<section>
+		<h2>TP 4 : Calcul du volume d'un cylindre creux</h2>
+		
+		<p class="fragment">A = π/4 x h (D² – d²)</p>
+		<img style="background: rgba(255,255,255,0.85)" data-src="img/volume-cylindre-creux.png" />
+	</section>
+	<section>
+		<h2>Description du langage C</h2>
+		<p>programme minimal</p>
+		<div data-markdown>
+		<script type="text/c">
+			```
+			#include <stdio.h>
+
+			int main() {
+				# commentaire. Ceci n'est pas compile ni execute
+				return 0;
+			}
+			```
+		</script>	
+		</div>
+	</section>
+	<section>
+		<h2>Les types de données en C</h2>
+		<p>le stockage : bit(0/1), l'octet = 8 bit(1-256)</p>
+		<img style="background: rgba(255,255,255,0.85)" height="400px" data-src="img/types_donnees_c.jpg" />
+	</section>
+</section>
+
+<!--
+	#################################################
+	TP2
+-->
+<section>
+	<section>
+		<h1>Programmation</h1>
+		<br />
+		<h2>TP2</h2>
+		<br />
+		<h2>Axel Bonnet</h2>
+		<h3>professor.bonnet@gmail.com</h3>
+	</section>
+	<section>
+		<h1>Plan</h1>
+		<ul>
+			<li>Rappel exhaustif de la 1ere séance</li>
+			<li>Nouveauté en algorithmique : les tests</li>
+			<li>TP algorithmique</li>
+			<li>Les tests en C</li>
+			<li>TP en C</li>
+			<li>Suite en fonction du temps</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Rappel du TP1</h2>
+		<ul>
+			<li>De quoi vous rappelez vous ?</li>
+			<li>Seriez vous capable de refaire les programmes en C ?</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Fontionnement minimaliste</h2>
+		<div style="position:relative; width:805px; height:427px; margin:0 auto;">
+		  <img class="fragment fade-out" data-fragment-index="0" src="img/calcul_min_1.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" data-fragment-index="0" src="img/calcul_min_2.jpg" style="position:absolute;top:0;left:0;" />
+		</div>
+	</section>
+	<section>
+		<h2>Lien avec un programme</h2>
+		<div style="position:relative; width:700px; height:500px; margin:0 auto;">
+		  <img class="fragment fade-in" src="img/calcul_v2_1.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" src="img/calcul_v2_2.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" src="img/calcul_v2_3.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" src="img/calcul_v2_4.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" src="img/calcul_v2_5.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" src="img/calcul_v2_6.jpg" style="position:absolute;top:0;left:0;" />
+		</div>
+	</section>
+	<section>
+		<h2>Langage de programmation</h2>
+		<ul>
+			<li>Ils sont nécessaires pour produire rapidement des programmes</li>
+			<li class="fragment">Différents niveaux de langages</li>
+			<li class="fragment">Assembleur, C, C++, Java, Python, Javascript...</li>
+		</ul>
+	</section>
+	<section>
+		<h2>La compilation</h2>
+		<p>Converti le langage de programmation en code machime</p>
+		<img style="background: rgba(255,255,255,0.85)" data-src="img/compilation.jpg" />
+	</section>
+	<section>
+		<h2>Algorithmique</h2>
+		<p>Qu'est-ce qu'un algorithme ?</p>
+		<ul>
+			<li>Une recette qui permet de résoudre un problème</li>
+			<li>Doit être clair, non-ambigü</li> <!-- comparer aux quantité dans une recette, ou à un terme ambigüe -->
+			<li>Peut être adapté en langage informatique</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Exemples de problèmes</h2>
+		<ul>
+			<li class="fragment">Calcul d'aire, décimales de PI, etc</li>
+			<li class="fragment">Recherche d'itinéraire</li>
+			<li class="fragment">Envoyer un tweet</li>
+			<li class="fragment">Détection de visage</li>
+	</section>
+	<section>
+		<h2>Langage d'algorithmique</h2>
+		<ul>
+			<li>Non standard</li>
+			<li>Définition classique</li>
+		</ul>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Structure d'un algorithme
+
+			```
+			Début
+			  déclaration des variables
+
+  			  instruction
+			  instruction
+			  instruction
+			Fin
+			```
+		</script>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Les variables
+
+			Données stockées en mémoire.
+			Plusieurs types :
+			- Entier
+			- Réel
+			- Texte
+
+			```
+			Entier age_du_capitaine, nombre_de_carottes
+			Réel surface_du_cercle
+			Texte nom_de_l_utilisateur
+			```
+		</script>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Les instructions
+
+			- Manipulation des variables
+			- Opérations mathématiques (+ - * / %)
+			- Opérations logiques
+			- Entrées/sorties
+			- Structures de controle
+
+			```
+			nombre_de_carottes ⟵ 4 + 5
+			surface_du_cercle ⟵ pi * rayon * rayon
+			afficher nom_de_l_utilisateur
+			obtenir largeur
+			```
+		</script>
+	</section>
+	<section>
+		<h2>Un problème simple</h2>
+		<h3>Calcul d'un score</h3>
+		<ul>
+			<li>Obtenez le score de votre nom en additionant les longueurs de vos prénoms et de vos noms</li>
+			<li>Obtenez le score de votre anniversaire en additionant le jour, le mois et l'année de votre naissance</li>
+			<li>Multipliez ces deux scores pour obtenir votre score de base</li>
+			<li>Votre score final est le score de base modulo 37</li>
+		</ul>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Algorithme calcul de score
+
+			```
+			Début
+			  Entier score_nom, score_anniversaire
+			  Entier score_final
+
+			  score_nom ⟵ 4 + 6
+			  score_anniversaire ⟵ 15 + 4 + 1997
+			  score_final ⟵ score_nom * score_anniversaire
+			  score_final ⟵ score_final % 37
+			  afficher score_final
+			Fin
+			```
+		</script>
+	</section>
+	<section>
+		<h2>Code C calcul de score</h2>
+		<pre><code class="hljs" data-trim>
+#include &lt;stdio.h&gt;
+
+int main(void) {
+        int scoreNom, scoreAnniversaire;
+        int scoreFinal;
+
+        scoreNom = 4 + 6;
+        scoreAnniversaire = 15 + 4 + 1997;
+        scoreFinal = scoreNom * scoreAnniversaire;
+        scoreFinal = scoreFinal % 37;
+        printf("Ton score : %d \n", scoreFinal);
+        return 0;
+}
+		</code></pre>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Algorithme calcul de l'aire d'un triangle
+			Avec des valeurs fixes de 3,1 et 5.8.
+			```
+			Début
+			  Réel largeur, longueur
+			  Réel surface
+
+			  largeur ⟵ 3.1
+			  longueur ⟵ 5.8
+			  surface ⟵ (largeur * longueur) / 2
+			  afficher surface
+			Fin
+			```
+		</script>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Algorithme calcul de l'aire d'un triangle
+			Avec des valeurs saisies par l'utilisateur
+
+			```
+			Début
+			  Réel largeur, longueur
+			  Réel surface
+
+			  obtenir largeur
+			  obtenir longueur
+			  surface ⟵ (largeur * longueur) / 2
+			  afficher surface
+			Fin
+			```
+		</script>
+	</section>
+	<section>
+		<h2>Code C calcul de l'aire d'un triangle (valeurs fixes)</h2>
+		<pre><code class="hljs" data-trim>
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+        float longueur, largeur;
+        float surface;
+
+        longueur = 3.1;
+        largeur = 5.8;
+
+        surface = (longueur * largeur) / 2;
+
+        printf("surface %f \n", surface);
+        return 0;
+}
+		</code></pre>
+	</section>
+	<section>
+		<h2>Code C calcul de l'aire d'un triangle (valeurs saisies)</h2>
+		<pre><code class="hljs" data-trim>
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+        float longueur, largeur;
+        float surface;
+
+        printf("Entrez la longueur du triangle :");
+        scanf_s("%f", &longueur);
+        printf("Entrez la largeur du triangle :");
+        scanf_s("%f", &largeur);
+
+        surface = (longueur * largeur) / 2;
+
+        printf("surface %f \n", surface);
+        return 0;
+}
+
+		</code></pre>
+	</section>
+	<section>
+		<h2>Rappel complet langage C</h2>
+		<ul>
+			<li>cf fiche</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Précision sur printf</h2>
+		<img src="img/printf.jpg">
+	</section>
+	<section>
+		<h2>Les tests en algorithmique</h2>
+		<pre><code class="hljs" data-trim>
+instruction
+si (condition)
+	instruction
+	...
+	instruction
+finsi	
+instruction
+		</code></pre>
+		<ul><li>Attention au finsi !</li>
+		<li>Décalage fortement conseillé !</li>
+		<li>Comment créer un condition ?</li></ul>
+	</section>
+	<section>
+		<h2>Les conditions</h2>
+		<p>Expression qui ne peut avoir que deux valeurs (aka Booléen)&nbsp;:</p>
+		<ul><li>Vrai</li><li>Faux</li></ul>
+		<p class="fragment">Construite avec des opérateurs relationels : > < ≤ ≥ = ≠</p>
+		<p class="fragment">Ou en combinant des conditions : non / ou / et</p>
+	</section>
+	<section>
+		<h2>Les tests avec alternative</h2>
+		<pre><code class="hljs" data-trim>
+instruction
+si (condition)
+	instruction
+	...
+	instruction
+sinon
+	instruction	
+	...
+	instruction
+finsi
+instruction
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemples</h2>
+		<pre><code class="hljs" data-trim>
+Début
+	Entier age
+
+	obtenir age
+	si (age ≥ 18)
+		afficher "Vous êtes majeur"
+	sinon
+		afficher "Vous êtes mineur"
+	finsi
+	afficher "Fin du programme"
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemples</h2>
+		<pre><code class="hljs" data-trim>
+si (age ≠ 27)
+	afficher "Votre age n'est pas maudit"
+finsi
+
+
+si ((age < 0) ou (age > 117))
+	afficher "Vous êtes un menteur"
+finsi
+		</code></pre>
+	</section>
+
+<!-- DEBUT Demo Si -->
+
+	<section>
+		<h2>Fonctionnement</h2>
+		<div style="position:relative" >
+		<pre style="position:absolute; margin:auto;"><code class="hljs" data-trim>
+Début
+	Entier age
+	obtenir age 				// age <-13
+	si (age ≥ 18)
+		afficher "Vous êtes majeur"
+	sinon
+		afficher "Vous êtes mineur" 
+	finsi
+	afficher "Fin du programme"
+Fin
+		</code></pre>
+		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
+Début
+	Entier age 
+	obtenir age 				// age <-13
+	si (age ≥ 18)				// est faux
+		afficher "Vous êtes majeur" 
+	sinon
+		afficher "Vous êtes mineur" 
+	finsi
+	afficher "Fin du programme" 
+Fin
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+Début
+	Entier age 
+	obtenir age 				// age <-13
+	si (age ≥ 18)				// est faux
+		afficher "Vous êtes majeur" 	// pas exécuté
+	sinon
+		afficher "Vous êtes mineur" 
+	finsi
+	afficher "Fin du programme" 
+Fin
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+Début
+	Entier age 
+	obtenir age 				// age <-13
+	si (age ≥ 18)				// est faux
+		afficher "Vous êtes majeur" 	// pas exécuté
+	sinon					// alternative est vrai
+		afficher "Vous êtes mineur" 
+	finsi
+	afficher "Fin du programme" 
+Fin
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+Début
+	Entier age 
+	obtenir age 				// age <-13
+	si (age ≥ 18)				// est faux
+		afficher "Vous êtes majeur" 	// pas exécuté
+	sinon					// alternative est vrai
+		afficher "Vous êtes mineur" 	// est exécuté
+	finsi
+	afficher "Fin du programme" 
+Fin
+		</code></pre>
+
+<!-- FIN Demo Si -->
+
+		</div>
+	</section>
+	<section>
+		<h2>TP2-1 et TP2-2</h2>
+		<p>Cf feuille de TP</p>
+	</section>
+	<section>
+		<h2>Les tests en C</h2>
+		<pre><code class="hljs" data-trim>
+instruction;
+if (condition) {
+	instruction;	
+	...
+	instruction;			
+}
+instruction;
+		</code></pre>
+		<ul><li>Attention au accolades !</li>
+	</section>
+	<section>
+		<h2>Les conditions</h2>
+		<p>Opérateurs relationels : </p>
+		<ul>
+			<li class="fragment">> &nbsp; < &nbsp; <= &nbsp; >=</li>
+			<li class="fragment">== &nbsp; !=</li>
+		</ul>
+		<p class="fragment">Ne pas confondre l'affectation et l'égalité</p>
+		<p class="fragment">Opérateurs logiques : &nbsp;&nbsp;&nbsp; ! &nbsp; && &nbsp; ||</p>
+	</section>
+	<section>
+		<h2>Les tests avec alternative en C</h2>
+		<pre><code class="hljs" data-trim>
+instruction;
+if (condition) {
+	instruction;	
+	...
+	instruction;			
+} else {
+	instruction;	
+	...
+	instruction;
+}
+instruction;
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemples</h2>
+		<pre><code class="hljs" data-trim>
+int main(void) {
+	int age;
+	scanf_s("%d", &age);
+	if (age >= 18) {
+		printf("Vous etes majeur\n");
+	} else {
+		printf("Vous etes mineur\n");
+	}
+	printf("Fin du programme\n");
+	return 0;
+}
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemples</h2>
+		<pre><code class="hljs" data-trim>
+if (age != 27) {
+	printf("Votre age n'est pas maudit\n");
+}
+
+
+if ((age < 0) || (age > 117)) {
+	printf("Vous etes un menteur\n");
+}
+		</code></pre>
+	</section>
+	<section>
+		<h2>TP2-3 et TP2-4</h2>
+		<p>Cf feuille de TP</p>
+		<p>Regarder la feuille d'aide pour Visual Studio</p>
+	</section>
+</section>
+
+<!--
+	#################################################
+	TP3
+-->
+
+<section>
+	<section>
+		<h1>Programmation</h1>
+		<br />
+		<h2>TP3</h2>
+		<br />
+		<h2>Axel Bonnet</h2>
+		<h3>professor.bonnet@gmail.com</h3>
+	</section>
+	<section>
+		<h2>Rappel TP précédent</h2>
+		<ul>
+			<li>Qu'y avait-il de nouveau la dernière fois ?</li>
+			<li class="fragment">Les tests</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Bilan TP précédent</h2>
+		<ul>
+			<li>On suit les consignes !</li>
+			<li>Trop de perte de temps</li>
+			<li class="fragment">Création d'un projet Visual Studio comme écrit</li>
+			<li class="fragment">Lancement d'un projet Visual Studio comme écrit</li>
+			<li class="fragment">Un nouveau projet Visual Studio par exercice</li>
+			<li class="fragment">On utilise scanf_s</li>
+		</ul>
+	</section>
+	<section>
+		<h3>Algorithmique vs C</h3>
+		<table>
+			<tbody>
+				<tr><td>
+<pre><code style="display:inline-block;" class="hljs">
+Début
+
+  Entier var1
+  Réel var2
+
+  obtenir var1
+    
+  var1 ⟵ (var1 + 4) / 2
+  si (var1 = 4)
+    afficher "coucou"
+  sinon
+    afficher var1
+  finsi
+Fin
+
+</code></pre>
+				</td>
+				<td>
+<pre><code style="display:inline-block;" class="hljs">#include &lt;stdio.h&gt;	
+
+int main(void) {
+  int var1;
+  float var2;
+
+  printf("Entrez var1 :");
+  scanf_s("%d", &var1);
+  var1 = (var1 + 4) / 2;
+  if (var1 == 4) {
+    printf("coucou");
+  } else {
+    printf("variable1 : %d", var1);
+  }
+  return 0;
+}</code></pre>
+				</td></tr>
+			</tbody>
+		</table>
+	</section>
+	<section > 
+		<h3>Algorithmique vs C - round 2</h3>
+		<table>
+			<tbody>
+				<tr><td>
+<pre><code style="display:inline-block;" class="hljs" >
+Début
+
+  Réel y
+
+  obtenir y
+    
+  y ⟵ (y * 2.4) / 9.1
+  si ( (4 &lt; y) et (y &lt; 8.1 ) )
+    afficher "coucou"
+  finsi
+  si ( (y &lt; 0) ou (7 ≠ 7) )
+    afficher y
+  finsi
+Fin
+
+</code></pre>
+				</td>
+				<td>
+<pre><code style="display:inline-block;" class="hljs">#include &lt;stdio.h&gt;	
+
+int main(void) {
+  float y;
+
+  printf("Saississez la longueur :");
+  scanf_s("%f", &y);
+  y = (y * 2.4) / 9.1;
+  if ( (4 &lt; y) && (y &lt; 8.1 ) ) {
+    printf("coucou");
+  } 
+  if ( (y &lt; 0) || (7 != 7) ) {
+    printf("La solution est : %f", y);
+  }
+  return 0;
+}</code></pre>
+				</td></tr>
+			</tbody>
+		</table>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+## Correction TP2-4
+Déterminer si l'utilisateur est du signe astrologique balance.
+A vos clavier. Reprenez votre projet ou créez-en un nouveau en suivant les consignes.
+```
+Début
+    Entier jour, mois
+
+    obtenir jour
+    obtenir mois
+
+    si ( (mois = 9 et jour > 22) ou (mois = 10 et jour < 23) )
+       afficher "Vous etes balance"
+    finsi
+Fin
+```
+		</script>
+	</section>
+
+	<!-- Debut cours sur les boucles -->
+
+	<section>
+		<h2>Les boucles en algorithmique</h2>
+		<pre><code style="display:inline-block;" class="hljs" data-trim>
+pour compteur de expr_debut à expr_fin (par pas de expr_pas), faire
+	instruction
+	...
+	instruction
+finpour		
+		</code></pre>
+		<ul><li>Attention au finpour !</li>
+		<li>Décalage fortement conseillé !</li>
+		<li>compteur doit être une variable de type entier</li></ul>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+		<pre><code class="hljs" data-trim>
+Début
+	Entier i, fin
+
+	obtenir fin
+	pour i de 1 à fin (par pas de 2), faire
+		afficher i
+	finpour
+	afficher "Suite du programme, avec toutes les valeurs"
+	pour i de 1 à fin, faire
+		afficher i
+	finpour
+	afficher "Fin du programme"
+Fin
+		</code></pre>
+		<p>la section "(par pas de expr_as)" est optionnelle quand le pas est de 1</p>
+	</section>
+	<section>
+		<h2>Les boucles avec conditions</h2>
+		<pre><code class="hljs" data-trim>
+
+tant que (condition)
+	instruction
+	...
+	instruction
+fintantque	
+		</code></pre>
+		<ul><li>Attention au fintantque !</li>
+		<li>Décalage fortement conseillé !</li>
+		<li>Condition construite exactement comme dans un test</li></ul>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+		<pre><code class="hljs">
+Début
+	Entier n
+
+	n ⟵ 0
+	tant que ( (n * n) < 100)
+		n  ⟵  n + 1
+	fintantque
+	afficher "le résultat est :"
+	afficher n
+Fin
+		</code></pre>
+		<p>Attention aux boucles sans fin</p>
+	</section>
+<!-- DEBUT exemple WHILE -->
+
+	<section>
+		<h2>Fonctionnement</h2>
+		<div style="position:relative" >
+		<pre style="position:absolute; margin:auto;"><code class="hljs" data-trim>
+n ⟵ 0			  // n initialisé à 0
+tant que ( (n * n) < 100)  	
+	n  ⟵  n + 1
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100) // n=0; n*n = 0 < 100 est vrai
+	n  ⟵  n + 1
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100)  	
+	n  ⟵  n + 1	  // exécuté. n ⟵ 1 On refait la boucle
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100) // n=1; n*n = 1 < 100 est vrai
+	n  ⟵  n + 1
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100)  	
+	n  ⟵  n + 1	  // exécuté. n ⟵ 2 On refait la boucle
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100) // n=2; n*n = 4 < 100 est vrai
+	n  ⟵  n + 1
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100)  	
+	n  ⟵  n + 1	  // exécuté. n ⟵ 3 On refait la boucle
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100) // etc
+	n  ⟵  n + 1
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100)  	
+	n  ⟵  n + 1	  // exécuté. n ⟵ 9 On refait la boucle
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100) // n=9; n*n = 81 < 100 est vrai
+	n  ⟵  n + 1
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100)  	
+	n  ⟵  n + 1	  // exécuté. n ⟵ 10 On refait la boucle
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100) // n=10; n*n = 100 < 100 est faux
+	n  ⟵  n + 1
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100)  	
+	n  ⟵  n + 1	  // non exécuté.
+fintantque
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+n ⟵ 0				
+tant que ( (n * n) < 100)  	
+	n  ⟵  n + 1	  
+fintantque		  // on sort de la boucle. n vaut 10
+		</code></pre>
+	</section>
+<!-- FIN Demo While -->
+	<section>
+		<h2>Les boucles avec conditions : 2eme forme</h2>
+		<pre><code class="hljs" data-trim>
+
+faire
+	instruction	
+	...
+	instruction	
+tant que (condition)	
+
+		</code></pre>
+		<ul>
+		<li>Décalage fortement conseillé !</li>
+		<li>Condition construite exactement comme dans un test</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+		<pre><code class="hljs">
+Début
+	Entier n
+
+	faire
+		obtenir n
+	tant que ( (n % 7) ≠ 0 ) 
+	afficher "le résultat est :"
+	afficher n
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h2>TP3-1 et TP3-2 et TP3-3</h2>
+		<ul>
+		<li>Cf feuille de TP</li>
+		<li><strong>En algorithmique, pas de C</strong></li>
+		<li><strong>Pas de PC</strong></li>
+		</ul>
+		<table>
+			<tbody>
+				<tr><td>
+<pre><code style="display:inline-block;" class="hljs" data-trim>
+pour i de 1 a n, faire 
+  INSTRUCTIONS 
+finpour 
+</code></pre>
+				</td>
+				<td>
+<pre><code style="display:inline-block;" class="hljs"data-trim>
+tant que (CONDITION)
+  INSTRUCTIONS
+fintantque 
+</code></pre>
+				</td><td>
+<pre><code style="display:inline-block;" class="hljs"data-trim>
+faire
+  INSTRUCTIONS
+tant que (CONDITION) 
+</code></pre>
+				</td></tr>
+			</tbody>
+		</table>
+	</section>
+	<section>
+		<h2>Les boucles for en C</h2>
+		<pre><code class="hljs" style="display:inline-block;"  data-trim>
+for (instruction_init ; condition_fin ; instruction_boucle) {
+	instruction;
+	...		
+	instruction;
+}
+		</code></pre>
+		<p>
+		<pre><code class="hljs" style="display:inline-block;"  data-trim>
+for (compteur=expr_deb ; compteur&lt;=expr_fin ; compteur=compteur+pas) {
+	instruction;
+	...		
+	instruction;
+}
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+<table>
+			<tbody>
+				<tr><td>
+<pre><code class="hljs" style="display:inline-block;" data-trim>
+Début
+  Entier i, fin
+
+  obtenir fin
+  pour i de 1 à fin (par pas de 2), faire
+    afficher i
+  finpour
+  pour i de 1 à fin, faire
+    afficher i
+  finpour
+
+Fin
+		</code></pre>
+				</td>
+				<td>
+<pre><code class="hljs" style="display:inline-block;" data-trim>
+int main(void) {
+  int i, fin;
+
+  scanf_s("%d", &fin);
+  for (i=1 ; i&lt;=fin ; i=i+2) {
+    printf("%d ", i);
+  }
+  for (i=1 ; i&lt;=fin ; i=i+1) {
+    printf("%d ", i);
+  }
+  return 0;
+}
+		</code></pre>
+				</td></tr>
+			</tbody>
+		</table>
+		<p>Créez un nouveau projet "test" et testez ce code (Rajoutez la première ligne "#include [...]")</p>
+	</section>
+	<section>
+		<h2>Les boucles while en C</h2>
+		<pre><code class="hljs" data-trim>
+while (condition) {
+	instruction;
+	...		
+	instruction;
+}
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+<table>
+			<tbody>
+				<tr><td>
+<pre><code class="hljs" style="display:inline-block;" data-trim>
+Début
+  Entier n
+
+  n ⟵ 0
+  tant que ( (n * n) < 100)
+    n  ⟵  n + 1
+  fintantque
+  afficher "le résultat est :"
+  afficher n
+Fin
+&nbsp;
+</code></pre>
+				</td>
+				<td>
+<pre><code class="hljs" style="display:inline-block;" data-trim>
+int main(void) {
+  int n;
+  
+  n = 0;
+  while ( (n * n) < 100) {
+    n = n + 1;
+  } 
+  printf("resultat : %d", n);
+  
+  return 0;
+}
+		</code></pre>
+				</td></tr>
+			</tbody>
+		</table>
+		<p>Modifiez votre projet "test" et testez ce code (Rajoutez la première ligne "#include [...]")</p>
+	</section>
+	<section>
+		<h2>Les boucles do...while en C</h2>
+		<pre><code class="hljs" data-trim>
+do {
+	instruction;
+	...		
+	instruction;
+} while(condition);
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+<table>
+			<tbody>
+				<tr><td>
+<pre><code class="hljs" style="display:inline-block;" data-trim>
+Début
+  Entier n
+
+  faire
+    obtenir n
+  tant que ( (n % 7) ≠ 0 ) 
+  afficher "le résultat est :"
+  afficher n
+Fin
+&nbsp;
+</code></pre>
+				</td>
+				<td>
+<pre><code class="hljs" style="display:inline-block;" data-trim>
+int main(void) {
+  int n;
+
+  do {
+    scanf_s("%d", &n);
+  } while ( (n % 7 ) != 0 );
+  printf("resultat : %d", n);
+  
+  return 0;
+}
+		</code></pre>
+				</td></tr>
+			</tbody>
+		</table>
+		<p>Modifiez votre projet "test" et testez ce code (Rajoutez la première ligne "#include [...]")</p>
+	</section>
+	<section>
+		<h2>TP3-4 et TP3-5 et TP3-6</h2>
+		<ul>
+		<li><strong>Suivez les consignes Visual Studio</strong></li>
+		</ul>
+		<table>
+			<tbody>
+				<tr><td>
+<pre><code style="display:inline-block;" class="hljs" data-trim>
+int i;
+for (i=0 ; i<100; i=i+1) {
+  INSTRUCTIONS 
+}
+</code></pre>
+				</td>
+				<td>
+<pre><code style="display:inline-block;" class="hljs"data-trim>
+while (CONDITION) {
+  INSTRUCTIONS
+}
+&nbsp;
+</code></pre>
+				</td><td>
+<pre><code style="display:inline-block;" class="hljs"data-trim>
+do {
+  INSTRUCTIONS
+} while (CONDITION); 
+&nbsp;
+</code></pre>
+				</td></tr>
+			</tbody>
+		</table>
+	</section>
+	<section>
+		<h3>Exercices supplémentaires</h3>
+		<p>Vous pouvez le droit d'imbriquer des tests et des boucles !</p>
+		<pre><code class="hljs" data-trim>
+Début
+  Entier i
+
+  pour i de 1 à 100, faire
+    si ( (i % 7) = 0 ) alors
+      afficher i "est mutiple de 7"
+    finsi
+  finpour
+Fin
+</code></pre>
+	</section>
+	<section>
+		<h3>Imbrication en C</h3>
+		<pre><code class="hljs" data-trim>
+int main(void) {
+  int i;
+
+  for (i=1 ; i&lt;=100 ; i=i+1) {
+    if ( (i % 7) == 0 ) {
+      printf("%d est mutiple de 7", i);
+    }
+  }
+  return 0;
+}
+</code></pre>
+	<p>Vous pouvez imbriquer les "for", "if" "while", "do .. while" tant que voulez.</p>
+	<p>Les décalages (indentations) deviennent important pour les identifier</p>
+	</section>
+	<section>
+		<h3>TP3-7</h3>
+		<ul>
+		<li>Ecrire un algorithme puis un programme C pour savoir si un nombre est premier</li>
+		<li>Vous créerez un nouveau projet "TP3_7" sur Visual Studio</li>
+		<li>Un nombre est premier s'il est divisible uniquement par 1 et par lui-même</li>
+		<li>Vous pouvez éventuellement utiliser la méthode "sqrt" avec "#include&nbsp;&lt;math.io&gt;"</li>
+		</ul>
+	</section>
+	<section>
+		<h3>TP3-8</h3>
+		<ul>
+		<li>Ecrire un programme C pour afficher la table de multiplication de 1 à 10</li>
+		<li>Vous pouvez utiliser le tabulation "\t" dans printf pour aligner des colonnes</li>
+		</ul>
+	</section>
+</section>
+
+<!-- ##################################################
+		TP4
+###################################################-->
+<section>
+<section>
+		<h1>Programmation</h1>
+		<br />
+		<h2>TP4</h2>
+		<br />
+		<h2>Axel Bonnet</h2>
+		<h3>professor.bonnet@gmail.com</h3>
+	</section>
+	<section>
+		<h2>Les données</h2>
+		<div style="position:relative; width:700px; height:500px; margin:0 auto;">
+		  <img class="fragment fade-in" src="img/calcul_v2_1.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" src="img/calcul_v2_2.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" src="img/calcul_v2_3.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" src="img/calcul_v2_4.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" src="img/calcul_v2_5.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" src="img/calcul_v2_6.jpg" style="position:absolute;top:0;left:0;" />
+		</div>
+	</section>
+	<section>
+		<h2>Représentation des données</h2>
+		<ul>
+			<li>la RAM est constitué de bits (binary digit) (des 10aines de millards)</li>
+			<li>Un bit contient 0 ou 1</li>
+			<li class="fragment" data-fragment-index="2">2 bits permettent de stocker 4 valeurs différentes 00 01 10 11</li>
+			<li class="fragment" data-fragment-index="4">3 bits -> 8 valeurs</li>
+			<li class="fragment" data-fragment-index="6">4 ? 5 ? 6 ? 7 ?</li>
+			<li class="fragment" data-fragment-index="10">8 bits <span class="fragment current-visible" data-fragment-index="10">?</span><span class="fragment"> -> 256 valeurs</span></li>
+		</ul>
+	</section>
+	<section>
+		<h2>Représentation des données : l'octet</h2>
+		<ul>
+			<li>Sur 8 bits, peut prendre 256 valeurs différentes</li>
+			<li>Plus petit élément de stockage</li>
+			<li class="fragment">Comment représenter l'information ?</li>
+			<li class="fragment">On stocke les nombre en base 2</li>
+			<li class="fragment">Rappel base 10 : 2016 = 2*1000 + 0*100 + 1*10 + 6*1</li>
+			<li class="fragment">75 = 1*64 + 0*32 + 0*16 + 1*8 + 1*4 + 0*2 + 1*1 </li>
+			<li class="fragment">75 = 1001101 = 01001101 </li>
+			<li class="fragment">2016 = 1024 + 512 + 256 + 128 + 64 + 32</li>
+			<li class="fragment">2016 = 11111100000</li>		
+		</ul>
+	</section>
+	<section>
+		<h2>Représentation des données : en C</h2>
+		<ul>
+			<li>Pour dépasser 255, plusieurs octets sont nécessaires</li>
+			<li>Les <code>int</code> sont stockés sur 4 octets (dans 99,9% des cas)</li>	
+			<li class="fragment">2016 = 00000000 00000000 00000111 11100000</li>		
+			<li class="fragment">4 octets -> 2<sup>32</sup> valeurs = 4 294 967 296</li>
+			<li class="fragment">les valeurs négatives ?</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Les types décimaux en C</h2>
+		<table>
+			<thead>
+				<tr><th>nom</th><th>taille</th><th>Valeurs<tr>
+			</thead>
+			<tbody>
+				<tr><td>int</td><td>4</td><td>-2 147 483 648 à 2 147 483 647</td<td>
+				<tr><td>unsigned int</td><td>4</td><td>0 à 4 294 967 295</td<td>
+				<tr><td>short</td><td>2</td><td>-32 768 à 32 767</td<td>
+				<tr><td>unsigned short</td><td>2</td><td>0 à 65 535</td<td>
+				<tr><td>long long</td><td>8</td><td>−/+ 9223372036854775807</td<td>
+			<tbody>
+		</table>
+		<ul>
+		<li>Taille en octets</li>
+		<li>Pas exact dans 100% des cas</li>
+		<li>le type <code>int</code> nous suffira tout le temps</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Représentation des données : les caractères</h2>
+		<ul>
+			<li>Un caractère est codé sur 1 octet (256 valeurs)</li>
+			<li class="fragment">ASCII : code qui attribue à chaque valeur un caractère</li>	
+			<li class="fragment">Exemple : 109 = 1101101 -> 'm'</li>		
+			<li class="fragment">Très limité, pas d'accents</li>
+			<li class="fragment">En c, le type <code>char</code> est en fait un entier sur 1 octet</li>
+			<li class="fragment"><code>char c = 'm'</code></li>
+			<li class="fragment">Chaine de caractère : suite de <code>char</code>s</li>
+			<li class="fragment">"coucou" <-> '99'-'111'-'117'-'99'-'111'-'117'</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Représentation des données : les réels</h2>
+		<ul>
+			<li>Plus complexe, on va décrire une méthode qui s'en rapproche</li>
+			<li>En C un <code>float</code> sur 4 octets permet de stocker de </li>
+			<li>0,0000000000000000000000000000000000000175494351</li>
+			<li>à 340282347000000000000000000000000000000</li>
+			<li class="fragment">Décomposition en notation scientifique</li>
+			<li class="fragment">1.175494351 * 10<sup>-38</sup> et 3.40282347 * 10<sup>38</sup></li>	
+			<li class="fragment">signe sur 1 bit, mantisse sur 23 bits, exposant sur 8 bits</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Les réels en C</h2>
+		<ul>
+			<li><code>float</code> sur 4 octet : 10<sup>-38</sup> et 10<sup>38</sup></li>
+			<li><code>double</code> sur 8 octets : 10<sup>-308</sup> et 10<sup>308</sup></li>
+			<li><code>long double</code> sur 10 octets : 10<sup>-4932</sup> et 10<sup>4932</sup></li>
+			<li>On utilisera que des float</li>
+			<li><strong>Pas d'égalité avec des float !</strong></li>
+		</ul>
+	</section>
+	<section>
+		<h2>Conclusion</h2>
+		<ul>
+			<li>Les données sont stockées dans la RAM dans des octets de 8 bits pouvant représenter 256 valeurs</li>
+			<li class="fragment">Plusieurs formats (types) pour coder l'information</li>
+			<li class="fragment">Il faut déclarer les variables dans un type précis</li>
+			<li class="fragment">on utilisera uniquement des <code>int</code> et des <code>float</code> (peut-être des <code>char</code>)</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Processus de création d'un programme</h2>
+		<img src="img/processus_creation_programme.jpg" />
+	</section>
+	<section>
+		<h2>Mise au point de l'algorithme</h2>
+		<ul>
+			<li>Ecrire la solution détaillée du problème dans un langage simple</li>
+			<li>On travaille dans ce cours sur des problèmes simples</li>
+			<li>2 exemples</li>
+		</ul>
+	</section>
+	<section>
+		<h2>TP3-3</h2>
+		<p>Calculer et afficher la surface d'un nombre inconnu de triangles</p>
+		<p class="fragment"><strong>On formule la solution en Français</strong></p>
+		<p class="fragment">L'utilisateur saisie la longueur et la largeur d'un triangle. On calcule et on affiche la surface du triangle en multipliant la longueur et la largeur et en divisant le tout par 2. On recommence tant que l'utilisateur saisie une longueur et une largeur positives (dans le cas contraire on s'arrète).</p>
+	</section>
+	<section>
+		<p><strong>On répère les données du problème</strong></p>
+		<p>L'utilisateur saisie la <span class="fragment highlight-red" data-fragment-index="1">longueur</span> et la <span class="fragment highlight-blue" data-fragment-index="2">largeur</span> d'un triangle. On calcule et on affiche la <span class="fragment highlight-green">surface</span> du triangle en multipliant la <span class="fragment highlight-red" data-fragment-index="1">longueur</span> et la <span class="fragment highlight-blue" data-fragment-index="2">largeur</span> et en divisant le tout par 2. On recommence tant que l'utilisateur saisie une <span class="fragment highlight-red" data-fragment-index="1">longueur</span> et une <span class="fragment highlight-blue" data-fragment-index="2">largeur</span> positives (dans le cas contraire on s'arrète).</p>
+		<p class="fragment"><strong>De quel type sont-ils ? <span class="fragment">ici des rééls</span></strong></p>
+	<pre class="fragment" style="font-size:0.7em;"><code>Début
+	Réel longueur, largeur, surface
+
+	[instructions à écrire]
+Fin</code></pre>
+	</section>
+	<section>
+		<p><strong>On écrit les traitements sur les données avec les instructions d'algorithmique</strong></p>
+		<table>
+			<tbody>
+			<tr>
+				<td class="fragment">L'utilisateur saisie la longueur et la largeur d'un triangle</td>
+				<td class="fragment"><code style="font-size:0.8em;">Obtenir&nbsp;longueur<br />Obtenir&nbsp;largeur</code></td>
+			</tr>
+			<tr>
+				<td class="fragment">On calcule et on affiche la surface du triangle en multipliant la longueur et la largeur et en divisant le tout par 2</td>
+				<td class="fragment">
+				<code style="font-size:0.8em;">surface&nbsp;⟵&nbsp;largeur*longueur/2<br />
+					afficher&nbsp;surface
+				</code></td>
+			</tr>
+			</tbody>
+		</table>
+	</section>
+	<section>
+		<h2>Suite et fin des instructions</h2>
+				<p>On recommence tant que l'utilisateur saisie une longueur et une largeur positives (auquel cas on s'arrète).</p>
+				<pre class="fragment" style="font-size:0.7em;">
+<code>faire
+  [instructions précédentes]
+tant que (longueur&ge;0 et largeur&ge;0)
+</code></pre>
+	</section>
+	<section>
+		<h2>On met tout ensemble</h2>
+		<p>L'utilisateur saisie la longueur et la largeur d'un triangle. On calcule et on affiche la surface du triangle en multipliant la longueur et la largeur et en divisant le tout par 2. On recommence tant que l'utilisateur saisie une longueur et une largeur positives (dans le cas contraire on s'arrète).</p>
+		<pre class="fragment" style="font-size:0.7em;">
+<code>faire
+  obtenir longueur
+  obtenir largeur
+  surface ⟵ largeur * longueur / 2
+  afficher surface
+tant que (longueur&ge;0 et largeur&ge;0)
+</code></pre>
+		<p class="fragment">TOP ! Enfin presque</p>
+	</section>
+	<section>
+		<h2>Version complète</h2>
+		<pre class="fragment" style="font-size:0.7em;">
+<code>Début
+  Réel largeur, longueur, surface
+
+  faire
+    obtenir longeur
+    obtenir largeur
+    si (longueur&ge;0 et largeur&ge;0)
+      surface ⟵ largeur * longueur / 2
+      afficher surface    
+    finsi
+  tant que (longueur&ge;0 et largeur&ge;0)
+Fin
+</code></pre>
+	</section>
+	<section>
+		<h2>Et en C ?</h2>
+		<p>Très très proche (cf fiche)</p>
+<pre class="fragment" style="font-size:0.5em;">
+<code>#include &lt;stdio.h>
+
+int main(void) {
+  float largeur, longueur, surface;
+
+  do {
+    printf("Entrez la longueur :");
+    scanf_s("%f", &longueur);
+    printf("Entrez la largeur :");
+    scanf_s("%f", &largeur); 
+    if (longueur&gt;=0 && largeur&gt;=0) {
+      surface = largeur * longueur / 2;
+      printf("la surface est : %f\n", surface);
+    }
+  } while (longueur&gt;=0 && largeur&gt;=0);
+  return 0;
+}
+</code></pre>
+	</section>
+	<section>
+		<h2>2ème exemple</h2>
+		<p>Déterminer si un nombre saisi est premier</p>
+		<p class="fragment"><strong>Réponse détaillée en Français : </strong></p>
+		<p class="fragment">L'utilisateur saisie un nombre. Ce nombre est premier s'il est divisible uniquement par 1 et par lui même. On affiche s'il est premier ou pas.</p>
+		<p class="fragment">Comment savoir si un nombre est divisible uniquement par 1 et par lui même ?</p>
+		<p class="fragment">On va rechercher tous les diviseurs de ce nombre</p>
+	</section>
+	<section>
+		<h2>2ème exemple : Suite</h2>
+		<p>Pour savoir si un nombre est premier on va rechercher tous ses diviseurs</p>
+		<p class="fragment">On peut regarder <span class="fragment highlight-red">tous les nombres un par un</span> et regarder s'ils divisent le <span class="fragment highlight-green">nombre saisi</span>. On compte ainsi <span class="fragment highlight-blue">le nombre de diviseurs</span></p>
+		<pre class="fragment" style="font-size:0.6em;"><code>Début
+  Entier nombre_saisi, compteur, nombre_de_diviseurs
+   
+  obtenir nombre_saisi
+  [à écrire]
+		
+Fin
+</code></pre>
+	</section>
+	<section>
+		<h2>Conversion en algorithme</h2>
+		<p>On regarde tous les nombres un par un</p>
+		<pre class="fragment" style="font-size:0.7em;">
+<code>pour compteur de xxx à yyy, faire
+    [instructions à faire pour chaque nombre]
+finpour
+</code></pre>
+	<p class="fragment">Quelles bornes ?</p>
+		<pre class="fragment" style="font-size:0.7em;">
+<code>pour compteur de 1 à nombre_saisi, faire
+    [instructions à faire pour chaque nombre]
+finpour
+</code></pre>
+	</section>	
+	<section>
+		<h2>Conversion en algorithme</h2>
+		<p>On regarde si chaque nombre divise le nombre saisi. Si c'est le cas on augmente le nombre de diviseurs</p>
+		<pre class="fragment" style="font-size:0.7em;">
+<code>si (nombre_saisi % compteur = 0)
+    nombre_de_diviseurs ⟵ nombre_de_diviseurs + 1
+finsi
+</code></pre>
+	</section>
+	<section>
+		<h2>On met (presque) tout ensemble</h2>
+		<pre style="font-size:0.5em;">
+<code>Début
+  Entier nombre_saisi, compteur, nombre_de_diviseurs
+   
+  obtenir nombre_saisi
+  nombre_de_diviseurs ⟵ 0
+  pour compteur de 1 à nombre_saisi, faire
+    si (nombre_saisi % compteur = 0)
+      nombre_de_diviseurs ⟵ nombre_de_diviseurs + 1
+    finsi
+  finpour
+Fin
+</code></pre>
+	</section>
+	<section>
+	<h2>On affiche le résultat</h2>
+	<p>Un nombre est premier s'il a 2 diviseurs</p>
+<pre class="fragment" style="font-size:0.6em;">
+<code>si (nombre_de_diviseurs = 2)
+   afficher nombre_saisi "est entier"
+sinon
+   afficher nombre_saisi "n'est pas entier"
+finsi
+</code></pre>
+	</section>
+	<section>
+		<h2>Version finale</h2>
+		<pre style="font-size:0.5em;">
+<code>Début
+  Entier nombre_saisi, compteur, nombre_de_diviseurs
+   
+  obtenir nombre_saisi
+  nombre_de_diviseurs ⟵ 0
+  pour compteur de 1 à nombre_saisi, faire
+    si (nombre_saisi % compteur = 0)
+      nombre_de_diviseurs ⟵ nombre_de_diviseurs + 1
+    finsi
+  finpour
+  si (nombre_de_diviseurs = 2)
+    afficher nombre_saisi "est entier"
+  sinon
+    afficher nombre_saisi "n'est pas entier"
+  finsi
+Fin
+</code></pre>
+	</section>
+	<section>
+		<h4>En C</h4>
+		<pre style="font-size:0.47em;">
+<code>#include &lt;stdio.h> 
+int main(void) {
+  int nombre_saisi, compteur, nombre_de_diviseurs;
+   
+  printf("Entrez un nombre :");
+  scanf_s("%d", &nombre_saisi);
+  nombre_de_diviseurs = 0;
+  for (compteur=1 ; compteur<=nombre_saisi ; compteur++) {
+    if (nombre_saisi % compteur == 0) {
+      nombre_de_diviseurs = nombre_de_diviseurs + 1;
+    }
+  }
+  if (nombre_de_diviseurs == 2) {
+    printf("%d est entier\n", nombre_saisi);
+  } else {
+    printf("%d n'est pas entier\n", nombre_saisi);
+  }
+  return 0;
+}
+</code></pre>
+	</section>
+	<section>
+		<h2>Elaboration de l'algorithme</h2>
+		<p>On détaille en Français, et on essaye de l'écrire avec le langage défini</p>
+		<p>On vérifie :</p>
+		<ul>
+			<li>Seuls les instructions existantes sont présentes</li>
+			<li>Toute variable doit être déclarée</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Ecriture de programme C</h2>
+		<p>On adapte (cf fiche) et seule la syntaxe doit poser problème</p>
+		<p>Si ce n'est pas possible, l'algorithme est certainement problématique</p>
+		<p class="fragment">Attention aux</p>
+		<ul>
+			<li class="fragment current-visible">point-virgules</li>
+			<li class="fragment current-visible"><code>&</code> toujours dans <code>scanf_s</code>, jamais dans <code>printf</code></li>
+			<li class="fragment current-visible"><code>%d</code> pour les <code>int</code>, <code>%f</code> pour les float ( dans <code>scanf_s</code> et <code>printf</code> )</li>
+			<li class="fragment current-visible"><code>=</code> et <code>==</code></li>
+			<li class="fragment current-visible">Pour les réels : <code>&quot3.2&quot;</code> et pas <code>&quot3,2&quot;</code></li>
+		</ul>
+	</section>
+	<section>
+		<h2>Petites nouveautés</h2>
+		<ul>
+			<li class="fragment current-visible" data-fragment-index="1"><code>&quot;compteur++&quot;</code> fait la même chose que  <code>&quot;compteur&nbsp;=&nbsp;compteur&nbsp;+&nbsp;1&quot;</code></li>
+			<li class="fragment current-visible" data-fragment-index="1">pratique dans <code>&quot;for (i=1 ; i&lt;=100 ; i++) {&quot;</code></li>			
+			<li class="fragment current-visible"><code>&quot;printf("%.3f", variable);&quot;</code> permet de choisir le nombre de chiffres après la virgule</li>
+		</ul>
+	</section>
+	<section>
+		<h2>TP</h2>
+	</section>
+</section>
+<!-- ##################################################
+		TP5
+###################################################-->
+<section>
+
+	<section>
+		<h1>Programmation</h1>
+		<br />
+		<h2>TP5</h2>
+		<br />
+		<h2>Axel Bonnet</h2>
+		<h3>professor.bonnet@gmail.com</h3>
+	</section>
+	<section>
+		<h2>Rappel semaine précédente</h2>
+		<ul>
+			<li class="fragment">Recherche de max sur un nombre déterminé de données</li>
+			<li class="fragment">Recherche de max sur un nombre indéterminé de données</li>
+			<li class="fragment">Calcul de moyenne</li>
+			<li class="fragment">Affichage d'une table de multiplication</li>			
+		</ul>
+	</section>
+	<section>
+		<h2>Comment choisir sa structure de répétition</h2>
+		<p><code>&quot;pour i de 1 à n&quot;</code> ou <code>&quot;tant que (...)&quot;</code> ? </p>
+		<ul>
+			<li class="fragment"><code>pour i de xxx à yyy, faire ...</code> si on répète un nombre de fois déterminé la même chose</li>
+			<li class="fragment">Un nombre doit ressortir dans l'énoncé <br/>&nbsp;</li>
+			<li class="fragment"><h4>Exemples :</h4></li>
+			<li class="fragment">Répéter <strong>5</strong> fois ....</li>
+			<li class="fragment">Refaire ... <strong>n</strong> fois</li>
+			<li class="fragment">Demander à l'utilisateur d'entrer <strong>xxx</strong> nombres</li> 
+		</ul>
+	</section>
+	<section>
+		<h2>Comment choisir sa structure de répétition</h2>
+		<p><code>&quot;pour i de 1 à n&quot;</code> ou <code>&quot;tant que (...)&quot;</code> ? </p>
+		<ul>
+			<li class="fragment"><code>&quot;tant que (...) faire ...&quot;</code> si on répète un nombre indéterminé de fois la même chose</li>
+			<li class="fragment">Pas de nombre mais une <strong>condition</strong><br />&nbsp;</li>
+			<li class="fragment"><h4>Exemples :</h4></li>
+			<li class="fragment">Répéter ... <strong>tant que</strong> ...</li>
+			<li class="fragment">Recommencer ... <strong>jusqu'à</strong> ce que ...</li>
+			<li class="fragment">Demander à l'utilisateur d'entrer un nombre positif (<strong>Recommencez s</strong>'il ne l'est pas)</li> 
+		</ul>
+	</section>
+	<section>
+		<h2>Comment choisir sa structure de répétition</h2>
+		<p><code>&quot;tant que (..) faire ...&quot;</code> ou <br /> <code>&quot;faire ... tant que (...)&quot;</code> ? </p>
+		<ul>
+			<li class="fragment">Très très proche, choix moins important</li>
+			<li class="fragment"><code>faire ... tant que ...</code> éxecute les instructions au moins 1 fois</li>
+		</ul>
+<table class="fragment"><tbody><tr><td>
+<pre style="display:inline;"><code>Instruction;
+tant que (....)
+	Instruction
+fintantque
+</code></pre>
+</td><td>
+<pre style="display:inline;"><code>faire
+	Instruction
+tant que (....)
+</code></pre>
+</td>
+</tr></tbody></table>	
+	</section>
+	<section>
+		<h2>Comment choisir sa structure de répétition</h2>
+		<p><code>&quot;tant que (..) faire ...&quot;</code> ou <br /> <code>&quot;faire ... tant que (...)&quot;</code> ? </p>
+		<ul>
+			<li class="fragment"><code>&quot;faire ... tant que (...)&quot;</code> utile pour la saisie</li>
+		</ul>
+<pre class="fragment"><code>faire
+	Obtenir n
+tant que ( n< 0)
+</code></pre>
+	</section>	
+	<section>
+		<h2>Recherche de max</h2>
+		<p>Rechercher et afficher la plus grande valeur parmis <span class="fragment highlight-red" data-fragment-index="2">n</span> entiers saisis</p>
+		<p class="fragment" data-fragment-index="1">Quelle structure utiliser ici ?</p>
+		<p class="fragment" data-fragment-index="3">On utilise <code>&quot;pour i de 1 à n, faire&quot;</code></p>
+	</section>
+	<section>
+		<h2>Recherche de max</h2>
+<pre>
+<code>Début
+  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire
+    obtenir nombre_courant
+    si (nombre_courant > max)
+      max &lt;- nombre_courant
+    finsi
+  finpour
+  afficher max
+Fin
+</code></pre>
+	</section>	
+
+<!-- ######################################
+	Début simu
+###################################### -->
+	<section>
+		<h2>Simulation</h2>
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n    // <- avant le début
+  max &lt;- 0
+  pour i de 1 à n, faire
+    obtenir nombre_courant
+    si (nombre_courant > max)
+      max &lt;- nombre_courant
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant []    max []
+//              i []    n   []
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n    // <- instruction en cours
+  max &lt;- 0
+  pour i de 1 à n, faire
+    obtenir nombre_courant
+    si (nombre_courant > max)
+      max &lt;- nombre_courant
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant []    max []
+//              i []    n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n    
+  max &lt;- 0  // <- instruction en cours
+  pour i de 1 à n, faire
+    obtenir nombre_courant
+    si (nombre_courant > max)
+      max &lt;- nombre_courant
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant []    max [0]
+//              i []    n   [4]
+</code></pre>
+<!-- ############################ -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire // <- instruction en cours
+    obtenir nombre_courant
+    si (nombre_courant > max)
+      max &lt;- nombre_courant
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant []    max [0]
+//              i [1]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire
+    obtenir nombre_courant // <- instruction en cours
+    si (nombre_courant > max)
+      max &lt;- nombre_courant
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [3]   max [0]
+//              i [1]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire
+    obtenir nombre_courant 
+    si (nombre_courant > max) // <- instruction en cours
+      max &lt;- nombre_courant
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [3]   max [0]
+//              i [1]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire
+    obtenir nombre_courant 
+    si (nombre_courant > max) 
+      max &lt;- nombre_courant // <- instruction en cours
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [3]   max [3]
+//              i [1]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire // <- instruction en cours
+    obtenir nombre_courant 
+    si (nombre_courant > max) 
+      max &lt;- nombre_courant 
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [3]   max [3]
+//              i [2]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire 
+    obtenir nombre_courant // <- instruction en cours
+    si (nombre_courant > max) 
+      max &lt;- nombre_courant 
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [1]   max [3]
+//              i [2]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire 
+    obtenir nombre_courant
+    si (nombre_courant > max)  // <- instruction en cours
+      max &lt;- nombre_courant 
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [1]   max [3]
+//              i [2]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire // <- instruction en cours
+    obtenir nombre_courant 
+    si (nombre_courant > max) 
+      max &lt;- nombre_courant 
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [1]   max [3]
+//              i [3]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire 
+    obtenir nombre_courant // <- instruction en cours
+    si (nombre_courant > max) 
+      max &lt;- nombre_courant 
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [9]   max [3]
+//              i [3]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire 
+    obtenir nombre_courant
+    si (nombre_courant > max)  // <- instruction en cours
+      max &lt;- nombre_courant 
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [9]   max [3]
+//              i [3]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire 
+    obtenir nombre_courant
+    si (nombre_courant > max)  
+      max &lt;- nombre_courant // <- instruction en cours
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [9]   max [9]
+//              i [3]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire // <- instruction en cours
+    obtenir nombre_courant 
+    si (nombre_courant > max) 
+      max &lt;- nombre_courant 
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [9]   max [9]
+//              i [4]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire 
+    obtenir nombre_courant // <- instruction en cours
+    si (nombre_courant > max) 
+      max &lt;- nombre_courant 
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [6]   max [9]
+//              i [4]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire 
+    obtenir nombre_courant
+    si (nombre_courant > max)  // <- instruction en cours
+      max &lt;- nombre_courant 
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [6]   max [9]
+//              i [4]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire  // <- instruction en cours
+    obtenir nombre_courant
+    si (nombre_courant > max)  
+      max &lt;- nombre_courant
+    finsi
+  finpour
+  afficher max
+
+// nombre_courant [6]   max [9]
+//              i [4]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire  
+    obtenir nombre_courant
+    si (nombre_courant > max)  
+      max &lt;- nombre_courant
+    finsi
+  finpour
+  afficher max // <- instruction en cours
+
+// nombre_courant [6]   max [9]
+//              i [4]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire  
+    obtenir nombre_courant
+    si (nombre_courant > max)  
+      max &lt;- nombre_courant
+    finsi
+  finpour
+  afficher max // <- Fini
+
+// nombre_courant []   max []
+//              i []   n   []
+</code></pre>
+	</section>
+<!-- ######################################
+	Fin simu
+###################################### -->
+
+<!-- ######################################
+	Début simu 22222
+###################################### -->
+	<section>
+		<h2>2ème Simulation</h2>
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n    // <- avant le début
+  max &lt;- 0
+  pour i de 1 à n, faire
+    obtenir nombre_courant
+    max &lt;- nombre_courant
+  finpour
+  afficher max
+
+// nombre_courant []    max []
+//              i []    n   []
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n    // <- instruction en cours
+  max &lt;- 0
+  pour i de 1 à n, faire
+    obtenir nombre_courant
+    max &lt;- nombre_courant
+  finpour
+  afficher max
+
+// nombre_courant []    max []
+//              i []    n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n    
+  max &lt;- 0  // <- instruction en cours
+  pour i de 1 à n, faire
+    obtenir nombre_courant
+    max &lt;- nombre_courant
+  finpour
+  afficher max
+
+// nombre_courant []    max [0]
+//              i []    n   [4]
+</code></pre>
+<!-- ############################ -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire // <- instruction en cours
+    obtenir nombre_courant
+    max &lt;- nombre_courant
+  finpour
+  afficher max
+
+// nombre_courant []    max [0]
+//              i [1]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire
+    obtenir nombre_courant // <- instruction en cours
+    max &lt;- nombre_courant
+  finpour
+  afficher max
+
+// nombre_courant [3]   max [0]
+//              i [1]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire
+    obtenir nombre_courant 
+    max &lt;- nombre_courant // <- instruction en cours
+  finpour
+  afficher max
+
+// nombre_courant [3]   max [3]
+//              i [1]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire // <- instruction en cours
+    obtenir nombre_courant 
+    max &lt;- nombre_courant
+  finpour
+  afficher max
+
+// nombre_courant [3]   max [3]
+//              i [2]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire 
+    obtenir nombre_courant // <- instruction en cours
+    max &lt;- nombre_courant
+  finpour
+  afficher max
+
+// nombre_courant [1]   max [3]
+//              i [2]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire 
+    obtenir nombre_courant
+    max &lt;- nombre_courant // <- instruction en cours
+  finpour
+  afficher max
+
+// nombre_courant [1]   max [1]
+//              i [2]   n   [4]
+</code></pre>
+<!-- ##################################### -->
+<pre style="position:absolute; margin:auto" class="fragment current-visible">
+<code>  Entier nombre_courant, max
+  Entier i, n
+
+  obtenir n
+  max &lt;- 0
+  pour i de 1 à n, faire // <- instruction en cours
+    obtenir nombre_courant 
+    max &lt;- nombre_courant
+  finpour
+  afficher max
+
+// nombre_courant [1]   max [1]
+//              i [3]   n   [4]
+</code></pre>
+	</section>
+<!-- ######################################
+	FIN SIMU 22222222222
+###################################### -->
+	<section>
+		<h2>Recherche de max en C</h2>
+<pre style="font-size:0.44em;">
+<code>#include &lt;stdio.h>
+
+int main(void) {
+  int nombre_courant, max;
+  int i, n;
+
+  printf("Entrez n :");
+  scanf_s("%d", &n);
+  max = 0;
+  for (i=1 ; i&lt;=n ; i++) {
+    printf("Entrez un nouveau nombre :");
+    scanf_s("%d", &nombre_courant);
+    if (nombre_courant > max) {
+      max = nombre_courant;
+    }
+  }
+  printf("le max est : %d\n", max);
+  return 0;
+}
+</code></pre>
+	</section>
+	<section>
+		<h2>2ème recherche de max</h2>
+		<p>Rechercher et afficher la plus grande valeur parmis un nombre <span class="fragment highlight-red" data-fragment-index="2">indeterminé</span> d'entiers saisis.
+Un nombre négatif arrètera la saisie.</p>
+		<p class="fragment" data-fragment-index="1">Quelle structure utiliser ici ?</p>
+		<p class="fragment" data-fragment-index="3">On utilise <code>&quot;faire .... tant que ( ... )&quot;</code></p>
+	</section>
+	<section>
+		<h2>2ème recherche de max</h2>
+<pre style="font-size:0.49em;">
+<code>Début
+  Entier nombre_courant, max, nombre_saisies
+
+  max &lt;- 0
+  nombre_saisies &lt;- -1
+  faire
+    obtenir nombre_courant
+    nombre_saisies &lt;- nombre_saisies + 1
+    si (nombre_courant > max)
+      max &lt;- nombre_courant
+    finsi
+  tant que (nombre_courant &ge; 0)
+  si (nombre_saisies &gt; 0)
+    afficher max
+  sinon
+    affiche "aucun nombre saisis"
+  finsi
+Fin
+</code></pre>
+	</section>
+	<section>
+		<h2>2ème recherche de max en C</h2>
+<pre style="font-size:0.40em;">
+<code>#include &lt;stdio.h>
+
+int main(void) {
+  int nombre_courant, max, nombre_saisies;
+
+  max = 0;
+  nombre_saisies = -1;
+  do {
+    printf("Entrez un nouveau nombre :");
+    scanf_s("%d", &nombre_courant);
+    nombre_saisies++;
+    if (nombre_courant > max) {
+      max = nombre_courant;
+    }
+  } while (nombre_courant > 0) ;
+  if (nombre_saisies > 0) {
+    printf("le max est : %d\n", max);
+  } else {
+    printf("Aucun nombre saisis\n");
+  }
+  return 0;
+}
+</code></pre>
+	</section>
+	<section>
+		<h2>Calcul de moyenne</h2>
+		<p>Calculer la moyenne d'un nombre <span class="fragment highlight-red" data-fragment-index="2">indeterminé</span> de réels saisis. Un nombre négatif arrètera la saisie.</p>
+		<p class="fragment" data-fragment-index="1">Quelle structure utiliser ici ?</p>
+		<p class="fragment" data-fragment-index="3">On utilise <code>&quot;faire .... tant que ( ... )&quot;</code></p>
+	</section>
+	<section>
+		<h2>Calcul de moyenne</h2>
+<pre style="font-size:0.44em;">
+<code>Début
+  Réel nombre_courant, somme, moyenne
+  Entier nombre_essais
+
+  somme &lt;- 0
+  nombre_essais &lt;- 0
+  faire
+    obtenir nombre_courant
+    si (nombre_courant &ge; 0)
+      somme &lt;- somme + nombre_courant
+      nombre_essais &lt;- nombre_essais + 1
+    finsi
+  tant que (nombre_courant &ge; 0)
+  si (nombre_essais &gt; 0)
+    moyenne &lt; somme / nombre_essais
+    afficher moyenne
+  sinon
+    affiche "aucun nombre saisis"
+  finsi
+Fin
+</code></pre>
+	</section>
+	<section>
+		<h2>Calcul de moyenne</h2>
+<pre style="font-size:0.40em;">
+<code>#include &lt;stdio.h>
+
+int main(void) {
+  float nombre_courant, somme;
+  int nombre_saisies;
+
+  somme = 0;
+  nombre_saisies = 0;
+  do {
+    printf("Entrez un nouveau nombre :");
+    scanf_s("%f", &nombre_courant);
+    if (nombre_courant >= 0) {
+      somme = somme + nombre_courant;
+      nombre_saisies++;
+    }
+  } while (nombre_courant > 0) ;
+  if (nombre_saisies > 0) {
+    printf("la moyenne est : %.2f\n", somme / nombre_saisies);
+  } else {
+    printf("Aucun nombre saisis\n");
+  }
+  return 0;
+}
+</code></pre>
+	</section>
+	<section>
+		<h2>Table de multiplication</h2>
+		<p>Afficher sous la forme d'un tableau la table de multiplication de 1 à 10.</p>
+		<p class="fragment" data-fragment-index="0"><span class="fragment highlight-red" data-fragment-index="2">Pour chaque nombre entre 1 et 10</span>, afficher sur une ligne le produit de ce nombre pour <span class="fragment highlight-red" data-fragment-index="2">chaque nombre entre 1 à 10</span></p>
+		<p class="fragment" data-fragment-index="1">Quelle structure utiliser ici ?</p>
+		<p class="fragment" data-fragment-index="3">On utilise 2 structures <code>&quot;pour xxx de 1 à 10&quot;</code> imbriqués</p>
+	</section>
+	<section>
+		<h2>Table de multiplication</h2>
+<pre style="font-size:0.50em;">
+<code>#include &lt;stdio.h>
+
+int main(void) {
+  int nombre_ligne, nombre_colonne, produit;
+
+  for (nombre_ligne=1 ; nombre_ligne &lt;=10 ; nombre_ligne++) {
+    for (nombre_colonne=1 ; nombre_colonne &lt;=10 ; nombre_colonne++) {
+      produit = nombre_colonne * nombre_ligne;
+      printf("%d\t", produit);
+    }
+    printf("\n");
+  }
+  return 0;
+}
+</code></pre>
+	</section>
+	<section>
+		<h2>L'opérateur modulo : </h2>
+		<p><code>&quot;a % b&quot;</code> : Reste de la division euclidienne</p>
+		<p><code>9 % 4 = <span class="fragment">1</span></code></p>
+		<p class="fragment">C'est l'équivalent de ce qu'il y a après la virgule dans un division "exacte"</p>
+		<p class="fragment"><code>9&divide;4=2.25</code>. Le 0.25 correspond au modulo</p>
+		<p class="fragment">Si le modulo vaut 0, cela veut dire que la b divise a</p>
+	</section>
+	<section>
+		<h2>L'opérateur division : </h2>
+		<p><code>&quot;a / b&quot;</code> : Division euclidienne uniquement si a et b sont des int</p>
+		<p><code>&quot;a / b&quot;</code> : Division exacte si a et/ou b est un float</p>
+		<p class="fragment">Exemple : <code>9/4 = 2</code></p>
+		<p class="fragment">Exemple : <code>9.0/4 = 2.25</code></p>
+		<p class="fragment">Si a et b sont entier : <code>a/b</code> est le résultat de la division euclidienne, <code>a%b</code> est le reste</p>
+		<p class="fragment"><code>a = (a/b)*b + (a%b)</code></p>
+	</section>
+	<section>
+		<h2>Applications du modulo : </h2>
+		<p class="fragment"><code>&quot;a % b&quot;</code> : Savoir si b divise a</p>
+		<p class="fragment">Savoir à combien de minutes correspondent 442 secondes : </p>
+		<p class="fragment"><code>442 / 60 = 7</code></p>
+		<p class="fragment"><code>442 % 60 = 22</code></p>
+		<p class="fragment"><code>442 = 7*60 + 22</code></p>
+	</section>
+	<section>
+		<h2>Les tableaux</h2>
+		<p>Structure de controle permettant de stocker plusieurs données de même type</p>
+		<p class="fragment" data-fragment-index="1">En algorithme <code>&quot;Type nom[début..fin]&quot;</code></p>
+		<p class="fragment" data-fragment-index="1">Exemple <code>&quot;Entier mon_beau_tableau[1..10]&quot;</code></p>
+		<p class="fragment" data-fragment-index="2">Exemple <code>&quot;Réel mon_autre_tableau[-5..5]&quot;</code></p>
+	</section>
+	<section>
+		<h2>Précision sur les tableaux</h2>
+		<p><code>&quot;Entier mon_beau_tableau[1..10]&quot;</code></p>
+		<ul>
+		<li class="fragment">Un tableau doit être déclaré au début du programme</li>
+		<li class="fragment">Chaque élément d'un tableau est accessible par son <strong>indice</strong> : <code>&quot;mon_beau_tableau[3]&quot;</code> ou <code>&quot;mon_beau_tableau[indice]&quot;</code></li>
+		<li class="fragment">Chaque élément d'un tableau se comporte comme une variable indépendante</li>
+		<li class="fragment">La taille d'un tableau est fixée dans le programme et invariable</li>
+		<li class="fragment">Un tableau est particulièrement adapté aux boucles <code>pour i de 1 à n</code></li>
+		</ul>
+	</section>
+	<section>
+		<h2>Exemple sur les tableaux</h2>
+<p>On veut saisir 10 entiers, puis les réafficher <br /> <span class="fragment">Sans tableau, il faudrait 10 variables. Un tableau permet de stocker ces 10 variables avec une seule structure</span></p>
+
+<pre class="fragment"><code>Début
+  Entier tableau[1..10]
+  Entier i
+
+  pour i de 1 à 10, faire
+    obtenir tableau[i]
+  finpour
+  pour i de 1 à 10, faire
+    afficher tableau[i]
+  finpour
+Fin
+</pre></code>
+	</section>
+	<section>
+		<h2>Les tableaux en C</h2>
+		<p>Très proche de la syntaxe en algorithme</p>
+		<p class="fragment" data-fragment-index="1"><code>&quot;Type nom[taille]&quot;</code></p>
+		<p class="fragment" data-fragment-index="2">Exemple <code>&quot;int mon_beau_tableau[10]&quot;</code></p>
+		<p class="fragment" data-fragment-index="2">Exemple <code>&quot;float mon_autre_tableau[42]&quot;</code></p>
+		<p class="fragment" data-fragment-index="3">Les indices commencent toujours à 0</code></p>
+	</section>
+	<section>
+		<h2>Attention aux indices en C</h2>
+		<p>Exemple <code>&quot;int mon_beau_tableau[10]&quot;</code></p>
+		<p>Les indices commencent toujours à 0</p>
+		<ul>
+		<li class="fragment">L'indice de fin est donc toujours : <span class="fragment">taille-1 , ici 9</span></li>
+		<li class="fragment">L'intervalles est donc toujours <code>0 -> taille-1</code></li>
+		<li class="fragment">Pour le parcourir : <code>for (i=0 ; i<10 ; i++) {</code></li>
+		</ul>
+	</section>
+	<section>
+		<h2>Exemple en C</h2>
+<p>On veut saisir 10 entiers, puis les réafficher</p>
+
+<pre class="fragment"><code>#include &lt;stdio.h>
+int main(void) {
+  int tableau[10];
+  int i;
+
+  for (i=0 ; i<10 ; i++) {
+    scanf_s("%d", &tableau[i]);
+  }
+  for (i=0 ; i<10 ; i++) {
+    printf("%d", tableau[i]);
+  }
+  return 0;
+}
+</pre></code>
+	</section>
+</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/title-footer/title-footer.js', async: true, callback: function() { 
+						title_footer.initialize("2016 DUT GIM : Programmation", "rgba(0,0,0,0.3)"); } }
+				]
+			});
+		</script>
+	</body>
+</html>
