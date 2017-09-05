@@ -42,15 +42,15 @@
 		<br />
 		<h6>32 heures (ou pas)</p>
 		<ul class="fragment">
-			<li>05/09 : TP1</li>
-			<li>12/09 : TP2</li>
-			<li>19/09 : TP3</li>
-			<li>26/09 : pas cours</li>
-			<li>03/10 : TP4</li>
-			<li>10/10 : Examen 1</li>
-			<li>17/10 : TP5</li>
-			<li>24/10 : Examen 2</li>
-			<li>??/11 : Bonus</li>
+			<li>mardi 05/09 : TP1</li>
+			<li>mardi 12/09 : TP2</li>
+			<li>mardi 19/09 : TP3</li>
+			<li>mardi 26/09 : pas cours</li>
+			<li>mardi 03/10 : TP4</li>
+			<li>jeudi 05/10 : ??</li>
+			<li>mardi 10/10 : Examen ou TP</li>
+			<li>mardi 17/10 : TP5</li>
+			<li>mardi 24/10 : Examen 2</li>
 		</ul>
 	</section>
 	<section>
@@ -60,6 +60,9 @@
 			<li>TP en salle machine</li>
 			<li class="fragment">(Avec un peu de magistral)</li>
 			<li class="fragment">(Et une partie sans machine)</li>
+			<li class="fragment">Ressources disponibles</li>
+			<li class="fragment">Questions bienvenues</li>
+			<li class="fragment">Les appartées aussi</li>
 		</ul>
 	</section>
 </section>
@@ -91,7 +94,7 @@
 			<li class="fragment">CB, souris, objets connectés</li>
 			<li class="fragment">Internet, etc</li>
 		</ul>
-		<p class="fragment">Vous aurez peut-être à en créer un jour</p>
+		<p class="fragment">Vous serez (peut-être) amenés à en créer un jour</p>
 	</section>
 	<section>
 		<h2>Software / Hardware</h2>
@@ -106,10 +109,10 @@
 		<h2>Hardware</h2>
 		<ul>
 			<li>Exemples de composants ?</li>
-			<li class="fragment">Processeur, RAM, disque dur, carte graphique, carte mère, etc</li>
+			<li class="fragment">Processeur, RAM, disque dur, carte graphique, carte mère</li>
 			<li class="fragment">Processeur et RAM indispensables</li>
-			<li class="fragment">RAM : grand entrepot</li>
-			<li class="fragment">Processeur (aka CPU) : Calculateur basique, sans mémoire</li>
+			<li class="fragment">RAM : <span class="fragment">Grand entrepot de données</span></li>
+			<li class="fragment">Processeur (aka CPU) : <span class="fragment">Calculateur basique, sans mémoire</span></li>
 		</ul>
 	</section>
 	<section>
@@ -150,7 +153,7 @@
 		<ul>
 			<li>Ils sont nécessaires pour produire rapidement des programmes</li>
 			<li class="fragment">Différents niveaux de langages</li>
-			<li class="fragment">Assembleur, C, C++, Java, Python, Javascript...</li>
+			<li class="fragment">Assembleur, C, C++, C#, Java, Python, Javascript...</li>
 		</ul>
 	</section>
 	<section>
@@ -171,7 +174,7 @@
 			<li class="fragment">Calcul d'aire, recherche d'itinéraire</li>
 			<li class="fragment">Envoyer un tweet, détection de visage</li>
 			<li class="fragment">Un algorithme est une solution du problème</li>
-			<li class="fragment">Un programme permet de le faire traiter à une machine (avec un langage informatique)</li>
+			<li class="fragment">Un programme permet de le faire traiter à une machine (à l'aide d'un langage informatique)</li>
 		</ul>
 	</section>
 	<section>
@@ -233,7 +236,7 @@
 
 			Données stockées en mémoire. 
 			
-			Pas despaces !
+			Pas d'espaces !
 			Plusieurs types :
 			- Entier
 			- Réel
@@ -250,8 +253,10 @@
 		<script type="text/template">
 			## Les instructions
 
-			- Manipulation des variables : var ⟵ [...]
-			- Opérations mathématiques : +,-,x,/,%,(,)
+			- Manipulation des variables : var ⟵ [expression]
+			- [expression] : Opérations mathématiques 
+			- opérations possibles : +,-,x,/,%,(,)
+			- opérations peuvent combinet des valeurs et des variables
 			- afficher
 
 			```
@@ -295,40 +300,30 @@
 			<li class="fragment">Analyse des fichiers</li>
 		</ul>
 	</section>
-</section>
-<section>
-	<section>
-		<h2>TP 2 : Application en C</h2>
-		<ul>
-			<li>Déclaration de variables en C</li>
-			<li>Affectation et calculs</li>
-		</ul>
-	</section>
-	<section>
-		<h2>TP 3 : Calcul de la surface d'un triangle</h2>
-		
-		<img class="fragment" style="background: rgba(255,255,255,0.85)" data-src="img/surface_triangle.png" />
-	</section>
-	<section>
-		<h2>TP 4 : Calcul du volume d'un cylindre creux</h2>
-		
-		<p class="fragment">A = π/4 x h (D² – d²)</p>
-		<img style="background: rgba(255,255,255,0.85)" data-src="img/volume-cylindre-creux.png" />
-	</section>
 	<section>
 		<h2>Description du langage C</h2>
 		<p>programme minimal</p>
-		<div data-markdown>
+		<div class="fragment" data-markdown>
 		<script type="text/c">
 			```
 			#include <stdio.h>
 
 			int main() {
+				int loyer;
+				float prix, surface_rectangle;
+				
+				loyer = (4 * 5) / 2;
+				prix = surface_rectangle * 2.23;
+				printf("%d", loyer);
+				printf("%f", prix);
 				return 0;
 			}
 			```
 		</script>	
 		</div>
+	</section>
+	<section>
+		<h2>TP : Suite des exos</h2>
 	</section>
 </section>
 			</div>
