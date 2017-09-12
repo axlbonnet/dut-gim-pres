@@ -35,7 +35,7 @@
 		<h1>Programme du jour</h1>
 		<ul>
 			<li class="fragment">Rappel du TP précédent</li>
-			<li class="fragment">Nouveauté : les conditions</li>
+			<li class="fragment">Nouveauté : les tests</li>
 			<li class="fragment">TP d'algo</li>
 			<li class="fragment">TP en C</li>
 			<li class="fragment">Autre nouveauté ?</li>
@@ -201,7 +201,7 @@ Debut
 
 	obtenir age
 	si (age = 27)
-		afficher "27 ans ? hou la... fait attention !"
+		afficher "27 ans ? hou la... fais attention !"
 	finsi
 	afficher "Fin du programme"
 Fin
@@ -276,77 +276,6 @@ si ((age < 0) ou (age > 117))
 	afficher "Vous êtes un menteur"
 finsi
 		</code></pre>
-	</section>
-
-<!-- DEBUT Demo Si -->
-
-	<section>
-		<h2>Fonctionnement</h2>
-		<div style="position:relative" >
-		<pre style="position:absolute; margin:auto;"><code class="hljs" data-trim>
-Début
-	Entier age
-	obtenir age 				// age <-13
-	si (age ≥ 18)
-		afficher "Vous êtes majeur"
-	sinon
-		afficher "Vous êtes mineur" 
-	finsi
-	afficher "Fin du programme"
-Fin
-		</code></pre>
-		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
-Début
-	Entier age 
-	obtenir age 				// age <-13
-	si (age ≥ 18)				// est faux
-		afficher "Vous êtes majeur" 
-	sinon
-		afficher "Vous êtes mineur" 
-	finsi
-	afficher "Fin du programme" 
-Fin
-		</code></pre>
-		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
-Début
-	Entier age 
-	obtenir age 				// age <-13
-	si (age ≥ 18)				// est faux
-		afficher "Vous êtes majeur" 	// pas exécuté
-	sinon
-		afficher "Vous êtes mineur" 
-	finsi
-	afficher "Fin du programme" 
-Fin
-		</code></pre>
-		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
-Début
-	Entier age 
-	obtenir age 				// age <-13
-	si (age ≥ 18)				// est faux
-		afficher "Vous êtes majeur" 	// pas exécuté
-	sinon					// alternative est vrai
-		afficher "Vous êtes mineur" 
-	finsi
-	afficher "Fin du programme" 
-Fin
-		</code></pre>
-		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
-Début
-	Entier age 
-	obtenir age 				// age <-13
-	si (age ≥ 18)				// est faux
-		afficher "Vous êtes majeur" 	// pas exécuté
-	sinon					// alternative est vrai
-		afficher "Vous êtes mineur" 	// est exécuté
-	finsi
-	afficher "Fin du programme" 
-Fin
-		</code></pre>
-
-<!-- FIN Demo Si -->
-
-		</div>
 	</section>
 	<section>
 		<h2>TP algo !</h2>
