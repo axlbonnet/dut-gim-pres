@@ -1,0 +1,564 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="plugin/title-footer/title-footer.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section>
+	<section>
+		<h2>Programmation - TP2</h2>
+		<br/>
+		<h3>12/09/2017</h3>
+	</section>
+	<section>
+		<h1>Programme du jour</h1>
+		<ul>
+			<li class="fragment">Rappel du TP précédent</li>
+			<li class="fragment">Nouveauté : les conditions</li>
+			<li class="fragment">TP d'algo</li>
+			<li class="fragment">TP en C</li>
+			<li class="fragment">Autre nouveauté ?</li>
+		</ul>
+	</section>
+</section>
+<section>
+	<section>
+		<h2>Rappel : fontionnement minimaliste</h2>
+		<h4>2+3 ?</h4>
+		<div style="position:relative; width:805px; height:427px; margin:0 auto;">
+		  <img class="fragment fade-out" data-fragment-index="0" src="img/calcul_min_1.jpg" style="position:absolute;top:0;left:0;" />
+		  <img class="fragment fade-in" data-fragment-index="0" src="img/calcul_min_2.jpg" style="position:absolute;top:0;left:0;" />
+		</div>
+	</section>
+	<section>
+		<h2>Mega résumé <span class="fragment">(+ erreurs)</span></h2>
+		<img style="background: rgba(255,255,255,0.85)" data-src="img/shema_gen_info.png" />
+	</section>
+</section>
+<section>
+	<section>
+		<h2>Rappel : les algorithmes</h2>
+		<ul>
+			<li class="fragment">Une solution claire à un problème</li>
+			<li class="fragment">Langage strict sans ambiguité</li>
+			<li class="fragment">Adaptable facilement en langage informatique</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+		<p class="fragment">Kenneth a 875€ de dépenses fixe par mois, dont 72% pour son loyer. Son loyer va augmenter de 10%, combien va-t-il devoir payer désormais ?</p>
+		<div class="fragment" data-markdown>
+		<textarea data-template>
+			```
+			Début
+			Entier loyer
+			Entier depenses
+
+			loyer ⟵ 875 x 0,72
+			depenses ⟵ depenses + loyer x 0,10
+			afficher depenses
+			Fin
+			```
+		</textarea>
+		</div>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Problème des lapins
+
+			```
+			Debut
+				Entier nb_adultes, nb_enfants
+				Entier nb_naissances, nb_total
+				
+				####### etat initial
+				nb_adultes <- 27
+				nb_enfants <- 52
+				####### 1ere annee
+				nb_naissance <- (nb_adultes / 2) x 3
+				nb_adultes <- nb_adultes + nb_enfants
+				nb_enfants <- nb_naissance
+				####### 2eme annee
+				nb_naissance <- (nb_adultes / 2) x 3
+				nb_total <- nb_adultes + nb_enfants + nb_naissance
+				afficher "nombre de lapins : " nb_total
+			Fin
+			```
+		</script>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Remarque importante
+			Les variables changent de valeur !
+
+			C'est précédural !
+
+			```
+				nb_naissance <- 0
+				nb_adultes <- 27
+				nb_enfants <- 52
+				####### adultes (27) enfants(52) naissance (0) 
+
+				nb_naissance <- (nb_adultes / 2) x 3
+				####### adultes (27) enfants(52) naissance (39) 
+
+				nb_adultes <- nb_adultes + nb_enfants
+				####### adultes (79) enfants(52) naissance (39) 
+
+				nb_enfants <- nb_naissance
+				####### adultes (79) enfants(39) naissance (39) 
+			```
+		</script>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Erreur possible
+
+			```
+				nb_adultes <- 27
+				nb_enfants <- 52
+				####### adultes (27) enfants(52)
+
+				nb_adultes <- nb_adultes + nb_enfants
+				####### adultes (79) enfants(52)
+
+				nb_enfants <- (nb_adultes / 2) x 3
+				####### adultes (79) enfants(117)
+			```
+		</script>
+	</section>
+	<section>
+		<h2>Joli dessin au tableau</h2>
+	</section>
+</section>
+<section>
+	<section>
+		<h2>Nouveautés en algorithme</h2>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Semi nouveauté : obtenir
+			
+			Pourquoi ? : Rappel semaine dernière
+
+			```
+			Debut
+				Entier nombre, carre
+	
+				nombre <- 5
+				carre <- nombre x nombre
+				afficher carre
+			Fin
+				
+			```
+		</script>
+	</section>
+	<section data-markdown>
+		<script type="text/template">
+			## Semi nouveauté : obtenir
+			
+			Le nombre est saisi par l'utilisateur
+
+			```
+			Debut
+				Entier nombre, carre
+	
+				obtenir nombre
+				carre <- nombre x nombre
+				afficher carre
+			Fin
+				
+			```
+		</script>
+	</section>
+	<section>
+		<h2>Les tests en algorithmique</h2>
+		<p>Exemple</p>
+		<pre><code class="hljs" data-trim>
+Debut
+	Entier age
+
+	obtenir age
+	si (age = 27)
+		afficher "27 ans ? hou la... fait attention !"
+	finsi
+	afficher "Fin du programme"
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h2>Les tests en algorithmique</h2>
+		<pre><code class="hljs" data-trim>
+instruction
+si (condition)
+	instruction
+	...
+	instruction
+finsi	
+instruction
+		</code></pre>
+		<ul>
+		<li class="fragment">Le bloc d'instruction ne s'execute pas tout le temps</li>
+		<li class="fragment">L'execution du bloc est liée à une condition.</li></ul>
+		<li class="fragment">Attention au finsi !</li>
+		<li class="fragment">Décalage fortement conseillé !</li>
+		<li class="fragment">Comment créer un condition ?</li></ul>
+	</section>
+	<section>
+		<h2>Les conditions</h2>
+		<p>Expression qui ne peut avoir que deux valeurs (aka Booléen)&nbsp;:</p>
+		<ul><li>Vrai</li><li>Faux</li></ul>
+		<p class="fragment">Construite avec des opérateurs relationels : > < ≤ ≥ = ≠</p>
+		<p class="fragment">Ou en combinant des conditions : non / ou / et</p>
+	</section>
+	<section>
+		<h2>Les tests avec alternative</h2>
+		<pre><code class="hljs" data-trim>
+instruction
+si (condition)
+	instruction
+	...
+	instruction
+sinon
+	instruction	
+	...
+	instruction
+finsi
+instruction
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+		<pre><code class="hljs" data-trim>
+Début
+	Entier age
+
+	obtenir age
+	si (age ≥ 18)
+		afficher "Vous êtes majeur"
+	sinon
+		afficher "Vous êtes mineur"
+	finsi
+	afficher "Fin du programme"
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemples</h2>
+		<pre><code class="hljs" data-trim>
+si (age ≠ 27)
+	afficher "Votre age n'est pas maudit"
+finsi
+
+
+si ((age < 0) ou (age > 117))
+	afficher "Vous êtes un menteur"
+finsi
+		</code></pre>
+	</section>
+
+<!-- DEBUT Demo Si -->
+
+	<section>
+		<h2>Fonctionnement</h2>
+		<div style="position:relative" >
+		<pre style="position:absolute; margin:auto;"><code class="hljs" data-trim>
+Début
+	Entier age
+	obtenir age 				// age <-13
+	si (age ≥ 18)
+		afficher "Vous êtes majeur"
+	sinon
+		afficher "Vous êtes mineur" 
+	finsi
+	afficher "Fin du programme"
+Fin
+		</code></pre>
+		<pre style="position:absolute; margin:auto;" class="fragment fade-in"><code class="hljs" data-trim>
+Début
+	Entier age 
+	obtenir age 				// age <-13
+	si (age ≥ 18)				// est faux
+		afficher "Vous êtes majeur" 
+	sinon
+		afficher "Vous êtes mineur" 
+	finsi
+	afficher "Fin du programme" 
+Fin
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+Début
+	Entier age 
+	obtenir age 				// age <-13
+	si (age ≥ 18)				// est faux
+		afficher "Vous êtes majeur" 	// pas exécuté
+	sinon
+		afficher "Vous êtes mineur" 
+	finsi
+	afficher "Fin du programme" 
+Fin
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+Début
+	Entier age 
+	obtenir age 				// age <-13
+	si (age ≥ 18)				// est faux
+		afficher "Vous êtes majeur" 	// pas exécuté
+	sinon					// alternative est vrai
+		afficher "Vous êtes mineur" 
+	finsi
+	afficher "Fin du programme" 
+Fin
+		</code></pre>
+		<pre style="position:absolute; margin:auto" class="fragment fade-in"><code class="hljs" data-trim>
+Début
+	Entier age 
+	obtenir age 				// age <-13
+	si (age ≥ 18)				// est faux
+		afficher "Vous êtes majeur" 	// pas exécuté
+	sinon					// alternative est vrai
+		afficher "Vous êtes mineur" 	// est exécuté
+	finsi
+	afficher "Fin du programme" 
+Fin
+		</code></pre>
+
+<!-- FIN Demo Si -->
+
+		</div>
+	</section>
+	<section>
+		<h2>TP algo !</h2>
+	</section>
+</section>
+<section>
+	<section>
+		<h2>Le C</h2>
+		<div data-markdown>
+		<script type="text/c">
+			```
+			#include <stdio.h>
+			#include <stdlib.h>
+
+			int main(void) {
+				system("pause");
+				return 0;
+			}
+			```
+		</script>	
+		</div>
+	</section>
+	<section>
+		<h2>Obtenir en C</h2>
+		<pre><code class="text/c" data-trim>
+int main(void) {
+	int entier;
+	float reel;
+	
+	scanf("%d", &entier);
+	scanf("%f", &reel);
+	afficher("le nombre entier vaut %d.\n", entier);
+	afficher("le nombre reel vaut %d.\n", reel);
+	afficher("les nombres saisis sont %d et %f.\n", entier, reel);
+	system("pause");
+	return 0;
+}
+		</code></pre>
+	</section>
+	<section>
+		<h2>Obtenir en C (précision)</h2>
+		<pre><code class="text/c" data-trim>
+int main(void) {
+	int entier;
+	
+	afficher("Entrez un nombre entier :");
+	scanf("%d", &entier);
+	afficher("le nombre saisi est %d.\n", entier);
+	system("pause");
+	return 0;
+}
+		</code></pre>
+	</section>
+	<section>
+		<h2>Les tests en C</h2>
+		<pre><code class="hljs" data-trim>
+instruction;
+if (condition) {
+	instruction;	
+	...
+	instruction;			
+}
+instruction;
+		</code></pre>
+		<ul><li>Attention au accolades !</li>
+	</section>
+	<section>
+		<h2>Les conditions</h2>
+		<p>Opérateurs relationels : </p>
+		<ul>
+			<li class="fragment">> &nbsp; < &nbsp; <= &nbsp; >=</li>
+			<li class="fragment">== &nbsp; !=</li>
+		</ul>
+		<p class="fragment">Ne pas confondre l'affectation et l'égalité</p>
+		<p class="fragment">Opérateurs logiques : &nbsp;&nbsp;&nbsp; ! &nbsp; && &nbsp; ||</p>
+	</section>
+	<section>
+		<h2>Les tests avec alternative en C</h2>
+		<pre><code class="hljs" data-trim>
+instruction;
+if (condition) {
+	instruction;	
+	...
+	instruction;			
+} else {
+	instruction;	
+	...
+	instruction;
+}
+instruction;
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemples</h2>
+		<pre><code class="hljs" data-trim>
+int main(void) {
+	int age;
+	scanf("%d", &age);
+	if (age >= 18) {
+		printf("Vous etes majeur\n");
+	} else {
+		printf("Vous etes mineur\n");
+	}
+	printf("Fin du programme\n");
+	return 0;
+}
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemples</h2>
+		<pre><code class="hljs" data-trim>
+if (age != 27) {
+	printf("Votre age n'est pas maudit\n");
+}
+
+
+if ((age < 0) || (age > 117)) {
+	printf("Vous etes un menteur\n");
+}
+		</code></pre>
+	</section>
+	<section>
+		<h2>Suite du TP</h2>
+	</section>
+</section>
+<!-- ##################################################### Boucles -->
+<section>
+	<section>
+		<h2>Nouveauté en algorithme : les boucles</h2>
+		<p>Exemple</p>
+		<pre><code class="hljs" data-trim>
+Debut
+	Entier compteur
+
+	pour compteur de 1 à 5
+		afficher compteur
+	finpour
+	afficher "Fin du programme"
+Fin
+	
+		</code></pre>
+		<ul>
+		<li class="fragment">Le bloc d'instruction sera executée plusieurs fois</li>
+		<li class="fragment">Attention au finpour</li>
+		<li class="fragment">Décalage fortement conseillé</li>
+		<li class="fragment">compteur doit être une variable de type entier</li></ul>
+	</section>
+	<section>
+		<h2>précisions</h2>
+		<pre><code class="hljs" data-trim>
+pour compteur de expr_debut à expr_fin
+	instruction
+	...
+	instruction
+finpour		
+		</code></pre>
+		<ul><li>Les expressions de début ou de fin peuvent être des valeurs fixes ou des variables</li>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+		<pre><code class="hljs" data-trim>
+Début
+	Entier i, debut, fin
+
+	obtenir debut
+	obtenir fin
+	pour i de debut à fin
+		afficher i
+	finpour
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemple</h2>
+		<pre><code class="hljs" data-trim>
+Début
+	Entier i, somme
+
+	obtenir i
+	somme <- 0
+	pour i de 1 à 12
+		somme <- somme + i
+		afficher somme
+	finpour
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h2>Nouveau TP</h2>
+	</section>
+</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/title-footer/title-footer.js', async: true, callback: function() { 
+						title_footer.initialize("DUT GIM 2017 : Programmation - TP2", "rgba(0,0,0,0.3)"); } }
+				]
+			});
+		</script>
+	</body>
+</html>
