@@ -37,7 +37,7 @@
 		<ul class="fragment">
 			<li>mardi 05/09 : TP1</li>
 			<li>mardi 12/09 : TP2</li>
-			<li>mardi 19/09 : TP3</li>
+			<li>mardi 19/09 : TP3 </li>
 			<li>mardi 26/09 : TP4 avec M. Colin</li>
 			<li>mardi 03/10 : TP5</li>
 			<li>mardi 10/10 : Examen 2x1h + 2h TP6</li>
@@ -161,12 +161,12 @@ Fin
 		<h2>Rappel rapide : les tests</h2>
 		<p>Quand utiliser un test</p>
 		<ul>
-		<li class="fragment">Quand il y a un "si"</li>
+		<li class="fragment">Quand il y a un "si" :</li>
 		<li class="fragment">"déterminer si l'utilisateur est du signe astrologique"</li>
-		<li class="fragment">Quand il y un choix</li>
+		<li class="fragment">Quand il y un choix :</li>
 		<li class="fragment">"Transformer ensuite le programme pour que l'utilisateur choisisse sa devise"</li>
-		<li class="fragment">Quand les comportements doivent être différents</li>		
-		<li class="fragment">Valeur absolue, ecrire des saisons</li>
+		<li class="fragment">Quand les comportements doivent être différents :</li>		
+		<li class="fragment">Valeur absolue "a-b", déterminer la saison de naissance de l'utilisateur</li>
 		</ul>
 	</section>
 	<section>
@@ -200,16 +200,16 @@ int main(void) {
    printf("Entrez votre age: ");
    scanf("%d", &age);
    if (age == 27) {
-      printf("27 ans ? hou la... fais attention !"); 
+      printf("27 ans ? hou la... fais attention !\n"); 
    } else {
       if (age < 27) {
-         difference = age - 27;
-         printf("Encore %d ans de tranquilite", difference);
+         difference = 27 - age;
+         printf("Encore %d ans de tranquilite\n", difference);
       } else {
-         printf("Le plus dur est passe");
+         printf("Le plus dur est passe\n");
       }
    }
-   printf("Fin du programme");
+   printf("Fin du programme\n");
    system("pause"); return 0;
 }
 		</code></pre>
@@ -251,12 +251,12 @@ Début
 	pour i de 1 à 12
 		obtenir valeur
 		carre <- valeur x valeur
-		afficher "valeur au carre" carre
+		afficher "valeur au carre :" carre
 	finpour
 Fin
 		</code></pre>
 	<p class="fragment">Demandera 12 valeurs, et affichera à chaque fois le carré du nombre saisi</p>
-	<p class="fragment">Chaque passage dans la boucle s'apelle une itération</p>
+	<p class="fragment">Chaque passage dans la boucle s'appelle une itération</p>
 	</section>
 	<section>
 		<h2>Les boucles pour</h2>
@@ -264,7 +264,7 @@ Fin
 		<ul>
 		<li class="fragment">Quand il faut faire plusieurs fois la même chose</li>
 		<li class="fragment">Quand il faut obtenir plusieurs valeurs</li>
-		<li class="fragment">Le nombre de boucles à faire peut etre connue à l'avance</li>		
+		<li class="fragment">Le nombre d'itérations à faire est connu à l'avance</li>		
 		<li class="fragment">"Demandez 5 notes" -> "pour i de 1 à 5"</li>
 		<li class="fragment">Ou bien juste avant de commencer la 1ere itération</li>	
 		<li class="fragment">"Demandez n notes" -> "obtenir n" puis "pour i de 1 à n"</li>	
@@ -281,7 +281,7 @@ for (i=[debut] ; i<=[fin] ; i=i+1) {
 		</code></pre>
 		<pre class="fragment"><code class="text/c" data-trim>
 for (j=3 ; j<=11 ; j=j+1) {
-	printf("%d", j);
+	printf("%d ", j);
 }
 		</code></pre>
 	</section>
@@ -302,7 +302,7 @@ int i, debut, fin;
 scanf("%d", &debut);
 scanf("%d", &fin);
 for (i=debut ; i<=fin ; i=i+1) {
-	printf("%d", i);
+	printf("%d ", i);
 }
 		</code></pre>
 	</section>
@@ -314,7 +314,7 @@ Entier i, valeur, carre
 pour i de 1 à 12
 	obtenir valeur
 	carre <- valeur x valeur
-	afficher "valeur au carre" carre
+	afficher "valeur au carre :" carre
 finpour
 		</code></pre>
 		<pre class="fragment"><code class="text/c" data-trim>
@@ -323,7 +323,7 @@ int i, valeur, carre;
 for (i=1 ; i<=12 ; i=i+1) {
 	scanf("%d", &valeur);
 	carre = valeur * valeur;
-	printf("valeur du carre : %d", carre);
+	printf("valeur du carre : %d\n", carre);
 }
 		</code></pre>
 	</section>
@@ -333,7 +333,7 @@ for (i=1 ; i<=12 ; i=i+1) {
 		<h1>TP</h1>
 		<ul>
 			<li>The fiche</li>
-			<li class="fragment">Ce que vous pouvez faire en algorithmie</li>			
+			<li class="fragment">Indique ce que vous pouvez faire en algorithmie</li>
 			<li class="fragment">Passage algorithmie -> C</li>
 			<li class="fragment">Bible pour rechercher des erreurs dans le code C</li>
 		</ul>
