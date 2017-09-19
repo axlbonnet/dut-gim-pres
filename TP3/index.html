@@ -1,0 +1,454 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="plugin/title-footer/title-footer.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section>
+	<section>
+		<h2>Programmation - TP3</h2>
+		<br/>
+		<h3>19/09/2017</h3>
+	</section>
+	<section>
+		<h1>Organisation</h1>
+		<br />
+		<ul class="fragment">
+			<li>mardi 05/09 : TP1</li>
+			<li>mardi 12/09 : TP2</li>
+			<li>mardi 19/09 : TP3</li>
+			<li>mardi 26/09 : TP4 avec M. Colin</li>
+			<li>mardi 03/10 : TP5</li>
+			<li>mardi 10/10 : Examen 2x1h + 2h TP6</li>
+			<li>mardi 17/10 : TP6</li>
+			<li>mardi 24/10 : Examen 2x2h</li>
+		</ul>
+	</section>
+	<section>
+		<h1>Programme du jour</h1>
+		<br />
+		<ul>
+			<li>Rappel rapide if</li>
+			<li class="fragment">Rappel boucles "pour/for"</li>
+			<li class="fragment">TP jusqu'à 16h</li>
+			<li class="fragment">Suite du cours</li>
+			<li class="fragment">TP</li>
+		</ul>
+	</section>
+</section>
+<section>
+	<section>
+		<h1>Corrections TP précédent</h1>
+	</section>
+	<section>
+		<h1>TP2-1 - algo</h1>
+		<pre><code class="hljs" data-trim>
+Début
+   Réel euros, francs
+
+   obtenir euros
+   francs <- euros x 6,55956
+   afficher francs
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h1>TP2-1 - C</h1>
+<div class="fragment" data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+   float euros, francs;
+   printf("Entrez une somme en euro: ");
+   scanf("%f", &euros);
+   francs = euros * 6.55956;
+   printf("Conversion en francs : %f\n", francs);
+   system("pause"); 
+   return 0;
+}
+```
+</script>	
+</div>
+	</section>
+</section>
+<section>
+	<section>
+		<h2>Rappel rapide : les tests</h2>
+		<p>Forme simple</p>
+		<pre><code class="hljs" data-trim>
+instruction
+si (condition)
+	instruction
+	...
+	instruction
+finsi	
+instruction
+		</code></pre>
+	</section>
+	<section>
+		<h2>Rappel rapide : les tests</h2>
+		<p>Forme avec alternative</p>
+		<pre><code class="hljs" data-trim>
+instruction
+si (condition)
+	instruction
+	...
+	instruction
+sinon
+	instruction	
+	...
+	instruction
+finsi
+instruction
+		</code></pre>
+	</section>
+	<section>
+		<h2>Rappel rapide : les tests</h2>
+		<p>Exemple</p>
+		<pre><code class="hljs" data-trim>
+Debut
+   Entier age, difference
+   obtenir age
+   si (age = 27)
+      afficher "27 ans ? hou la... fais attention !" 
+   sinon
+      si (age < 27)
+         difference <- age - 27
+         afficher "Encore" difference "ans de tranquilité"
+      sinon
+         afficher "Le plus dur est passé"
+      finsi
+   finsi
+   afficher "Fin du programme"
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h2>Rappel rapide : les tests</h2>
+		<p>Les conditions</p>
+		<ul>
+		<li>Expression qui ne peut être que vrai ou faux</li>
+		<li class="fragment">Construite avec des opérateurs relationels : > < ≤ ≥ = ≠</li>
+		<li class="fragment">Et en combinant des conditions : ou / et</li>
+		<li class="fragment">Utiliser des parentheses pour gérer les priorités</li>
+		<li class="fragment">Attention : Ne pas oublier les parentheses englobante</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Rappel rapide : les tests</h2>
+		<p>Quand utiliser un test</p>
+		<ul>
+		<li class="fragment">Quand il y a un "si"</li>
+		<li class="fragment">"déterminer si l'utilisateur est du signe astrologique"</li>
+		<li class="fragment">Quand il y un choix</li>
+		<li class="fragment">"Transformer ensuite le programme pour que l'utilisateur choisisse sa devise"</li>
+		<li class="fragment">Quand les comportements doivent être différents</li>		
+		<li class="fragment">Valeur absolue, ecrire des saisons</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Rappel rapide : les tests en C</h2>
+		<pre><code class="hljs" data-trim>
+instruction;
+if (condition) {
+	instruction;	
+	...
+	instruction;			
+}
+instruction;
+		</code></pre>
+	</section>
+	<section>
+		<h2>Les conditions</h2>
+		<p>Opérateurs relationels : </p>
+		<ul>
+			<li class="fragment">> &nbsp; < &nbsp; <= &nbsp; >=</li>
+			<li class="fragment">== &nbsp; !=</li>
+		</ul>
+		<p class="fragment">Attention : ne pas confondre l'affectation et l'égalité</p>
+		<p class="fragment">Et : &nbsp;&nbsp;&nbsp; &&</p>
+		<p class="fragment">Ou : &nbsp;&nbsp;&nbsp; ||</p>
+	</section>
+	<section>
+		<h2>Exemples</h2>
+		<pre><code class="text/c" data-trim>
+int main(void) {
+   int age, difference;
+   printf("Entrez votre age: ");
+   scanf("%d", &age);
+   if (age == 27) {
+      printf("27 ans ? hou la... fais attention !"); 
+   } else {
+      if (age < 27) {
+         difference = age - 27;
+         printf("Encore %d ans de tranquilite", difference);
+      } else {
+         printf("Le plus dur est passe");
+      }
+   }
+   printf("Fin du programme");
+   system("pause"); return 0;
+}
+		</code></pre>
+	</section>
+</section>
+<!-- ##################################################### Boucles for -->
+<section>
+	<section>
+		<h2>Rappel : les boucles pour</h2>
+		<pre><code class="hljs" data-trim>
+pour compteur de expr_debut à expr_fin
+	instruction
+	...
+	instruction
+finpour		
+		</code></pre>
+	</section>
+	<section>
+		<h2>Exemple de boucle pour</h2>
+		<pre><code class="hljs" data-trim>
+Début
+	Entier i, debut, fin
+
+	obtenir debut
+	obtenir fin
+	pour i de debut à fin
+		afficher i
+	finpour
+Fin
+		</code></pre>
+	<p class="fragment">Si début=3 et fin=11, affichera 3 4 5 6 7 8 9 10 11</p>
+	</section>
+	<section>
+		<h2>Exemple de boucle pour</h2>
+		<pre><code class="hljs" data-trim>
+Début
+	Entier i, valeur, carre
+
+	pour i de 1 à 12
+		obtenir valeur
+		carre <- valeur x valeur
+		afficher "valeur au carre" carre
+	finpour
+Fin
+		</code></pre>
+	<p class="fragment">Demandera 12 valeurs, et affichera à chaque fois le carré du nombre saisi</p>
+	<p class="fragment">Chaque passage dans la boucle s'apelle une itération</p>
+	</section>
+	<section>
+		<h2>Les boucles pour</h2>
+		<p>Quand les utiliser</p>
+		<ul>
+		<li class="fragment">Quand il faut faire plusieurs fois la même chose</li>
+		<li class="fragment">Quand il faut obtenir plusieurs valeurs</li>
+		<li class="fragment">Le nombre de boucles à faire peut etre connue à l'avance</li>		
+		<li class="fragment">"Demandez 5 notes" -> "pour i de 1 à 5"</li>
+		<li class="fragment">Ou bien juste avant de commencer la 1ere itération</li>	
+		<li class="fragment">"Demandez n notes" -> "obtenir n" puis "pour i de 1 à n"</li>	
+		</ul>
+	</section>
+	<section>
+		<h2>Les boucles "pour" en C</h2>
+		<pre><code class="text/c" data-trim>
+for (i=[debut] ; i<=[fin] ; i=i+1) {
+	instruction;
+	...		
+	instruction;
+}
+		</code></pre>
+		<pre class="fragment"><code class="text/c" data-trim>
+for (j=3 ; j<=11 ; j=j+1) {
+	printf("%d", j);
+}
+		</code></pre>
+	</section>
+	<section>
+		<h2>Les boucles pour en C</h2>
+		<pre><code class="hljs" data-trim>
+Entier i, debut, fin
+
+obtenir debut
+obtenir fin
+pour i de debut à fin
+	afficher i
+finpour
+		</code></pre>
+		<pre class="fragment"><code class="text/c" data-trim>
+int i, debut, fin;
+
+scanf("%d", &debut);
+scanf("%d", &fin);
+for (i=debut ; i<=fin ; i=i+1) {
+	printf("%d", i);
+}
+		</code></pre>
+	</section>
+	<section>
+		<h2>Les boucles pour en C</h2>
+		<pre><code class="hljs" data-trim>
+Entier i, valeur, carre
+
+pour i de 1 à 12
+	obtenir valeur
+	carre <- valeur x valeur
+	afficher "valeur au carre" carre
+finpour
+		</code></pre>
+		<pre class="fragment"><code class="text/c" data-trim>
+int i, valeur, carre;
+
+for (i=1 ; i<=12 ; i=i+1) {
+	scanf("%d", &valeur);
+	carre = valeur * valeur;
+	printf("valeur du carre : %d", carre);
+}
+		</code></pre>
+	</section>
+</section>
+<section>
+	<section>
+		<h1>TP</h1>
+		<ul>
+			<li>The fiche</li>
+			<li class="fragment">Ce que vous pouvez faire en algorithmie</li>			
+			<li class="fragment">Passage algorithmie -> C</li>
+			<li class="fragment">Bible pour rechercher des erreurs dans le code C</li>
+		</ul>
+	</section>
+	<section>
+		<h1>Au boulot</h1>
+		<ul>
+			<li>TP 2 (2eme partie)</li>
+			<li>Appliquez en C après chaque exercice</li>
+			<li>Mais appliquez les consignes Dev-C++ du TP3</li>			
+			<li>Correction algo 15h</li>		
+			<li>Correction C 15h40</li>
+		</ul>
+	</section>
+</section>
+<section>
+	<section>
+		<h2>Boucles "tant que"</h2>
+		<pre><code class="hljs">
+Début
+	Entier n
+
+	n ⟵ 0
+	tant que ( (n * n) < 100)
+		n  ⟵  n + 1
+	fintantque
+	afficher n
+Fin
+		</code></pre>
+		<p class="fragment">Mélange de "pour" et de "si"</p>
+		<p class="fragment">On répète le bloc tant que la condition est vraie</p>
+	</section>
+	<section>
+		<h2>Boucles "tant que"</h2>
+		<pre><code class="hljs" data-trim>
+tant que (condition)
+	instruction
+	...
+	instruction
+fintantque	
+		</code></pre>
+		<ul>
+		<li class="fragment">Syntaxe quasiment identique au "si" (en particulier la condition)</li>
+		<li class="fragment">Attention au fintantque </li>
+		<li class="fragment">Décalage demandé</li>
+	</section>
+	<section>
+		<h2>Boucles "tant que"</h2>
+		<p>Quand les utiliser ?</p>
+		<ul>
+		<li class="fragment">Quand il faut répéter un nombre indéterminé de fois quelque chose</li>
+		<li class="fragment">Mots clés : "jusqu'à", "tant que"</li>
+		<li class="fragment">Au moment de la première itération, on ne sait pas combien il y en aura</li>
+	</section>
+	<section>
+		<h2>Les boucles "tant que" en C</h2>
+		<pre><code class="text/c" data-trim>
+while (condition) {
+	instruction;
+	...		
+	instruction;
+}
+		</code></pre>
+		<p>Quasi identique à "if"</p>
+	</section>
+	<section>
+		<h2>Les boucles "tant que" en C</h2>
+		<pre><code class="hljs" data-trim>
+Entier n
+
+n ⟵ 0
+tant que ( (n x n) < 100)
+	n  ⟵  n + 1
+fintantque
+afficher n
+		</code></pre>
+		<pre class="fragment"><code class="text/c" data-trim>
+int n;
+
+n = 0;
+while ( (n * n) < 100) {
+	n = n + 1;
+}
+printf("n vaut : %d\n", n);
+		</code></pre>
+	</section>
+	<section>
+		<h1>Suite TP</h1>
+		<ul>
+			<li>TP 3</li>
+			<li>Appliquez en C après chaque exercice</li>
+		</ul>
+	</section>
+</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/title-footer/title-footer.js', async: true, callback: function() { 
+						title_footer.initialize("DUT GIM 2017 : Programmation - TP3", "rgba(0,0,0,0.3)"); } }
+				]
+			});
+		</script>
+	</body>
+</html>
