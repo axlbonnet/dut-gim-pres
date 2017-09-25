@@ -1,0 +1,914 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="plugin/title-footer/title-footer.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section>
+	<section>
+		<h2>Programmation - Corrections des TPs</h2>
+		<br/>
+		<h3>Une colonnes par TP</h3>
+		<p>Remarque : il peut y avoir plusieurs solutions possibles pour chaque TP. Celle proposée est la meilleure.</p>
+	</section>
+</section>
+<section>
+	<section>
+		<h1>Corrections TP1</h1>
+	</section>
+
+
+	<section>
+		<h1>TP1-1 - algo</h1>
+		<pre><code class="hljs" data-trim>
+Début
+  Entier carre
+
+  carre <- 17 x 17
+  afficher carre
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h1>TP1-1 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int carre;
+
+  carre = 17 * 17;
+  printf("Le carre de 17 vaut : %d\n", carre);
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h1>TP1-1 - Remarque</h1>
+		<p>Le carré de 100 000 est incohérent. Il dépasse la valeur maximale qui peut être stockée dans une variable de type int.</p>
+	</section>
+	<section>
+		<h1>TP1-2 - algo</h1>
+		<pre><code class="hljs" data-trim>
+Début
+  Réel Pi, D, d, volume
+
+  Pi <- 3,1516
+  D <- 2 x 3,3
+  d <- 2 x 2
+  volume <- Pi / 4 x 4,3
+  volume <- volume x ((D x D) - (d x d))
+  afficher volume
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h1>TP1-2 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  float Pi, D, d, volume;
+
+  Pi = 3.1416;
+  D = 2 * 3.3;
+  d = 2 * 2;
+  volume = Pi / 4 * 4.3;
+  volume = volume * ((D*D) - (d*d));
+  printf("Le volume vaut : %f\n", volume);
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section><section>
+		<h1>TP1-3 - algo</h1>
+		<pre><code class="hljs" data-trim>
+Début
+  Entier adultes, enfants, naissances, total
+
+  adultes <- 28
+  enfants <- 53
+ 
+  naissances <- adultes / 2
+  adultes <- adultes + enfants
+  enfants <- naissances
+
+  naissances <- adultes / 2
+  total <- adultes + enfants + naissances
+  afficher total
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h1>TP1-3 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int adultes, enfants, naissances, total;
+
+  adultes = 28;
+  enfants = 53;
+  
+  naissances = adultes / 2;
+  adultes = adultes + enfants;
+  enfants = naissances;
+
+  naissances = adultes / 2;
+  total = adultes + enfants + naissances;  
+
+  printf("Apres 2 ans, il y a %d lapins\n", total);
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+</section>
+<!-- ################################ TP2 -->
+<section>
+	<section>
+		<h1>Corrections TP2</h1>
+	</section>
+	<section>
+		<h1>TP2-1 - algo</h1>
+		<pre><code class="hljs" data-trim>
+Début
+  Réel euros, francs
+
+  obtenir euros
+  francs <- euros x 6,55956
+  afficher francs
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h1>TP2-1 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  float euros, francs;
+
+  printf("Entrez un montant en euros : ");
+  scanf("%f", &euros);
+  francs = euros * 6.55956;
+  printf("valeur en franc : %f\n", francs);
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h1>TP2-2 - Version 1 - algo</h1>
+		<pre><code class="hljs" data-trim>
+Début
+  Réel a, b, abs
+
+  obtenir a
+  obtenir b
+  si (a > b)
+    abs <- a - b
+  sinon
+    abs <- b - a
+  finsi
+  afficher abs
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h1>TP2-2 - Version 1 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  float a, b, abs;
+
+  printf("Entrez 2 nombres : ");
+  scanf("%f", &a);
+  scanf("%f", &b);
+  if (a > b) {
+    abs = a - b;
+  } else {
+    abs = b - a;
+  }
+  printf("|a - b| vaut : %f\n", abs);
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h1>TP2-2 - Version 2 - algo</h1>
+		<pre><code class="hljs" data-trim>
+Début
+  Réel a, b, abs
+
+  obtenir a
+  obtenir b
+  abs <- a - b
+  si (abs < 0)
+    abs <- (- abs)
+  finsi
+  afficher abs
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h1>TP2-2 - Version 2 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  float a, b, abs;
+
+  printf("Entrez 2 nombres : ");
+  scanf("%f", &a);
+  scanf("%f", &b);
+  abs = a - b;
+  if (abs < 0) {
+    abs = - abs;
+  }
+  printf("|a - b| vaut : %f\n", abs);
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section><section>
+		<h1>TP2-3 - Version 1 - algo</h1>
+		<pre><code class="hljs" data-trim>
+Début
+  Entier jour, mois
+
+  obtenir jour
+  obtenir mois
+  si (mois = 9 et jour > 22)
+    afficher "vous etes balance"
+  sinon
+    si (mois = 10 et jour < 23)
+      afficher "vous etes balance"
+    sinon
+      afficher "vous n'etes pas balance"
+    finsi
+  finsi
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h1>TP2-3 - Version 1 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int jour, mois;
+  
+  printf("Entrez votre jour de naissance :");
+  scanf("%d", &jour);
+  printf("Entrez votre mois de naissance :");
+  scanf("%d", &mois);
+  if (mois == 9 && jour > 22) {
+    printf("Vous etes balance\n");
+  } else {
+    if (mois == 10 && jour < 23) {
+      printf("Vous etes balance\n");
+    } else {
+      printf("Vous n'etes pas balance\n");
+    }
+  }
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h1>TP2-3 - Version 2 - algo</h1>
+		<pre><code class="hljs" data-trim>
+Début
+  Entier jour, mois
+
+  obtenir jour
+  obtenir mois
+  si ( (mois = 9 et jour > 22) ou (mois = 10 et jour < 23) )
+    afficher "vous etes balance"
+  sinon
+    afficher "vous n'etes pas balance"
+  finsi
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h1>TP2-3 - Version 2 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int jour, mois;
+  
+  printf("Entrez votre jour de naissance :");
+  scanf("%d", &jour);
+  printf("Entrez votre mois de naissance :");
+  scanf("%d", &mois);
+  if ( (mois == 9 && jour > 22) || (mois == 10 && jour < 23) ) {
+    printf("Vous etes balance\n");
+  } else {
+    printf("Vous n'etes pas balance\n");
+  }
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h1>TP2-4 - Version 1 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int valeur1, valeur3, valeur4; 
+  float valeur2;
+
+  scanf("%d", &valeur1);  
+  scanf("%f", &valeur2);
+  scanf("%d", &valeur3);
+  scanf("%d", &valeur4);
+
+  printf("Bonjour toi.\n");
+  printf("Ceci est un texte bidon avec les chiffres 42, %d et %f.\n", valeur1, valeur2);
+  printf("Je suis sur a %d%% que ca ne veut rien dire, ca vaut %d/20.\n", valeur3, valeur4);
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h1>TP2-4 - Version 2 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int valeur1, valeur3, valeur4; 
+  float valeur2;
+
+  scanf("%d", &valeur1);  
+  scanf("%f", &valeur2);
+  scanf("%d", &valeur3);
+  scanf("%d", &valeur4);
+
+  printf("Bonjour toi.\nCeci est un texte bidon avec les chiffres 42, %d et %f.\nJe suis sur a %d%% que ca ne veut rien dire, ca vaut %d/20.\n", valeur1, valeur2, valeur3, valeur4);
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h1>TP2-6 - Version 1 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int euros; 
+  float francs, dollars, livres;
+
+  printf("Entrez un montant en euros : ");
+  scanf("%d", &euros);
+  francs = euros * 6.55956;
+  dollars = euros * 1.19583;
+  livres = euros * 0.900614;
+
+  printf("Montant en francs  : %f\n", francs);
+  printf("Montant en dollars : %f\n", dollars);
+  printf("Montant en livres  : %f\n", livres);
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h1>TP2-6 - Version 2 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int euros, choix; 
+  float conversion;
+
+  printf("Entrez un montant en euros : ");
+  scanf("%d", &euros);
+  printf("Entrez 1 pour le convertir en francs\n");
+  printf("Entrez 2 pour le convertir en dollars\n");
+  printf("Entrez 3 pour le convertir en livres\n");
+  scanf("%d", &choix);
+  if (choix == 1) {
+    conversion = euros * 6.55956;
+    printf("Montant en francs  : %f\n", conversion);
+  }
+  if (choix == 2) {
+    conversion = euros * 1.19583;
+    printf("Montant en dollars  : %f\n", conversion);
+  }
+  if (choix == 3) {
+    conversion = euros * 0.900614;
+    printf("Montant en livres  : %f\n", conversion);
+  }
+  if ( (choix < 1) || (choix > 3) ) {
+    printf("Choix non valide\n");
+  }
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h1>TP2-7 - Version 1 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int jour, mois;
+  float taille;
+  
+  printf("Entrez votre jour de naissance :");
+  scanf("%d", &jour);
+  printf("Entrez votre mois de naissance :");
+  scanf("%d", &mois);
+  printf("Entrez votre taille en metres :");
+  scanf("%f", &taille);
+  printf("Bonjour ! Tu es ne en ");
+  if ((mois == 12 && jour > 20)
+        || mois == 1 || mois == 2
+        || (mois == 3 && jour <21)) {
+    printf("hivers");
+  }
+  if ((mois == 3 && jour > 20)
+        || mois == 4 || mois == 5
+        || (mois == 6 && jour <21)) {
+    printf("printemps");
+  }
+  if ((mois == 6 && jour > 20)
+        || mois == 7 || mois == 8
+        || (mois == 9 && jour <21)) {
+    printf("ete");
+  }
+  if ((mois == 9 && jour > 20)
+        || mois == 10 || mois == 11
+        || (mois == 12 && jour <21)) {
+    printf("automne");
+  }
+  printf(" et tu mesures %f\n", taille);
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h1>TP2-7 - Version 2 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int jour, mois;
+  float taille;
+  
+  printf("Entrez votre jour de naissance :");
+  scanf("%d", &jour);
+  printf("Entrez votre mois de naissance :");
+  scanf("%d", &mois);
+  printf("Entrez votre taille en metres :");
+  scanf("%f", &taille);
+  printf("Bonjour ! Tu es ne en ");
+  if (mois == 12 && jour > 20) {
+    printf("automne");
+  } else if ( mois > 9 || (mois == 9 && jour > 20) ) {
+    printf("automne");
+  } else if ( mois > 6 || (mois == 6 && jour > 20) ) {
+    printf("ete");
+  } else if ( mois > 3 || (mois == 3 && jour > 20) ) {
+    printf("printemps");
+  } else {
+    printf("hivers");
+  }
+  printf(" et tu mesures %f\n", taille);
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h1>TP2-8 - algo</h1>
+		<pre><code class="hljs" data-trim>
+Début
+  Réel base, hauteur, aire
+  Entier i
+
+  pour i de 1 à 5
+    obtenir base
+    obtenir hauteur
+    aire <- base x hauteur / 2
+    afficher aire
+  finpour
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h1>TP2-8 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  float base, hauteur, aire;
+  int i;
+
+  for (i=1 ; i<= 5 ; i=i+1) {
+    printf("Entrez la base : ");
+    scanf("%f", &base);
+    printf("Entrez la hauteur : ");
+    scanf("%f", &hauteur);
+    aire = base * hauteur / 2;
+    printf("l'aire vaut : %f\n", aire);
+  }
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h1>TP2-9 - algo</h1>
+		<pre><code class="hljs" data-trim>
+Début
+  Réel base, hauteur, aire
+  Entier i, nb
+
+  obtenir nb
+  pour i de 1 à nb
+    obtenir base
+    obtenir hauteur
+    aire <- base x hauteur / 2
+    afficher aire
+  finpour
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h1>TP2-9 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  float base, hauteur, aire;
+  int i, nb;
+
+  printf("Entrez le nombre d'aires a calculer : ");
+  scanf("%d", &nb);
+  for (i=1 ; i<= nb ; i=i+1) {
+    printf("Entrez la base : ");
+    scanf("%f", &base);
+    printf("Entrez la hauteur : ");
+    scanf("%f", &hauteur);
+    aire = base * hauteur / 2;
+    printf("l'aire vaut : %f\n", aire);
+  }
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h1>TP2-10 - algo</h1>
+		<pre><code class="hljs" data-trim>
+Début
+  Réel somme, moyenne
+  Entier i, nb, note
+
+  obtenir nb
+  somme <- 0
+  pour i de 1 à nb
+    obtenir note
+    somme <- somme + note
+  finpour
+  moyenne <-somme / nb
+  afficher moyenne
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h1>TP2-10 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  float somme, moyenne;
+  int i, nb, note;
+
+  printf("Entrez le nombre de notes : ");
+  scanf("%d", &nb);
+  somme = 0;
+  for (i=1 ; i<= nb ; i=i+1) {
+    printf("Entrez la note : ");
+    scanf("%d", &note);
+    somme = somme + note;
+  }
+  moyenne = somme / nb;
+  printf("La moyenne vaut : %f\n", moyenne);
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h1>TP2-14 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int i, j;
+
+  for (i=1 ; i<= 13 ; i=i+1) {
+    for (j=1 ; j<= 13 ; j=j+1) {
+      printf("%d\t", i*j);
+    }
+    printf("\n");
+  }
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+</section>
+<!-- ################################ TP3 -->
+<section>
+	<section>
+		<h1>Corrections TP3</h1>
+	</section>
+	<section>
+		<h1>TP3-1 - algo</h1>
+		<pre><code class="hljs" data-trim>
+Début
+  Entier nombre
+
+  obtenir nombre
+  tant que ( nombre < 101 ou (nombre % 17) ≠ 0)
+    obtenir nombre
+  fintantque
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h1>TP3-1 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int nombre;
+
+  printf("Entre un nombre : ");
+  scanf("%d", &nombre);
+  while (nombre < 101 || (nombre % 17) != 0) {
+    printf("Entre un nouveau nombre : ");
+    scanf("%d", &nombre);
+  }
+}
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h1>TP3-2 - algo</h1>
+		<pre><code class="hljs" data-trim>
+Début
+  Réel base, hauteur, aire
+
+  obtenir base
+  obtenir hauteur
+  tant que (base > 0 et hauteur > 0)
+    aire <- base x hauteur / 2
+    afficher aire
+    obtenir base
+    obtenir hauteur
+  fintantque
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h1>TP3-2 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  float base, hauteur, aire;
+
+  printf("Entrez la base : ");
+  scanf("%f", &base);
+  printf("Entrez la hauteur : ");
+  scanf("%f", &hauteur);
+  while (base > 0 && hauteur > 0) {
+    aire = base * hauteur / 2;
+    printf("l'aire vaut : %f\n", aire);
+    printf("Entrez une nouvelle base : ");
+    scanf("%f", &base);
+    printf("Entrez une nouvelle hauteur : ");
+    scanf("%f", &hauteur);
+  }
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h1>TP3-3 - algo</h1>
+		<pre><code class="hljs" data-trim>
+Début
+  Entier i, n, nb, max
+
+  obtenir n
+  obtenir nb
+  max <- nb
+  pour i de 2 à n
+    otenir nb
+    si (nb > max)
+      max <- nb
+    finsi
+  finpour
+  afficher max
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h1>TP3-3 - Remarque</h1>
+		<p>Cet algorithme ne fonctionne pas s'il n'y a aucun nombre à saisir. Si on voulait prendre en compte ce cas particulier, il faudrait modifier l'algorithme.</p>
+	</section>
+	<section>
+		<h1>TP3-3 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int i, n, nb, max;
+
+  printf("Entrez le nombre d'entier à saisir : ");
+  scanf("%d", &n);
+  printf("Entrez le premier nombre : ");
+  scanf("%d", &nb);
+  max = nb;
+  for (i=2 ; i<= n ; i=i+1) {
+    printf("Entrez un nouveau nombre : ");
+    scanf("%d", &nb);
+    if (nb > max) {
+      max = nb;
+    }
+  }
+  printf("La valeur maximale est : %d\n", max);
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/title-footer/title-footer.js', async: true, callback: function() { 
+						title_footer.initialize("DUT GIM 2017 : Programmation - Correction", "rgba(0,0,0,0.3)"); } }
+				]
+			});
+		</script>
+	</body>
+</html>
