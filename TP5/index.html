@@ -98,7 +98,7 @@ Début
 Fin
 		</code></pre>
 		<ul>
-		<li class="fragment">Le chiffre entre crochet est la taille du tableau</li>
+		<li class="fragment">Le chiffre entre crochets est la taille du tableau</li>
 		<li class="fragment">"plein_dentiers" est un tableau contenant 10 variables entières</li>
 		<li class="fragment">"autreTableau" est un tableau contenant 20 variables réelles</li>
 		</ul>
@@ -259,6 +259,7 @@ int main() {
    int i;
 
    for (i=0; i<15; i=i+1) {
+      printf("Entrez une note : ");
       scanf("%d", &notes[i]);
    }
    for (i=0; i<15; i=i+1) {
@@ -329,10 +330,10 @@ int main() {
    int n;
 
    do {
-      printf("Saisir n>100");
+      printf("Saisir n>100 : ");
       scanf("%d", &n);
-   } while (n < 100);
-   printf("n vaut %d", n);
+   } while (n <= 100);
+   printf("n vaut %d\n", n);
    system("pause"); 
    return 0;
 }
