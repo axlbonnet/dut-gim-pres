@@ -780,6 +780,8 @@ int main() {
     printf("Entre un nouveau nombre : ");
     scanf("%d", &nombre);
   }
+  system("pause");
+  return 0;
 }
 ```
 </script>	
@@ -886,6 +888,386 @@ int main() {
 </script>	
 </div>
 	</section>
+</section>
+<!-- ################################ TP4 -->
+
+<section>
+	<section>
+		<h1>Corrections TP4</h1>
+	</section>
+	<section>
+		<h3>TP4-1 - algo</h3>
+		<p>Il faut utiliser une boucle "pour" car il y a un nombre déterminé d'itérations à effectuer. On peut savoir le nombre d'années sur lesquelles effectuer la simulation avant de commencer les calculs (il est donné par l'utilisateur).</p>
+		<pre><code class="hljs" data-trim>
+Début
+   Entier i, nombre_annees
+   Entier adultes, enfants, naissances, total
+
+   adultes <- 28
+   lapereaux <- 53
+   obtenir nombre_annees
+   pour i de 1 à nombre_annees
+      naissances <- adultes / 2
+      adultes <- adultes + enfants
+      enfants <- naissances
+   finpour
+   total <- adultes + enfants
+   afficher total
+Fin
+		</code></pre>
+	</section>
+	<!--section>
+		<h1>TP4-1 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int nombre;
+
+  printf("Entre un nombre : ");
+  scanf("%d", &nombre);
+  while (nombre < 101 || (nombre % 17) != 0) {
+    printf("Entre un nouveau nombre : ");
+    scanf("%d", &nombre);
+  }
+}
+```
+</script>	
+</div>
+	</section-->
+	<section>
+		<h3>TP4-2 - algo</h3>
+		<p>Il faut utiliser une boucle "tant que" car il y a un nombre indéterminé d'itérations à effectuer. Il est impossible de connaitre le nombre d'années sur lesquelles faire la simulation au début (c'est justement le but du problème).</p>
+		<pre><code class="hljs" data-trim>
+Début
+   Entier cible, nombre_annees
+   Entier adultes, enfants, naissances, total
+
+   adultes <- 28
+   lapereaux <- 53
+   total <- adultes + lapereaux
+   nombre_annees <- 0
+   tant que (total ≤ cible)
+      naissances <- adultes / 2
+      adultes <- adultes + enfants
+      enfants <- naissances
+      total <- adultes + enfants
+      nombre_annees <- nombre_annees + 1
+   fintantque
+   afficher nombre_annees
+Fin
+		</code></pre>
+	</section>
+	<!--section>
+		<h1>TP4-1 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int nombre;
+
+  printf("Entre un nombre : ");
+  scanf("%d", &nombre);
+  while (nombre < 101 || (nombre % 17) != 0) {
+    printf("Entre un nouveau nombre : ");
+    scanf("%d", &nombre);
+  }
+}
+```
+</script>	
+</div>
+	</section-->
+	<section>
+		<h3>TP4-3 - algo</h3>
+		<pre><code class="hljs" data-trim>
+Début
+   Entier i, nombre, somme
+
+   somme <-0
+   obtenir nombre
+   pour i de nombre à 1000 par pas de nombre
+      somme <- somme + i
+   finpour
+   afficher somme
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h3>TP4-3 - algo (Suite)</h3>
+		<p>3)En utilisant le modulo (reste de la division entière) "%". <br />"x finit par 8" <==> "(x % 10) = 8"</p>
+		<pre><code class="hljs" data-trim>
+Début
+   Entier i, nombre, somme
+
+   somme <-0
+   obtenir nombre
+   pour i de nombre à 1000 par pas de nombre
+      si ( (i % 10) ≠ 8)
+         somme <- somme + i
+      finsi
+   finpour
+   afficher somme
+Fin
+		</code></pre>
+	</section>
+	<!--section>
+		<h1>TP4-1 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int nombre;
+
+  printf("Entre un nombre : ");
+  scanf("%d", &nombre);
+  while (nombre < 101 || (nombre % 17) != 0) {
+    printf("Entre un nouveau nombre : ");
+    scanf("%d", &nombre);
+  }
+}
+```
+</script>	
+</div>
+	</section-->
+	<section>
+		<h3>TP4-4 - algo</h3>
+		<p>Il faut utiliser une  boucle "tant que" car le nombre d'itérations est indéterminé, il dépend de ce que l'utilisateur saisit à chaque itération.</p>
+		<pre><code class="hljs" data-trim>
+Début
+   Entier nombre_precedant, nombre_courant
+
+   obtenir nombre_precedent
+   obtenir nombre_courant
+   tant que (nombre_precedent ≠ nombre_courant)
+      nombre_precedent <- nombre_courant
+      obtenir nombre_courant
+   fintantque
+Fin
+		</code></pre>
+	</section>
+	<!--section>
+		<h1>TP4-1 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int nombre;
+
+  printf("Entre un nombre : ");
+  scanf("%d", &nombre);
+  while (nombre < 101 || (nombre % 17) != 0) {
+    printf("Entre un nouveau nombre : ");
+    scanf("%d", &nombre);
+  }
+}
+```
+</script>	
+</div>
+	</section-->
+	<section>
+		<h3>TP4-5 - algo</h3>
+		<pre><code class="hljs" data-trim>
+Début
+   Entier i, puissance
+
+   puissance <- 1
+   pour i de 1 à 12
+      puissance <- puissance x 3
+   finpour
+   afficher puissance
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h3>TP4-5 - algo (Suite)</h3>
+		<pre><code class="hljs" data-trim>
+Début
+   Entier i, j, choix, puissance
+
+   pour i de 2 à 18 par pas de 2
+      afficher "Entrez 1 pour afficher 3^" i 
+      obtenir choix
+      si (choix = 1)
+         puissance <- 1
+         pour j de 1 à i
+            puissance <- puissance x 3
+         finpour
+         afficher puissance
+      finsi
+   finpour
+Fin
+		</code></pre>
+	</section>
+	<!--section>
+		<h1>TP4-1 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int nombre;
+
+  printf("Entre un nombre : ");
+  scanf("%d", &nombre);
+  while (nombre < 101 || (nombre % 17) != 0) {
+    printf("Entre un nouveau nombre : ");
+    scanf("%d", &nombre);
+  }
+}
+```
+</script>	
+</div>
+	</section-->
+	<section>
+		<h3>TP2-11 - algo</h3>
+		<pre><code class="hljs" data-trim>
+Début
+   Réel note, somme, moyenne
+   Entier i, nb_notes_saisies, nb_notes
+
+   obtenir nb_notes_saisies
+   nb_notes <- nb_notes_saisies
+   somme <- 0
+   pour i de 1 à nb_notes_saisies
+      obtenir note
+      somme <- somme + note
+      si (note < 10)
+         somme <- somme + 2 x note
+         nb_notes <- nb_notes + 2
+      finsi
+   finpour
+   moyenne <- somme / nb_notes
+   afficher moyenne
+Fin
+		</code></pre>
+	</section>
+	<!--section>
+		<h1>TP4-1 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int nombre;
+
+  printf("Entre un nombre : ");
+  scanf("%d", &nombre);
+  while (nombre < 101 || (nombre % 17) != 0) {
+    printf("Entre un nouveau nombre : ");
+    scanf("%d", &nombre);
+  }
+}
+```
+</script>	
+</div>
+	</section-->
+	<section>
+		<h3>TP2-12 - algo</h3>
+		<pre><code class="hljs" data-trim>
+Début
+   Entier nombre, a, b
+   Entier nb_multiples
+  
+   nb_multiple <- 0
+   obtenir nombre
+   pour a de 2 à 101
+      pour b de 1 à nombre
+         si ( (a x b) = nombre)
+            nb_multiple <- nb_multiple + 1
+         finsi
+      finpour
+   finpour
+   si (nb_multiple > 0)
+      afficher "il y a" nb_multiple "multiples"
+   sinon
+      afficher "il n'y a pas de multiples"
+   finsi
+Fin
+		</code></pre>
+	</section>
+	<!--section>
+		<h1>TP4-1 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int nombre;
+
+  printf("Entre un nombre : ");
+  scanf("%d", &nombre);
+  while (nombre < 101 || (nombre % 17) != 0) {
+    printf("Entre un nouveau nombre : ");
+    scanf("%d", &nombre);
+  }
+}
+```
+</script>	
+</div>
+	</section-->
+	<section>
+		<h3>TP3-4 - algo</h3>
+		<pre><code class="hljs" data-trim>
+Début
+   Entier saisie, max, nb_saisies
+
+   obtenir saisie
+   max <- saisie
+   nb_saisies <- 0
+   tant que (saisie > 0)
+      obtenir saisie
+      si (saisie > max)
+         max <- saisie
+      finsi
+      nb_saisies <- nb_saisies + 1
+   fintantque
+   afficher "nombre de saisies :" nb_saisies
+   si (max > 0)
+      afficher "maximum :" max
+   finsi
+Fin
+		</code></pre>
+	</section>
+	<!--section>
+		<h1>TP4-1 - C</h1>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int nombre;
+
+  printf("Entre un nombre : ");
+  scanf("%d", &nombre);
+  while (nombre < 101 || (nombre % 17) != 0) {
+    printf("Entre un nouveau nombre : ");
+    scanf("%d", &nombre);
+  }
+}
+```
+</script>	
+</div>
+	</section-->
 </section>
 
 			</div>
