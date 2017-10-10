@@ -1,0 +1,39 @@
+Intro
+
+-> Je vais vous parler de l'intégration de CARMIN REST dans VIP, en me basant surtout sur une démo.
+-> CARMIN et REST seront détaillés plus tard dans la journée
+-> mais pour simplifier, il s'agit d'une interface pour manipuler des pipelines et des executions.
+
+Shéma
+
+-> C'est particulièrement approprié d'ajouter cette interface dans VIP
+-> qui est une passerele scientifique qui permet d'éxécuter des pipelines sur la grille EGI ou dans un Cloud
+-> Une interface CARMIN en SOAP existait déjà dans VIP, et j'ai ajouté l'interface CARMIN REST en me basant sur le même socle.
+
+Démo 1 :
+
+-> Je vais maintenant passer à une démo pour vous montrer les fonctionalités de cette interface
+-> REST se base directement sur le protocole HTTP et la méthode la plus simple pour l'utiliser est donc de passer par un navigateur
+-> (requetes /pipelines)
+-> Cette méthode sur cette URL particulière permet de lister les pipelines que je peux éxécuter au format JSON
+-> Il y a d'autres méthodes qui permettent par exemple d'obtenir des informations sur la platforme ou sur un pipeline particulier
+-> Mais le plus important reste de pouvoir éxécuter un pipeline
+-> Je passe pour cela par une extension chrome qui permet de faire une requête POST avec les informations nécessaire en JSON comme le pipeline à éxécuter et les paramètres d'entrée
+-> J'éxécute, et je récupère en retour les informations sur cette nouvelle éxécution 
+-> et en particulier son identifiant qui va me permettra de la suivre et de récupérer ses résultats.
+
+Démo 2 : 
+
+-> l'interet d'un interface REST est de pouvoir éxécuter ces requêtes depuis la plupart des langages pour accéder simplement à la plateforme qui l'implémente.	
+-> Je vous montre un exemple très simple avec un outil console fait en Java
+-> (go terminal)
+-> Cette outil permet d'utiliser les mêmes fonctionalités mais depuis une interface utilisateur
+-> Si je tape 1, je liste les pipelines
+-> Si je tape 2, j'obtient des infos détaillés sur le pipeline de mon choix
+-> et si je tape 3 je peux éxécuter un pipeline
+-> je saisis le pipeline, les paramètres qui sont préremplis avec les valeurs par défaut
+-> ... c'est lancé et je récupère l'identifiant de cette execution
+
+-> Pour conclure
+-> CARMIN REST permet d'accéder simplement et de façon programatique à une plateforme comme VIP
+-> et de façon standard, ce qui implique que ma démo fonctionnerait sans changement sur toute plateforme implémentant CARMIN REST
