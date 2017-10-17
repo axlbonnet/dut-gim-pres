@@ -57,7 +57,7 @@ int main() {
   alpha = 5000;
   beta = 10000;
   while (beta > alpha) {
-    alpha = alpha * 1.03;
+    alpha = alpha * 103 / 100;
     if (annee % 2 == 0) {
       beta = beta + 750;
     }
@@ -76,7 +76,7 @@ int main() {
 <script type="text/c">
 ```
 int calculAlpha(int pop) {
-  pop = pop * 1.03;
+  pop = pop * 103 / 100;
   return pop;
 }
 ```
