@@ -1953,6 +1953,92 @@ int main() {
 </script>	
 </div>
 	</section>
+	<section>
+		<h3>TP7-7</h3>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int tab[10];
+  int i;
+  int indice_teste;
+  int nb_sup;
+  int nb_inf;
+
+  for (i=0 ; i<10 ; i=i+1) {
+    printf("Entrez la %d-eme valeur : ", i);
+    scanf("%d", &tab[i]);
+  }
+
+  indice_teste = -1;
+  nb_sup = 0;
+  nb_inf = 0;
+  while (nb_sup < 5 || nb_inf < 5) {
+    nb_sup = 0;
+    nb_inf = 0;
+    indice_teste = indice_teste + 1;
+    for (i=0 ; i<10 ; i=i+1) {
+      if (tab[i] >= tab[indice_teste]) {
+        nb_inf = nb_inf + 1;
+      }
+      if (tab[i] <= tab[indice_teste]) {
+        nb_sup = nb_sup + 1;
+      }
+    }
+  }
+  printf("une mediane est : %d\n", tab[indice_teste]);
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h3>TP7-8</h3>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int maxDe3(int a, int b, int c) {
+  int max = a;
+  if (b>a) {
+    max = b;
+  }
+  if (c>max) {
+    max = c;
+  }
+  return max;
+}
+
+int main() {
+  int a, b, c, d, e, max3, max5, maxModulo;
+  printf("Entrez 3 nombres :\n");
+  scanf("%d", &a);
+  scanf("%d", &b);
+  scanf("%d", &c);
+  max3 = maxDe3(a,b,c);
+  printf("le max est %d\n", max3);
+  maxModulo = maxDe3(a % 13, b % 13, c % 13);
+  printf("le max modulo 13 est %d\n", maxModulo);
+  printf("Entrez 2 nouveaux nombres :\n");
+  scanf("%d", &d);
+  scanf("%d", &e);
+  max5 = maxDe3(max3,d,e);
+  printf("le nouveau max est %d\n", max5);
+  system("pause");
+  return 0;
+}
+
+```
+</script>	
+</div>
+	</section>
 </section>
 
 		
