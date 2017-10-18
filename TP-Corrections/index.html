@@ -1160,11 +1160,11 @@ Fin
 	</section>
 </section>
 
-<!-- ################################ Algo -->
+<!-- ################################ Prépa Algo -->
 
 <section>
 	<section>
-		<h1>Corrections Algo</h1>
+		<h1>Corrections préparation Algo</h1>
 	</section>
 	<section>
 		<h3>Algo-1</h3>
@@ -1334,6 +1334,626 @@ Fin
 	</section>
 </section>
 
+<!-- ################################ Exam Algo -->
+
+<section>
+	<section>
+		<h1>Corrections Examen Algo</h1>
+	</section>
+	<section>
+		<h3>Exercice 1</h3>
+		<pre><code class="hljs" data-trim>
+Début
+  Entier heures, minutes, secondes
+  
+  obtenir heures
+  obtenir minutes
+  
+  secondes <- ( heures x 60  + minutes ) x 60
+  afficher secondes
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h3>Exercice 2</h3>
+		<p>Il y avait 9 erreurs</p>
+		<ul>
+		<li>Ligne 4 : "essais" doit etre initialisé à 0 : "essais <- 0"</li>
+		<li>Ligne 5 : Il faut "obtenir b" avant de commencer la boucle</li>
+		<li>Ligne 5 : b doit etre le carré de a, donc "b ≠ a x a"</li>
+		<li>Ligne 5 : b doit etre un diviseur de a, donc "a % b ≠ 0"</li>
+		<li>Ligne 5 : Manque une parenthèse juste après le "ou"</li>
+		<li>Ligne 5 : Ce doit etre un "et", pas un "ou"</li>
+		<li>Ligne 7 : "essais" n'est pas bien incrémenté "essais <- essais +1"</li>
+		<li>Ligne 8 : L'affichage doit etre fait après la fin de boucle</li>
+		<li>Ligne 9 : il faut un "fintantque", pas de "finpour"</li>
+		</ul>
+	</section>
+	<section>
+		<h3>Exercice 2</h3>
+		<p>Programme sans erreur</p>
+		
+		<pre><code class="hljs" data-trim>
+Début
+  Entier a, b, essais
+  
+  obtenir a
+  obtenir b
+  essais <- 0
+  tant que ( (b != a x a) et ((a % b) != 0) )
+    obtenir b
+    essais <- essais + 1
+  fintantque
+  afficher essais
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h3>Exercice 3</h3>
+		<p>Une boucle "pour" est nécessaire car il y a un nombre déterminé et fixe de valeurs à obtenir (6).</p>
+<pre><code class="hljs" data-trim>
+Début
+  Réel nombre, somme
+  Entier i
+
+  somme <- 0
+  pour i de 1 à 6
+    obtenir nombre
+    si (nombre < 0)
+      nombre <- 0 - nombre
+    finsi
+    somme <- somme + nombre
+  finpour
+  afficher somme 
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h3>Exercice 4</h3>
+		<p>Une boucle "while" est nécessaire car on ne sait pas combien d'itération seront nécessaire. Cela dépend de ce que l'utilisateur saisit</p>
+		<pre><code class="hljs" data-trim>
+Début
+  Réal prec, cour
+  Réel ecart, max
+  Entier nb
+
+  
+  nb <- 0
+  max <- 0
+  faire
+    si (nb >= 2) 
+       ecart <- cour - prec
+       si (ecart < 0)
+         ecart <- 0 - ecart
+       finsi
+       si (ecart > max)
+         max <- ecart
+       finsi
+    finsi
+    si (nb >= 1) 
+      prec <- cour
+    finsi
+    obtenir cour
+    nb <- nb + 1
+  tant que (cour > 0)
+  si (nb<2)
+    afficher "erreur"
+  sinon
+    afficher ecart
+  finsi    
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h3>Exercice 5</h3>
+		<p>q1) Une boucle "while" car on ne sait pas combien l'utilisateur fera d'essais pour la saisie</p>
+		<p>q2) Une boucle "pour" car le nombre de valeurs à tester est déterminé (de 2 au nombre saisi)</p>
+		<pre><code class="hljs" data-trim>
+Début
+  Entier n, i, nb_divs
+
+  faire 
+    obtenir n
+  tant que (n < 0)
+  si (n = 0)
+    afficher n " n'est pas premier"
+  sinon
+    nb_divs <- 0
+    pour i de 1 à n
+      si (n % i = 0)
+        nb_divs <- nb_divs + 1
+      finsi
+    finpour
+    si (nb_divs = 2)
+      afficher n "est premier"
+    sinon
+      affiche n "n'est pas premier"
+  finsi
+Fin
+		</code></pre>
+	</section>
+	<section>
+		<h3>Exercice 6</h3>
+		<p>Affichage : </p>
+		<ul>
+		<li>3 et 2</li>
+		<li>2 et 4</li>	
+		<li>1 et 5</li>	
+		<li>0 et 9</li>	
+		<li>3 et 8</li>	
+		</ul>
+	</section>
+	<section>
+		<h3>Exercice Bonus</h3>
+		<pre><code class="hljs" data-trim>
+Début 
+  Entier i, tab[10]
+  Entier min, c
+  
+  pour i de 0 à 9
+    obtenir tab[i]
+    si (i = 0 ou tab[i] < min)
+      min <- tab[i]
+    finsi
+  finpour
+  min <- min-1
+  faire 
+    min <- min+1
+    c <- 0
+    pour i de 0 à 9
+      si (tab[i] <= min)
+        c <- c+1
+      finsi
+    finpour
+  tant que (c < 5)
+  afficher min
+Fin
+		</code></pre>
+	</section>
+</section>
+
+
+<!-- ################################ TP 6 -->
+
+<section>
+	<section>
+		<h1>Corrections TP6</h1>
+	</section>
+	<section>
+		<h3>TP6-1 / Q1)</h3>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int carre(int n) {
+  return n * n;
+}
+
+int main() {
+  int carreDe5, carreDe142;
+  carreDe5 = carre(5);
+  carreDe142 = carre (142);
+  printf("carre de 5 : %d\n", carreDe5);
+  printf("carre de 142 : %d\n", carreDe142);
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h3>TP6-1 / Q2)</h3>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int carre(int n) {
+  return n * n;
+}
+
+int estRectangle(int hypotenuse, int a, int b) {
+  return carre(hypotenuse) == (carre(a) + carre(b));
+}
+
+int main() {
+  if (estRectangle(7,3,3)) {
+    printf("Le triangle (7,3,3) est rectangle\n");
+  } else {
+    printf("Le triangle (7,3,3) n'est pas rectangle\n");
+  }
+
+  // autre méthode plus compliquée pour afficher
+
+  printf("Le triangle (5,4,3) est ");
+  if (! estRectangle(5,4,3)) {
+    printf("pas ");
+  }
+  printf("rectangle\n");
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h3>TP6-1 / Q3)</h3>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int carre(int n) {
+  return n * n;
+}
+
+int estRectangle(int hypotenuse, int a, int b) {
+  return carre(hypotenuse) == (carre(a) + carre(b));
+}
+
+int obtenirCote() {
+  int dim;
+  do {
+    printf("Entrez une dimension : ");
+    scanf("%d", &dim);
+  } while (dim<1);
+  return dim;
+}
+
+int main() {
+  int cote;
+  cote = obtenirCote();
+  printf("Le cote mesure : %d\n", cote);
+  system("pause");
+  return 0;
+}
+
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h3>TP6-1 / Q4)</h3>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int carre(int n) {
+  return n * n;
+}
+
+int estRectangle(int hypotenuse, int a, int b) {
+  return carre(hypotenuse) == (carre(a) + carre(b));
+}
+
+int obtenirCote() {
+  int dim;
+  do {
+    printf("Entrez une dimension : ");
+    scanf("%d", &dim);
+  } while (dim<1);
+  return dim;
+}
+
+int main() {
+  int hypo, c2, c3;
+  hypo = obtenirCote();
+  c2 = obtenirCote();
+  c3 = obtenirCote();
+  if (estRectangle(hypo,c2,c3)) {
+    printf("Le triangle (%d,%d,%d) est rectangle\n", hypo, c2, c3);
+  } else {
+    printf("Le triangle (%d,%d,%d) n'est pas rectangle\n", hypo, c2, c3);
+  }
+  system("pause");
+  return 0;
+}
+
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h3>TP6-1 / Q5)</h3>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int carre(int n) {
+  return n * n;
+}
+
+int estRectangle(int hypotenuse, int a, int b) {
+  return carre(hypotenuse) == (carre(a) + carre(b));
+}
+
+int obtenirCote() {
+  int dim;
+  do {
+    printf("Entrez une dimension : ");
+    scanf("%d", &dim);
+  } while (dim<1);
+  return dim;
+}
+
+int main() {
+  int c1, c2, c3;
+  c1 = obtenirCote();
+  c2 = obtenirCote();
+  c3 = obtenirCote();
+  if (estRectangle(c1,c2,c3) 
+      || estRectangle(c2,c1,c3) 
+      || estRectangle(c3,c2,c1)) {
+    printf("Le triangle (%d,%d,%d) est rectangle\n", c1, c2, c3);
+  } else {
+    printf("Le triangle (%d,%d,%d) n'est pas rectangle\n", c1, c2, c3);
+  }
+  system("pause");
+  return 0;
+}
+
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h3>TP6-2</h3>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int tab[6];
+
+int estTrie() {
+  int nbProblemes, i;
+  nbProblemes = 0;
+  for (i=0; i<5; i++) {
+    if (tab[i] > tab[i+1]) {
+      nbProblemes = nbProblemes + 1;
+    }
+  }
+  return (nbProblemes == 0);
+}
+
+void inverserSiNecessaire(int i) {
+  int tmp;
+  if (tab[i] > tab[i+1]) {
+    tmp = tab[i];
+    tab[i] = tab[i+1];
+    tab[i+1] = tmp;
+  }
+}
+
+int main() {
+  int i;
+  for (i=0; i<6; i++) {
+    printf("Entrez la %d-eme valeur : ", i);
+    scanf("%d", &tab[i]);
+  }
+
+  while (! estTrie()) { 
+    for (i=0; i<5; i++) {
+      inverserSiNecessaire(i);
+    }
+  }
+
+  printf("Tableau trié : [");
+  for (i=0; i<6; i++) {
+    printf(" %d", tab[i]);
+  }
+  printf(" ]\n");
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+</section>
+
+<!-- ################################ TP 7 -->
+
+<section>
+	<section>
+		<h1>Corrections TP6</h1>
+	</section>
+	<section>
+		<h3>TP7-1</h3>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int n, i, nombre, max;
+  do {
+    printf("Entrez n : ");
+    scanf("%d", &n);
+  } while (n < 1);
+  for (i=0; i<n ; i=i+1) {
+    printf("Entrez un nombre : ");
+    scanf("%d", &nombre);
+    if ( (i == 0) || (nombre > max) ) {
+      max = nombre;
+    }
+  }
+  printf("Le max est : %d\n", max);
+  system("pause");
+  return 0;
+}
+
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h3>TP7-2</h3>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int nombre, somme;
+  somme = 0;
+  while (somme <= 100) {
+    printf("Entrez un nombre : ");
+    scanf("%d", &nombre);
+    somme = somme + nombre;
+  }
+  system("pause");
+  return 0;
+}
+
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h3>TP7-3</h3>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int n, i;
+  float note, somme, moyenne;
+  do {
+    printf("Entrez n :");
+    scanf("%d", &n);
+  } while (n < 1);
+
+  somme = 0.0;
+  for (i=0 ; i<n ; i=i+1) {
+    printf("Entrez une note :");
+    scanf("%f", &note);
+    somme = somme + note;
+  }
+  moyenne = somme / n;
+  printf("La moyenne est : %f\n", moyenne);
+  system("pause");
+  return 0;
+}
+
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h3>TP7-4</h3>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int tab[15], n, i, carre;
+  do {
+    printf("Entrez n entre 1 et 15 :");
+    scanf("%d", &n);
+  } while (n < 1 || n>15);
+
+  for (i=0 ; i<n ; i=i+1) {
+    printf("Entrez la case %d du tableau :");
+    scanf("%d", &tab[i]);
+  }
+  
+  for (i=0 ; i<n ; i=i+1) {
+    carre = tab[i] * tab[i];
+    printf("le carre de la case %d vaut : %d\n", i, carre);
+  }
+
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h3>TP7-5</h3>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int essais, i;
+  int nb;
+
+  printf("Entrez essais : ", &essais);
+  scanf("%d", &essais);
+  for (i=0 ; i<essais ; i= i+1) {
+    do {
+      printf("Entre nb : ");
+      scanf("%d", &nb);
+      nb = (nb /3) * (nb % 4);
+    } while ( (nb < 9) || (nb == i));
+    printf("%d est enfin bon\n", nb);
+  }
+  system("pause");
+  return 0;
+}
+```
+</script>	
+</div>
+	</section>
+	<section>
+		<h3>TP7-6</h3>
+<div data-markdown>
+<script type="text/c">
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int n, i;
+  int fibo_n, fibo_nmoins1, fibo_nmoins2;
+
+  do {
+    printf("Entrez n : ");
+    scanf("%d", &n);
+  } while (n<0);
+
+  fibo_nmoins2 = 0;
+  fibo_nmoins1 = 0;
+  fibo_n = 1;
+  for (i=2 ; i<=n ; i=i+1) {
+    fibo_nmoins2 = fibo_nmoins1;
+    fibo_nmoins1 = fibo_n;
+    fibo_n = fibo_nmoins1 + fibo_nmoins2;
+  }
+  if (n == 0) {
+    fibo_n = 0;
+  }
+  printf("fibo(%d) = %d\n", n, fibo_n);
+  system("pause");
+  return 0;
+}
+
+```
+</script>	
+</div>
+	</section>
+</section>
 
 		
 			</div>
